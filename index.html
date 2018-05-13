@@ -19,13 +19,12 @@
 	<title></title>
 </head>
 <body>
-
 	<div class="container">
 	<form id="contact" action="#">
 	    <div>
 	        <h3>Controle de vos ressources et de votre situation familiale</h3>
 	        <section>
-				<p>Pour continuer le versement de votre retraite, nous devons connaître votre situation familiale actuelle et vos ressources pour la periode : <b>du <input class="inline" id="startdate"  type="date" name="periodStart" > au <input class="inline"id="enddate"  type="date" name="periodEnd"  readonly></b>
+				<p>Pour continuer le versement de votre retraite, nous devons connaître votre situation familiale actuelle et vos ressources pour la periode : <b>du <input class="inline" id="startdate"  type="text" name="periodStart" readonly > au <input class="inline" id="enddate"  type="text" name="periodEnd"  readonly></b>
 				</p>	
 	            <h2>Votre situation familiale actuelle</h2>  
 	            <label for="">précisez votre situation actuelle depuis le </label>
@@ -55,15 +54,15 @@
 				  	<h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions)</h4>
                         <div class="row">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois">Mois Année</label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois">Mois Année</label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
