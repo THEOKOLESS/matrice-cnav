@@ -67,7 +67,7 @@
 				  	<h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions)</h4>
                         <div class="row">
                               <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
+                              	<label for="fstmth" id="mois" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
@@ -513,6 +513,10 @@ jQuery.extend(jQuery.validator.messages, {
     max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
     min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
 });
+</script>
+<script type="text/javascript">
+// document.getElementById("mois").innerHTML = "Hello Dolly.";
+// document.querySelector(".mois") = "Clarisse la meilleur";
 </script>
 
 </html>

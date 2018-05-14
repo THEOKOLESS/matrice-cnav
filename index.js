@@ -75,9 +75,10 @@ $(document).ready(function(){
 //         return false;
 //     }
 // });
-          function callDate(){
+          function callDate(param){
             var date3mois = new Date();
             var month = date3mois.getMonth();
+            var year = date3mois.getFullYear();
             // if (month > 4){
               month = month - 4;
             // }
@@ -86,6 +87,10 @@ $(document).ready(function(){
           date3mois = date3mois.toLocaleDateString().toString();
           date3mois = date3mois.split("T");
           $("#startdate").prop('value', date3mois[0]) 
+          if (param == 1)
+            return month;
+          else
+            return year;
           }
           function callDate2(){
             var date3mois = new Date($("#startdate").val());
@@ -103,24 +108,41 @@ $(document).ready(function(){
           callDate();
           callDate2();
 
-          // $( function() {
+          $(function writemth(mois, anne) {
 
-          //   var date    = new Date($('#startdate').val());
-          //   var month   = date.getMonth();
-          //   var year    = date.getFullYear();
-          //   month       = month.toLocaleDateString().toString();
+            // var date    = new Date($('#startdate').val());
+            var moisfr  = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+            var month   = mois;
+            var year    = anne;
+
+            if(month > 12)
+            {
+                year += 1;
+                month -= 12; 
+            }
+
+            var output  = moisfr[month] + ' ' + year;
+            // month       = month.toLocaleDateString().toString();
 
 
           //   for (var i = 0; i < $('.mois').length; i++)
           //   {
           //       $('.mois')[i].before(month)
           //   }
-          //   console.log(year)
+                      console.log(mois)
 
+          document.getElementById("mois").innerHTML = 5 + 6;
+            return output;
 
-          // });
-          $(function(){
+          });
+
+        $(document).on('change', '#myDropdown' , function(){
           console.log($("#myDropdown").val())// $("#myDropdown").prop("selectedIndex", -1);
         });
+
+    function getValue(param) {
+      var value =  param       // je ferais ma requete
+      return value;
+    }
 });
 
