@@ -66,15 +66,15 @@ $(document).ready(function(){
     //     if($("#famidate"))
     // }
 
-    $('#contact').submit(function() {
-    if ($('input:checkbox', this).is(':checked') &&
-        $('input:radio', this).is(':checked')) {
-        // everything's fine...
-    } else {
-        alert('Please select something!');
-        return false;
-    }
-});
+//     $('#contact').submit(function() {
+//     if ($('input:checkbox', this).is(':checked') &&
+//         $('input:radio', this).is(':checked')) {
+//         // everything's fine...
+//     } else {
+//         alert('Please select something!');
+//         return false;
+//     }
+// });
           function callDate(){
             var date3mois = new Date();
             var month = date3mois.getMonth();
@@ -103,21 +103,24 @@ $(document).ready(function(){
           callDate();
           callDate2();
 
-          $( function() {
+          // $( function() {
 
-            var date    = new Date($('#startdate').val());
-            var month   = date.getMonth();
-            var year    = date.getFullYear();
-            month       = month.toLocaleDateString().toString();
-
-
-            for (var i = 0; i < $('.mois').length; i++)
-            {
-                $('.mois')[i].before(month)
-            }
-            console.log(year)
+          //   var date    = new Date($('#startdate').val());
+          //   var month   = date.getMonth();
+          //   var year    = date.getFullYear();
+          //   month       = month.toLocaleDateString().toString();
 
 
-          });
+          //   for (var i = 0; i < $('.mois').length; i++)
+          //   {
+          //       $('.mois')[i].before(month)
+          //   }
+          //   console.log(year)
+
+
+          // });
+          $(function(){
+          console.log($("#myDropdown").val())// $("#myDropdown").prop("selectedIndex", -1);
+        });
 });
 

@@ -22,21 +22,34 @@
 	<div class="container">
 	<form id="contact" action="#">
 	    <div>
-	        <h3>Controle de vos ressources et de votre situation familiale</h3>
+	        <h3>Controle de votre situation familiale</h3>
 	        <section>
 				<p>Pour continuer le versement de votre retraite, nous devons connaître votre situation familiale actuelle et vos ressources pour la periode : <b>du <input class="inline" id="startdate"  type="text" name="periodStart" readonly > au <input class="inline" id="enddate"  type="text" name="periodEnd"  readonly></b>
 				</p>	
 	            <h2>Votre situation familiale actuelle</h2>  
 	            <label for="">précisez votre situation actuelle depuis le </label>
-	            <input class="situf inline required" type="text" placeholder="jj/mm/aaaa" id="famidate">*</br>
-	            <input class="inline" type="radio" name="situation" value="Célibataire">Célibataire
-            	<input class="inline" type="radio" name="situation" value="Veuf(ve)">Veuf(ve)
-            	<input class="inline" type="radio" name="situation" value="Divorcé(e)">Divorcé(e)
-            	<input class="inline" type="radio" name="situation" value="Séparé(e)">Séparé(e)<br>
-            	<input class="inline" type="radio" name="situation" value="Conjoint(e) disparu(e)">Conjoint(e) disparu(e)
-            	<input class="inline" type="radio" name="situation" value="Remarié(e)">Remarié(e)
-            	<input class="inline" type="radio" name="situation" value="Pacsé(e)">Pacsé(e)
-            	<input class="inline" type="radio" name="situation" value="Vie en convubinage">Vie en convubinage<br>
+              <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="famidate">*</br>
+              <select class="required" id="myDropdown">
+              <option disabled style="display:none" value="" selected value>Veuillez selectionner votre situation familiale</option>
+	            <option class="inline" type="radio" name="situation" value="Célibataire">Célibataire
+            	<option class="inline" type="radio" name="situation" value="Veuf(ve)">Veuf(ve)
+            	<option class="inline" type="radio" name="situation" value="Divorcé(e)">Divorcé(e)
+            	<option class="inline" type="radio" name="situation" value="Séparé(e)">Séparé(e)<br>
+            	<option class="inline" type="radio" name="situation" value="Conjoint(e) disparu(e)">Conjoint(e) disparu(e)
+            	<option class="inline" type="radio" name="situation" value="Remarié(e)">Remarié(e)
+            	<option class="inline" type="radio" name="situation" value="Pacsé(e)">Pacsé(e)
+            	<option class="inline" type="radio" name="situation" value="Vie en convubinage">Vie en convubinage<br>
+              </select>*</br>
+         <!--      <div class="required">
+              <input class="inline required" type="radio" name="situation" value="Célibataire">Célibataire
+              <input class="inline required" type="radio" name="situation" value="Veuf(ve)">Veuf(ve)
+              <input class="inline required" type="radio" name="situation" value="Divorcé(e)">Divorcé(e)
+              <input class="inline required" type="radio" name="situation" value="Séparé(e)">Séparé(e)<br>
+              <input class="inline required" type="radio" name="situation" value="Conjoint(e) disparu(e)">Conjoint(e) disparu(e)
+              <input class="inline required" type="radio" name="situation" value="Remarié(e)">Remarié(e)
+              <input class="inline required" type="radio" name="situation" value="Pacsé(e)">Pacsé(e)
+              <input class="inline required" type="radio" name="situation" value="Vie en convubinage">Vie en convubinage<br>
+              </div> -->
 	           <!--  <label for="password">Password *</label>
 	            <input id="password" name="password" type="text" class="required">
 	            <label for="confirm">Confirm Password *</label>
@@ -447,18 +460,24 @@
 
 <script type="text/javascript">
 var form = $("#contact");
-form.validate({
-    errorPlacement: function errorPlacement(error, element) { element.before(error); },
-    rules: {
-        confirm: {
-            equalTo: "#password"
-        }
-    }
-});
+  form.validate({
+      errorPlacement: function errorPlacement(error, element) { element.before(error); },
+      rules: {
+          confirm: {
+              equalTo: "#password"
+          }
+      }
+  });
 form.children("div").steps({
     headerTag: "h3",
     bodyTag: "section",
     transitionEffect: "slideLeft",
+    labels: 
+    {
+        finish: "envoyer",
+        next: "Etape suivante",
+        previous: "Etape precedente"
+    },
     onStepChanging: function (event, currentIndex, newIndex)
     {
         form.validate().settings.ignore = ":disabled,:hidden";
@@ -474,23 +493,26 @@ form.children("div").steps({
         alert("Submitted!");
     }
 });
-
-// $(document).ready(function(){
-// 	console.log('coucou5');
-//  	$(document).on('click', '.toogle' , function(){
-//     $(this).parent().parent().next().slideToggle(); 
-// 	});
-
-// 	$( "#startdate" ).change(function() {
-// 		var date = new Date($("#startdate").val());
-// 		 console.log(date);
-// 		var newDate = date.toString('dd-MM-yy');
-// 		console.log(newDate);
-// 		date.setMonth(date.getDay() + 3);
-// 	    $('#enddate').val(date.getDate());
-// 	});
- 
-// });
+jQuery.extend(jQuery.validator.messages, {
+    required: "vous devez remplire ce champ pour continuer le questionaire",
+    situf: "caca",
+    remote: "Please fix this field.",
+    email: "Please enter a valid email address.",
+    url: "Please enter a valid URL.",
+    date: "Please enter a valid date.",
+    dateISO: "Please enter a valid date (ISO).",
+    number: "Please enter a valid number.",
+    digits: "Please enter only digits.",
+    creditcard: "Please enter a valid credit card number.",
+    equalTo: "Please enter the same value again.",
+    accept: "Please enter a value with a valid extension.",
+    maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
+    minlength: jQuery.validator.format("Please enter at least {0} characters."),
+    rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
+    range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+    max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
+    min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
+});
 </script>
 
 </html>
