@@ -24,18 +24,18 @@
 	    <div>
 	        <h3>Controle de votre situation familiale</h3>
 	        <section>
-				<p>Pour continuer le versement de votre retraite, nous devons connaître votre situation familiale actuelle et vos ressources pour la periode : <b>du <input class="inline" id="startdate"  type="text" name="periodStart" readonly > au <input class="inline" id="enddate"  type="text" name="periodEnd"  readonly></b>
+				<p>Pour continuer le versement de votre retraite, nous devons connaître votre situation familiale actuelle et vos ressources pour la periode : <b>du <input class="inline autow" id="startdate"  type="text" name="periodStart" readonly > au <input class="inline autow" id="enddate"  type="text" name="periodEnd"  readonly></b>
 				</p>	
 	            <h2>Votre situation familiale actuelle</h2>  
 	            <label for="">précisez votre situation actuelle depuis le </label>
               <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="famidate">*</br>
               <select class="required" id="myDropdown">
               <option disabled style="display:none" value="" selected value>Veuillez selectionner votre situation familiale</option>
-	            <option class="inline" type="radio" name="situation" value="Célibataire">Célibataire
-            	<option class="inline" type="radio" name="situation" value="Veuf(ve)">Veuf(ve)
-            	<option class="inline" type="radio" name="situation" value="Divorcé(e)">Divorcé(e)
-            	<option class="inline" type="radio" name="situation" value="Séparé(e)">Séparé(e)<br>
-            	<option class="inline" type="radio" name="situation" value="Conjoint(e) disparu(e)">Conjoint(e) disparu(e)
+	            <option class="inline" type="radio" name="situation" value="celibataire">Célibataire
+            	<option class="inline" type="radio" name="situation" value="Veuf">Veuf(ve)
+            	<option class="inline" type="radio" name="situation" value="Divorce">Divorcé(e)
+            	<option class="inline" type="radio" name="situation" value="Sépare">Séparé(e)<br>
+            	<option class="inline" type="radio" name="situation" value="Conjoint disparu">Conjoint(e) disparu(e)
             	<option class="inline" type="radio" name="situation" value="Remarié(e)">Remarié(e)
             	<option class="inline" type="radio" name="situation" value="Pacsé(e)">Pacsé(e)
             	<option class="inline" type="radio" name="situation" value="Vie en convubinage">Vie en convubinage<br>
@@ -65,17 +65,17 @@
 				  </div>      
 				  <div class="panel-body">
 				  	<h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions)</h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth" id="mois" class="mois"></label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth" class="mois">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth" class="mois">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
@@ -91,32 +91,32 @@
 				  </div>      
 				  <div class="panel-body">
 				  	<h4>Retraites personnelles de base</h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
                         <h4> Retraites personnelles complémentaires </h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
@@ -128,32 +128,32 @@
 				  </div>      
 				  <div class="panel-body">
 				  	<h4>Allocation chômage</h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
                         <h4> Indemnités journalières versées par la caisse d’assurance maladie (maladie, accident du travail, maladie professionnelle, maternité…)</h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
@@ -165,85 +165,88 @@
 				  </div>      
 				  <div class="panel-body">
 				  	<h4>Pension alimentaire (hors aide alimentaire obligatoire)</h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
                         <h4> Pension d'invalidité </h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
                         <h4> Prestations compensatoires </h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
                         <h4> Rente personnelle accident du travail </h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
 				  </div>
 				</div>
+				<div id="notAlone">
 				<h2>RESSOURCES DE VOTRE CONJOINT(E) ACTUEL(LE)</h2>
+
+
 				<div class="panel">
 				  <div class="panel-heading">
 				    <label for="" class="panel-title">Revenus professionnels d'activité <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
 				  </div>      
 				  <div class="panel-body">
 				  	<h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions)</h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
@@ -259,32 +262,32 @@
 				  </div>      
 				  <div class="panel-body">
 				  	<h4>Retraites personnelles de base</h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
                         <h4> Retraites personnelles complémentaires </h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
@@ -296,32 +299,32 @@
 				  </div>      
 				  <div class="panel-body">
 				  	<h4>Allocation chômage</h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
-                              <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              <div class="col-sm" class="mois">
+                              	<label for="secmth"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
-                              <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              <div class="col-sm" class="mois">
+                              	<label for="thrmth"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
                         <h4> Indemnités journalières versées par la caisse d’assurance maladie (maladie, accident du travail, maladie professionnelle, maternité…)</h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
@@ -333,67 +336,68 @@
 				  </div>      
 				  <div class="panel-body">
 				  	<h4>Pension alimentaire (hors aide alimentaire obligatoire)</h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
                         <h4> Pension d'invalidité </h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
                         <h4> Prestations compensatoires </h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
                         <h4> Rente personnelle accident du travail </h4>
-                        <div class="row">
+                        <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
 				  </div>
 				</div>
+			</div>
 
 	      <!--       <label for="name">First name *</label>
 	            <input id="name" name="name" type="text" class="required">
@@ -424,15 +428,15 @@
 				  	<h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions)</h4>
                         <div class="row">
                               <div class="col-sm">
-                              	<label for="fstmth">Mois Année</label>
+                              	<label for="fstmth"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth">Mois Année</label>
+                              	<label for="secmth"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth">Mois Année</label>
+                              	<label for="thrmth"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
@@ -461,12 +465,12 @@
 <script type="text/javascript">
 var form = $("#contact");
   form.validate({
-      errorPlacement: function errorPlacement(error, element) { element.before(error); },
-      rules: {
-          confirm: {
-              equalTo: "#password"
-          }
-      }
+      errorPlacement: function errorPlacement(error, element) { element.after(error); },
+      // rules: {
+      //     confirm: {
+      //         equalTo: "#password"
+      //     }
+      // }
   });
 form.children("div").steps({
     headerTag: "h3",

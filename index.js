@@ -80,7 +80,7 @@ $(document).ready(function(){
             var month = date3mois.getMonth();
             var year = date3mois.getFullYear();
             // if (month > 4){
-              month = month - 4;
+              month = month - 3;
             // }
             date3mois.setMonth(month);
             date3mois.setUTCDate('1');
@@ -99,7 +99,7 @@ $(document).ready(function(){
               month = month + 3;
             // }
             date3mois.setMonth(month);
-            date3mois.setUTCDate('30');
+            date3mois.setUTCDate('29');
           date3mois = date3mois.toLocaleDateString().toString();
           date3mois = date3mois.split("T");
           $("#enddate").prop('value', date3mois) 
@@ -108,36 +108,67 @@ $(document).ready(function(){
           callDate();
           callDate2();
 
-          $(function writemth(mois, anne) {
-
-            // var date    = new Date($('#startdate').val());
-            var moisfr  = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
-            var month   = mois;
-            var year    = anne;
-
-            if(month > 12)
-            {
-                year += 1;
-                month -= 12; 
-            }
-
-            var output  = moisfr[month] + ' ' + year;
-            // month       = month.toLocaleDateString().toString();
 
 
-          //   for (var i = 0; i < $('.mois').length; i++)
-          //   {
-          //       $('.mois')[i].before(month)
-          //   }
-                      console.log(mois)
 
-          document.getElementById("mois").innerHTML = 5 + 6;
-            return output;
+          $(function writemth() {
+
+            $('.bloc').each(function(){
+
+               eachInMois($(this).find('.mois'))
+            });
+            
 
           });
 
+          function  eachInMois(currBloc) {
+
+            var date    = new Date($('#startdate').val());
+            var moisfr  = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+            var month   = date.getMonth() + 1;
+            var year    = date.getFullYear()
+            var index   = 0;
+            var output  = null;
+            var month2  = month2 = month;
+            
+            currBloc.each(function(){
+
+                if(month > 12)
+                {
+                    year += 1;
+                    month -= 12; 
+                }
+                output  = moisfr[month] + ' ' + year;
+                $(this).append(output);
+                index++;
+                month++;
+            });
+        }
+
+
+        function    drop(){
+
+            var status = $('#myDropdown').val();
+
+            console.log(status);
+        }
+
+        drop();
+
+
+
         $(document).on('change', '#myDropdown' , function(){
-          console.log($("#myDropdown").val())// $("#myDropdown").prop("selectedIndex", -1);
+
+          console.log($("#myDropdown").val())
+          var status = $('#myDropdown').val();
+          if (status == "celibataire" || status == "Veuf" || status == "Divorce" || status == "Sépare" || status == "Conjoint disparu")
+        {
+            $('#notAlone').hide();// $("#myDropdown").prop("selectedIndex", -1);
+        }
+        else
+        {
+             $('#notAlone').show();
+        }
         });
 
     function getValue(param) {

@@ -1449,3 +1449,7 @@ fieldset {
 #lastdecla{
     width:auto !important;
 }
+
+.autow{
+    width:auto !important;
+}
