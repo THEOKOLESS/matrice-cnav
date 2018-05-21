@@ -4,30 +4,36 @@
 ?> -->
 <!DOCTYPE html>
 <html>
-<head>	  
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-      <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
-	  <link rel="stylesheet" type="text/css" href="main.css">
-	  <link rel="stylesheet" href="bootstrap.css">
-    <meta charset="utf-8" />
-	  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-	  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
-    <script src="jquery.steps.min.js"></script>
+<head>	       
+    <meta charset="utf-8" />  
+	  <link rel="stylesheet" type="text/css" href="main.css"><!-- css -->
+	  <link rel="stylesheet" href="bootstrap.css"><!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script> <!-- jquerry 1.12 -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script><!--form VALIDATE -->
+    <script src="jquery.steps.min.js"></script><!--from STEPs -->
+    <script type="text/javascript" src="index.js"></script><!-- js -->
 
-	  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script> -->
-	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	  <script type="text/javascript" src="index.js"></script>
-    <script src="jquery.formValidation.min.js"></script>
 
-	<title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/css/formValidation.min.css" />
+<link rel="stylesheet" href="http://formvalidation.io/vendor/jquery.steps/css/jquery.steps.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/js/formValidation.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/js/framework/bootstrap.min.js"></script>
+<script src="http://formvalidation.io/vendor/jquery.steps/js/jquery.steps.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!-- datpicker js -->
+<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css"><!-- datpicker design -->
+	<title>Questionaire ressources</title>
 </head>
 <body>
 	<div class="container">
 	<form id="contact" action="#">
-	    <div>
 	        <h3>Controle de votre situation familiale</h3>
-	        <section>
+	        <section data-step="0">
 				<p>Pour continuer le versement de votre retraite, nous devons connaître votre situation familiale actuelle et vos ressources pour la periode : <b>du <input class="inline autow" id="startdate"  type="text" name="periodStart" readonly > au <input class="inline autow" id="enddate"  type="text" name="periodEnd"  readonly></b>
 				</p>	
 	            <h2>Votre situation familiale actuelle</h2>  
@@ -67,7 +73,7 @@
 	            <p>(*) Obligatoire</p>
 	        </section>
 	        <h3>Informations sur les ressources</h3>
-	        <section>
+	        <section data-step="1">
 	        	<h2>VOS RESSOURCES</h2>  
 	        	<div class="panel">
 				  <div class="panel-heading">
@@ -408,21 +414,9 @@
 				  </div>
 				</div>
 			</div>
-
-	      <!--       <label for="name">First name *</label>
-	            <input id="name" name="name" type="text" class="required">
-	            <label for="surname">Last name *</label>
-	            <input id="surname" name="surname" type="text" class="required">
-	            <label for="email">Email</label>
-	            <input id="email" name="email" type="text">
-	            <label for="address">Address</label>
-	            <input id="address" name="address" type="text"> -->
-
-	            <p>(*) Obligatoire</p>
-
 	        </section>
 	        <h3>Vos biens</h3>
-	        <section>
+	        <section data-step="2">
 	        	<h2>VOS BIENS (ET EVENTUELLEMENT CEUX AVEC VOTRE MÉNAGE), EN FRANCE ET/OU Á L'ÉTRANGER</h2>
 	        	<h4>Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens mobiliers et/ou immobiliers en france et/ou á l'étranger ?</h4>
 	        	<input class="inline" type="radio" name="bool" value="yes">Oui</br>
@@ -458,7 +452,7 @@
 				</div>
 	        </section>
 	        <h3>Finish</h3>
-	        <section>
+	        <section data-step="3">
 	            <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
 	        </section>
 	    </div>
@@ -469,358 +463,5 @@
 
 
 </body>
-
-
-
-<script type="text/javascript">
-
-var form = $("#contact");
-  form.validate({
-      errorPlacement: function errorPlacement(error, element) { element.after(error); },
-  });
-form.children("div").steps({
-    headerTag: "h3",
-    bodyTag: "section",
-    transitionEffect: "slideLeft",
-    labels: 
-    {
-        finish: "envoyer",
-        next: "Etape suivante",
-        previous: "Etape precedente"
-    },
-    onStepChanging: function (event, currentIndex, newIndex)
-    {
-
-        form.validate().settings.ignore = ":disabled,:hidden";
-         // var fv = $('#contact').data('formValidation'), // FormValidation instance
-         //            // The current step container
-         //            $container = $('#contact').find('section[data-step="' + currentIndex +'"]');
-
-         //        // Validate the container
-         //        fv.validateContainer($container);
-
-         //        var isValidStep = fv.isValidContainer($container);
-         //        if (isValidStep === false || isValidStep === null) {
-         //            // Do not jump to the next step
-         //            return false;
-         //        }
-
-         //        return true;
-        
-        return form.valid();
-    },
-    onFinishing: function (event, currentIndex)
-    {
-        form.validate().settings.ignore = ":disabled";
-        return form.valid();
-    },
-    onFinished: function (event, currentIndex)
-    {
-        alert("Submitted!");
-    }
-
-});
-// .formValidation({
-//             framework: 'bootstrap',
-//             icon: {
-//                 valid: 'glyphicon glyphicon-ok',
-//                 invalid: 'glyphicon glyphicon-remove',
-//                 validating: 'glyphicon glyphicon-refresh'
-//             },
-//             // This option will not ignore invisible fields which belong to inactive panels
-//             excluded: ':disabled',
-//             fields: {
-//                 username: {
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The username is required'
-//                         },
-//                         stringLength: {
-//                             min: 6,
-//                             max: 30,
-//                             message: 'The username must be more than 6 and less than 30 characters long'
-//                         },
-//                         regexp: {
-//                             regexp: /^[a-zA-Z0-9_\.]+$/,
-//                             message: 'The username can only consist of alphabetical, number, dot and underscore'
-//                         }
-//                     }
-//                 },
-//                 email: {
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The email address is required'
-//                         },
-//                         emailAddress: {
-//                             message: 'The input is not a valid email address'
-//                         }
-//                     }
-//                 },
-//                 password: {
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The password is required'
-//                         },
-//                         different: {
-//                             field: 'username',
-//                             message: 'The password cannot be the same as username'
-//                         }
-//                     }
-//                 },
-//                 confirmPassword: {
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The confirm password is required'
-//                         },
-//                         identical: {
-//                             field: 'password',
-//                             message: 'The confirm password must be the same as original one'
-//                         }
-//                     }
-//                 },
-//                 firstName: {
-//                     row: '.col-xs-4',
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The first name is required'
-//                         },
-//                         regexp: {
-//                             regexp: /^[a-zA-Z\s]+$/,
-//                             message: 'The first name can only consist of alphabetical and space'
-//                         }
-//                     }
-//                 },
-//                 lastName: {
-//                     row: '.col-xs-4',
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The last name is required'
-//                         },
-//                         regexp: {
-//                             regexp: /^[a-zA-Z\s]+$/,
-//                             message: 'The last name can only consist of alphabetical and space'
-//                         }
-//                     }
-//                 },
-//                 gender: {
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The gender is required'
-//                         }
-//                     }
-//                 },
-//                 dob: {
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The birthday is required'
-//                         },
-//                         date: {
-//                             format: 'YYYY/MM/DD',
-//                             message: 'The birthday is not valid'
-//                         }
-//                     }
-//                 },
-//                 bio: {
-//                     validators: {
-//                         stringLength: {
-//                             max: 200,
-//                             message: 'The bio must be less than 200 characters'
-//                         }
-//                     }
-//                 }
-//             }
-        // });
-// $(document).ready(function() {
- 
-//     // IMPORTANT: You must call .steps() before calling .formValidation()
-//     $('#contact')
-//         .steps({
-//             headerTag: 'h3',
-//             bodyTag: 'section',
-//             onStepChanged: function(e, currentIndex, priorIndex) {
-//                 // You don't need to care about it
-//                 // It is for the specific demo
-//                 adjustIframeHeight();
-//             },
-//             // Triggered when clicking the Previous/Next buttons
-//             onStepChanging: function(e, currentIndex, newIndex) {
-//                 var fv         = $('#contact').data('formValidation'), // FormValidation instance
-//                     // The current step container
-//                     $container = $('#contact').find('section[data-step="' + currentIndex +'"]');
-
-//                 // Validate the container
-//                 fv.validateContainer($container);
-
-//                 var isValidStep = fv.isValidContainer($container);
-//                 if (isValidStep === false || isValidStep === null) {
-//                     // Do not jump to the next step
-//                     return false;
-//                 }
-
-//                 return true;
-//             },
-//             // Triggered when clicking the Finish button
-//             onFinishing: function(e, currentIndex) {
-//                 var fv         = $('#contact').data('formValidation'),
-//                     $container = $('#contact').find('section[data-step="' + currentIndex +'"]');
-
-//                 // Validate the last step container
-//                 fv.validateContainer($container);
-
-//                 var isValidStep = fv.isValidContainer($container);
-//                 if (isValidStep === false || isValidStep === null) {
-//                     return false;
-//                 }
-
-//                 return true;
-//             },
-//             onFinished: function(e, currentIndex) {
-//                 // Uncomment the following line to submit the form using the defaultSubmit() method
-//                 // $('#profileForm').formValidation('defaultSubmit');
-
-//                 // For testing purpose
-//                 $('#welcomeModal').modal();
-//             }
-//         })
-//         .formValidation({
-//             framework: 'bootstrap',
-//             icon: {
-//                 valid: 'glyphicon glyphicon-ok',
-//                 invalid: 'glyphicon glyphicon-remove',
-//                 validating: 'glyphicon glyphicon-refresh'
-//             },
-//             // This option will not ignore invisible fields which belong to inactive panels
-//             excluded: ':disabled',
-//             fields: {
-//                 username: {
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The username is required'
-//                         },
-//                         stringLength: {
-//                             min: 6,
-//                             max: 30,
-//                             message: 'The username must be more than 6 and less than 30 characters long'
-//                         },
-//                         regexp: {
-//                             regexp: /^[a-zA-Z0-9_\.]+$/,
-//                             message: 'The username can only consist of alphabetical, number, dot and underscore'
-//                         }
-//                     }
-//                 },
-//                 email: {
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The email address is required'
-//                         },
-//                         emailAddress: {
-//                             message: 'The input is not a valid email address'
-//                         }
-//                     }
-//                 },
-//                 password: {
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The password is required'
-//                         },
-//                         different: {
-//                             field: 'username',
-//                             message: 'The password cannot be the same as username'
-//                         }
-//                     }
-//                 },
-//                 confirmPassword: {
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The confirm password is required'
-//                         },
-//                         identical: {
-//                             field: 'password',
-//                             message: 'The confirm password must be the same as original one'
-//                         }
-//                     }
-//                 },
-//                 firstName: {
-//                     row: '.col-xs-4',
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The first name is required'
-//                         },
-//                         regexp: {
-//                             regexp: /^[a-zA-Z\s]+$/,
-//                             message: 'The first name can only consist of alphabetical and space'
-//                         }
-//                     }
-//                 },
-//                 lastName: {
-//                     row: '.col-xs-4',
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The last name is required'
-//                         },
-//                         regexp: {
-//                             regexp: /^[a-zA-Z\s]+$/,
-//                             message: 'The last name can only consist of alphabetical and space'
-//                         }
-//                     }
-//                 },
-//                 gender: {
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The gender is required'
-//                         }
-//                     }
-//                 },
-//                 dob: {
-//                     validators: {
-//                         notEmpty: {
-//                             message: 'The birthday is required'
-//                         },
-//                         date: {
-//                             format: 'YYYY/MM/DD',
-//                             message: 'The birthday is not valid'
-//                         }
-//                     }
-//                 },
-//                 bio: {
-//                     validators: {
-//                         stringLength: {
-//                             max: 200,
-//                             message: 'The bio must be less than 200 characters'
-//                         }
-//                     }
-//                 }
-//             }
-//         });
-// });
-
-
-
-jQuery.extend(jQuery.validator.messages, {
-    // required: "vous devez remplire ce champ pour continuer le questionaire",
-    required: "",
-    situf: "caca",
-    remote: "Please fix this field.",
-    email: "Please enter a valid email address.",
-    url: "Please enter a valid URL.",
-    date: "Please enter a valid date.",
-    dateISO: "Please enter a valid date (ISO).",
-    number: "Please enter a valid number.",
-    digits: "Please enter only digits.",
-    creditcard: "Please enter a valid credit card number.",
-    equalTo: "Please enter the same value again.",
-    accept: "Please enter a value with a valid extension.",
-    maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
-    minlength: jQuery.validator.format("Please enter at least {0} characters."),
-    rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
-    range: jQuery.validator.format("Please enter a value between {0} and {1}."),
-    max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
-    min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
-});
-</script>
-<script type="text/javascript">
-// document.getElementById("mois").innerHTML = "Hello Dolly.";
-// document.querySelector(".mois") = "Clarisse la meilleur";
-</script>
 
 </html>
