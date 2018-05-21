@@ -1453,3 +1453,9 @@ fieldset {
 .autow{
     width:auto !important;
 }
+.wizard > .content > .bloc > .col-sm  input[type="text"]{
+
+        background-color: lightblue;
+
+
+}

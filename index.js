@@ -1,31 +1,4 @@
-// var form = $("#contact");
-// form.validate({
-//     errorPlacement: function errorPlacement(error, element) { element.before(error); },
-//     rules: {
-//         confirm: {
-//             equalTo: "#password"
-//         }
-//     }
-// });
-// form.children("div").steps({
-//     headerTag: "h3",
-//     bodyTag: "section",
-//     transitionEffect: "slideLeft",
-//     onStepChanging: function (event, currentIndex, newIndex)
-//     {
-//         form.validate().settings.ignore = ":disabled,:hidden";
-//         return form.valid();
-//     },
-//     onFinishing: function (event, currentIndex)
-//     {
-//         form.validate().settings.ignore = ":disabled";
-//         return form.valid();
-//     },
-//     onFinished: function (event, currentIndex)
-//     {
-//         alert("Submitted!");
-//     }
-// });
+
 
 $(document).ready(function(){
  	$(document).on('click', '.toogle' , function(){
@@ -87,11 +60,8 @@ $(document).ready(function(){
           date3mois = date3mois.toLocaleDateString().toString();
           date3mois = date3mois.split("T");
           $("#startdate").prop('value', date3mois[0]) 
-          if (param == 1)
-            return month;
-          else
-            return year;
           }
+
           function callDate2(){
             var date3mois = new Date($("#startdate").val());
             var month = date3mois.getMonth();
@@ -99,10 +69,11 @@ $(document).ready(function(){
               month = month + 3;
             // }
             date3mois.setMonth(month);
-            date3mois.setUTCDate('29');
-          date3mois = date3mois.toLocaleDateString().toString();
-          date3mois = date3mois.split("T");
-          $("#enddate").prop('value', date3mois) 
+            // date3mois.setUTCDate('32');
+            var lastDayOfMonth = new Date(date3mois.getFullYear(), date3mois.getMonth()+1, 0);
+          lastDayOfMonth = lastDayOfMonth.toLocaleDateString().toString();
+          lastDayOfMonth = lastDayOfMonth.split("T");
+          $("#enddate").prop('value', lastDayOfMonth) 
           }
 
           callDate();
@@ -171,9 +142,9 @@ $(document).ready(function(){
         }
         });
 
-    function getValue(param) {
-      var value =  param       // je ferais ma requete
-      return value;
-    }
+//     function getValue(param) {
+//       var value =  param       // je ferais ma requete
+//       return value;
+//     }
 });
 

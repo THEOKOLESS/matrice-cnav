@@ -10,12 +10,16 @@
       <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
 	  <link rel="stylesheet" type="text/css" href="main.css">
 	  <link rel="stylesheet" href="bootstrap.css">
-      <meta charset="utf-8" />
+    <meta charset="utf-8" />
 	  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 	  <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
+    <script src="jquery.steps.min.js"></script>
+
+	  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script> -->
 	  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	  <script type="text/javascript" src="index.js"></script>
+    <script src="jquery.formValidation.min.js"></script>
+
 	<title></title>
 </head>
 <body>
@@ -40,6 +44,12 @@
             	<option class="inline" type="radio" name="situation" value="Pacsé(e)">Pacsé(e)
             	<option class="inline" type="radio" name="situation" value="Vie en convubinage">Vie en convubinage<br>
               </select>*</br>
+
+              <div class="row" style="background-color: none;border: 3px solid #FF0000; " hidden>
+                <div class="col-xs-12 col-sm-12 col-lg-12" id="error1">
+                    <span style="color:#C90303">TOTO HIHIHIHIHIHIHI</span>
+                </div>
+              </div>
          <!--      <div class="required">
               <input class="inline required" type="radio" name="situation" value="Célibataire">Célibataire
               <input class="inline required" type="radio" name="situation" value="Veuf(ve)">Veuf(ve)
@@ -463,14 +473,10 @@
 
 
 <script type="text/javascript">
+
 var form = $("#contact");
   form.validate({
       errorPlacement: function errorPlacement(error, element) { element.after(error); },
-      // rules: {
-      //     confirm: {
-      //         equalTo: "#password"
-      //     }
-      // }
   });
 form.children("div").steps({
     headerTag: "h3",
@@ -484,7 +490,23 @@ form.children("div").steps({
     },
     onStepChanging: function (event, currentIndex, newIndex)
     {
+
         form.validate().settings.ignore = ":disabled,:hidden";
+         // var fv = $('#contact').data('formValidation'), // FormValidation instance
+         //            // The current step container
+         //            $container = $('#contact').find('section[data-step="' + currentIndex +'"]');
+
+         //        // Validate the container
+         //        fv.validateContainer($container);
+
+         //        var isValidStep = fv.isValidContainer($container);
+         //        if (isValidStep === false || isValidStep === null) {
+         //            // Do not jump to the next step
+         //            return false;
+         //        }
+
+         //        return true;
+        
         return form.valid();
     },
     onFinishing: function (event, currentIndex)
@@ -496,9 +518,287 @@ form.children("div").steps({
     {
         alert("Submitted!");
     }
+
 });
+// .formValidation({
+//             framework: 'bootstrap',
+//             icon: {
+//                 valid: 'glyphicon glyphicon-ok',
+//                 invalid: 'glyphicon glyphicon-remove',
+//                 validating: 'glyphicon glyphicon-refresh'
+//             },
+//             // This option will not ignore invisible fields which belong to inactive panels
+//             excluded: ':disabled',
+//             fields: {
+//                 username: {
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The username is required'
+//                         },
+//                         stringLength: {
+//                             min: 6,
+//                             max: 30,
+//                             message: 'The username must be more than 6 and less than 30 characters long'
+//                         },
+//                         regexp: {
+//                             regexp: /^[a-zA-Z0-9_\.]+$/,
+//                             message: 'The username can only consist of alphabetical, number, dot and underscore'
+//                         }
+//                     }
+//                 },
+//                 email: {
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The email address is required'
+//                         },
+//                         emailAddress: {
+//                             message: 'The input is not a valid email address'
+//                         }
+//                     }
+//                 },
+//                 password: {
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The password is required'
+//                         },
+//                         different: {
+//                             field: 'username',
+//                             message: 'The password cannot be the same as username'
+//                         }
+//                     }
+//                 },
+//                 confirmPassword: {
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The confirm password is required'
+//                         },
+//                         identical: {
+//                             field: 'password',
+//                             message: 'The confirm password must be the same as original one'
+//                         }
+//                     }
+//                 },
+//                 firstName: {
+//                     row: '.col-xs-4',
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The first name is required'
+//                         },
+//                         regexp: {
+//                             regexp: /^[a-zA-Z\s]+$/,
+//                             message: 'The first name can only consist of alphabetical and space'
+//                         }
+//                     }
+//                 },
+//                 lastName: {
+//                     row: '.col-xs-4',
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The last name is required'
+//                         },
+//                         regexp: {
+//                             regexp: /^[a-zA-Z\s]+$/,
+//                             message: 'The last name can only consist of alphabetical and space'
+//                         }
+//                     }
+//                 },
+//                 gender: {
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The gender is required'
+//                         }
+//                     }
+//                 },
+//                 dob: {
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The birthday is required'
+//                         },
+//                         date: {
+//                             format: 'YYYY/MM/DD',
+//                             message: 'The birthday is not valid'
+//                         }
+//                     }
+//                 },
+//                 bio: {
+//                     validators: {
+//                         stringLength: {
+//                             max: 200,
+//                             message: 'The bio must be less than 200 characters'
+//                         }
+//                     }
+//                 }
+//             }
+        // });
+// $(document).ready(function() {
+ 
+//     // IMPORTANT: You must call .steps() before calling .formValidation()
+//     $('#contact')
+//         .steps({
+//             headerTag: 'h3',
+//             bodyTag: 'section',
+//             onStepChanged: function(e, currentIndex, priorIndex) {
+//                 // You don't need to care about it
+//                 // It is for the specific demo
+//                 adjustIframeHeight();
+//             },
+//             // Triggered when clicking the Previous/Next buttons
+//             onStepChanging: function(e, currentIndex, newIndex) {
+//                 var fv         = $('#contact').data('formValidation'), // FormValidation instance
+//                     // The current step container
+//                     $container = $('#contact').find('section[data-step="' + currentIndex +'"]');
+
+//                 // Validate the container
+//                 fv.validateContainer($container);
+
+//                 var isValidStep = fv.isValidContainer($container);
+//                 if (isValidStep === false || isValidStep === null) {
+//                     // Do not jump to the next step
+//                     return false;
+//                 }
+
+//                 return true;
+//             },
+//             // Triggered when clicking the Finish button
+//             onFinishing: function(e, currentIndex) {
+//                 var fv         = $('#contact').data('formValidation'),
+//                     $container = $('#contact').find('section[data-step="' + currentIndex +'"]');
+
+//                 // Validate the last step container
+//                 fv.validateContainer($container);
+
+//                 var isValidStep = fv.isValidContainer($container);
+//                 if (isValidStep === false || isValidStep === null) {
+//                     return false;
+//                 }
+
+//                 return true;
+//             },
+//             onFinished: function(e, currentIndex) {
+//                 // Uncomment the following line to submit the form using the defaultSubmit() method
+//                 // $('#profileForm').formValidation('defaultSubmit');
+
+//                 // For testing purpose
+//                 $('#welcomeModal').modal();
+//             }
+//         })
+//         .formValidation({
+//             framework: 'bootstrap',
+//             icon: {
+//                 valid: 'glyphicon glyphicon-ok',
+//                 invalid: 'glyphicon glyphicon-remove',
+//                 validating: 'glyphicon glyphicon-refresh'
+//             },
+//             // This option will not ignore invisible fields which belong to inactive panels
+//             excluded: ':disabled',
+//             fields: {
+//                 username: {
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The username is required'
+//                         },
+//                         stringLength: {
+//                             min: 6,
+//                             max: 30,
+//                             message: 'The username must be more than 6 and less than 30 characters long'
+//                         },
+//                         regexp: {
+//                             regexp: /^[a-zA-Z0-9_\.]+$/,
+//                             message: 'The username can only consist of alphabetical, number, dot and underscore'
+//                         }
+//                     }
+//                 },
+//                 email: {
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The email address is required'
+//                         },
+//                         emailAddress: {
+//                             message: 'The input is not a valid email address'
+//                         }
+//                     }
+//                 },
+//                 password: {
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The password is required'
+//                         },
+//                         different: {
+//                             field: 'username',
+//                             message: 'The password cannot be the same as username'
+//                         }
+//                     }
+//                 },
+//                 confirmPassword: {
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The confirm password is required'
+//                         },
+//                         identical: {
+//                             field: 'password',
+//                             message: 'The confirm password must be the same as original one'
+//                         }
+//                     }
+//                 },
+//                 firstName: {
+//                     row: '.col-xs-4',
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The first name is required'
+//                         },
+//                         regexp: {
+//                             regexp: /^[a-zA-Z\s]+$/,
+//                             message: 'The first name can only consist of alphabetical and space'
+//                         }
+//                     }
+//                 },
+//                 lastName: {
+//                     row: '.col-xs-4',
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The last name is required'
+//                         },
+//                         regexp: {
+//                             regexp: /^[a-zA-Z\s]+$/,
+//                             message: 'The last name can only consist of alphabetical and space'
+//                         }
+//                     }
+//                 },
+//                 gender: {
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The gender is required'
+//                         }
+//                     }
+//                 },
+//                 dob: {
+//                     validators: {
+//                         notEmpty: {
+//                             message: 'The birthday is required'
+//                         },
+//                         date: {
+//                             format: 'YYYY/MM/DD',
+//                             message: 'The birthday is not valid'
+//                         }
+//                     }
+//                 },
+//                 bio: {
+//                     validators: {
+//                         stringLength: {
+//                             max: 200,
+//                             message: 'The bio must be less than 200 characters'
+//                         }
+//                     }
+//                 }
+//             }
+//         });
+// });
+
+
+
 jQuery.extend(jQuery.validator.messages, {
-    required: "vous devez remplire ce champ pour continuer le questionaire",
+    // required: "vous devez remplire ce champ pour continuer le questionaire",
+    required: "",
     situf: "caca",
     remote: "Please fix this field.",
     email: "Please enter a valid email address.",
