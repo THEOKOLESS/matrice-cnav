@@ -4,18 +4,15 @@
 ?> -->
 <!DOCTYPE html>
 <html>
-<head>	       
-    <meta charset="utf-8" />  
-	  <link rel="stylesheet" type="text/css" href="main.css"><!-- css -->
-	  <link rel="stylesheet" href="bootstrap.css"><!-- bootstrap -->
+<head>	  
+  <meta charset="utf-8" />  
+    <link rel="stylesheet" type="text/css" href="main.css"><!-- css -->
+    <link rel="stylesheet" href="bootstrap.css"><!--bootstrap  -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
   crossorigin="anonymous"></script> <!-- jquerry 1.12 -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script><!--form VALIDATE -->
-    <script src="jquery.steps.min.js"></script><!--from STEPs -->
-    <script type="text/javascript" src="index.js"></script><!-- js -->
 
-
+<!-- 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/css/formValidation.min.css" />
@@ -24,16 +21,21 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/js/formValidation.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/js/framework/bootstrap.min.js"></script>
-<script src="http://formvalidation.io/vendor/jquery.steps/js/jquery.steps.min.js"></script>
+<script src="http://formvalidation.io/vendor/jquery.steps/js/jquery.steps.min.js"></script> -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!-- datpicker js -->
 <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css"><!-- datpicker design -->
-	<title>Questionaire ressources</title>
+    <script type="text/javascript" src="index.js"></script><!-- js -->
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script><!--form VALIDATE -->
+    <script src="jquery.steps.min.js"></script><!--from STEPs -->
+
+	<title></title>
 </head>
 <body>
 	<div class="container">
 	<form id="contact" action="#">
+	    <div>
 	        <h3>Controle de votre situation familiale</h3>
-	        <section data-step="0">
+	        <section>
 				<p>Pour continuer le versement de votre retraite, nous devons connaître votre situation familiale actuelle et vos ressources pour la periode : <b>du <input class="inline autow" id="startdate"  type="text" name="periodStart" readonly > au <input class="inline autow" id="enddate"  type="text" name="periodEnd"  readonly></b>
 				</p>	
 	            <h2>Votre situation familiale actuelle</h2>  
@@ -50,12 +52,6 @@
             	<option class="inline" type="radio" name="situation" value="Pacsé(e)">Pacsé(e)
             	<option class="inline" type="radio" name="situation" value="Vie en convubinage">Vie en convubinage<br>
               </select>*</br>
-
-              <div class="row" style="background-color: none;border: 3px solid #FF0000; " hidden>
-                <div class="col-xs-12 col-sm-12 col-lg-12" id="error1">
-                    <span style="color:#C90303">TOTO HIHIHIHIHIHIHI</span>
-                </div>
-              </div>
          <!--      <div class="required">
               <input class="inline required" type="radio" name="situation" value="Célibataire">Célibataire
               <input class="inline required" type="radio" name="situation" value="Veuf(ve)">Veuf(ve)
@@ -73,7 +69,7 @@
 	            <p>(*) Obligatoire</p>
 	        </section>
 	        <h3>Informations sur les ressources</h3>
-	        <section data-step="1">
+	        <section>
 	        	<h2>VOS RESSOURCES</h2>  
 	        	<div class="panel">
 				  <div class="panel-heading">
@@ -414,9 +410,21 @@
 				  </div>
 				</div>
 			</div>
+
+	      <!--       <label for="name">First name *</label>
+	            <input id="name" name="name" type="text" class="required">
+	            <label for="surname">Last name *</label>
+	            <input id="surname" name="surname" type="text" class="required">
+	            <label for="email">Email</label>
+	            <input id="email" name="email" type="text">
+	            <label for="address">Address</label>
+	            <input id="address" name="address" type="text"> -->
+
+	            <p>(*) Obligatoire</p>
+
 	        </section>
 	        <h3>Vos biens</h3>
-	        <section data-step="2">
+	        <section>
 	        	<h2>VOS BIENS (ET EVENTUELLEMENT CEUX AVEC VOTRE MÉNAGE), EN FRANCE ET/OU Á L'ÉTRANGER</h2>
 	        	<h4>Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens mobiliers et/ou immobiliers en france et/ou á l'étranger ?</h4>
 	        	<input class="inline" type="radio" name="bool" value="yes">Oui</br>
@@ -452,7 +460,7 @@
 				</div>
 	        </section>
 	        <h3>Finish</h3>
-	        <section data-step="3">
+	        <section>
 	            <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
 	        </section>
 	    </div>
@@ -463,5 +471,68 @@
 
 
 </body>
+
+
+
+<script type="text/javascript">
+var form = $("#contact");
+  form.validate({
+      errorPlacement: function errorPlacement(error, element) { element.after(error); },
+      // rules: {
+      //     confirm: {
+      //         equalTo: "#password"
+      //     }
+      // }
+  });
+form.children("div").steps({
+    headerTag: "h3",
+    bodyTag: "section",
+    transitionEffect: "slideLeft",
+    labels: 
+    {
+        finish: "envoyer",
+        next: "Etape suivante",
+        previous: "Etape precedente"
+    },
+    onStepChanging: function (event, currentIndex, newIndex)
+    {
+        form.validate().settings.ignore = ":disabled,:hidden";
+        return form.valid();
+    },
+    onFinishing: function (event, currentIndex)
+    {
+        form.validate().settings.ignore = ":disabled";
+        return form.valid();
+    },
+    onFinished: function (event, currentIndex)
+    {
+        alert("Submitted!");
+    }
+});
+jQuery.extend(jQuery.validator.messages, {
+    required: "vous devez remplire ce champ pour continuer le questionaire",
+    situf: "caca",
+    remote: "Please fix this field.",
+    email: "Please enter a valid email address.",
+    url: "Please enter a valid URL.",
+    date: "Please enter a valid date.",
+    dateISO: "Please enter a valid date (ISO).",
+    number: "Please enter a valid number.",
+    digits: "Please enter only digits.",
+    creditcard: "Please enter a valid credit card number.",
+    equalTo: "Please enter the same value again.",
+    accept: "Please enter a value with a valid extension.",
+    maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
+    minlength: jQuery.validator.format("Please enter at least {0} characters."),
+    rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
+    range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+    max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
+    min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
+});
+</script>
+<script type="text/javascript">
+// document.getElementById("mois").innerHTML = "Hello Dolly.";
+// document.querySelector(".mois") = "Clarisse la meilleur";
+</script>
 
 </html>
