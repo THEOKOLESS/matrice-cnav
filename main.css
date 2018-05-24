@@ -1453,3 +1453,41 @@ fieldset {
 .autow{
     width:auto !important;
 }
+#conj{
+    display: none;
+}
+
+.logo-reg {
+  padding: 0px;
+}
+.logo-reg>img {
+  height: 100%;
+  padding-bottom:  15px;
+  width: auto;
+}
+
+#agrircarrco{
+
+}
+
+#ircantec{
+
+}
+
+#cnracl{
+    display: none;
+}
+
+#ratp{
+    display: none;
+}
+#retraitecomp{
+    height:58px;
+    overflow-y: scroll;
+}
+.jsfiddle-container {
+  display: block;
+  max-width: 27rem;
+  margin-left: auto;
+  margin-right: auto;
+}

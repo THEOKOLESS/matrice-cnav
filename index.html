@@ -11,92 +11,105 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
   crossorigin="anonymous"></script> <!-- jquerry 1.12 -->
-
-<!-- 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/css/formValidation.min.css" />
-<link rel="stylesheet" href="http://formvalidation.io/vendor/jquery.steps/css/jquery.steps.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/js/formValidation.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.formvalidation/0.6.1/js/framework/bootstrap.min.js"></script>
-<script src="http://formvalidation.io/vendor/jquery.steps/js/jquery.steps.min.js"></script> -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!-- datpicker js -->
-<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css"><!-- datpicker design -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!-- datpicker js -->
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css"><!-- datpicker design -->
     <script type="text/javascript" src="index.js"></script><!-- js -->
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script><!--form VALIDATE -->
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script><!--form VALIDATE -->
     <script src="jquery.steps.min.js"></script><!--from STEPs -->
+     <script src="https://d79i1fxsrar4t.cloudfront.net/jquery.liveaddress/5.1/jquery.liveaddress.min.js"></script><!--addres -->
 
-	<title></title>
+
+	<title>Questionnaire ressource</title>
 </head>
 <body>
 	<div class="container">
 	<form id="contact" action="#">
 	    <div>
-	        <h3>Controle de votre situation familiale</h3>
+	        <h3>Information personnelle</h3>
 	        <section>
 				<p>Pour continuer le versement de votre retraite, nous devons connaître votre situation familiale actuelle et vos ressources pour la periode : <b>du <input class="inline autow" id="startdate"  type="text" name="periodStart" readonly > au <input class="inline autow" id="enddate"  type="text" name="periodEnd"  readonly></b>
 				</p>	
 	            <h2>Votre situation familiale actuelle</h2>  
-	            <label for="">précisez votre situation actuelle depuis le </label>
-              <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="famidate">*</br>
               <select class="required" id="myDropdown">
               <option disabled style="display:none" value="" selected value>Veuillez selectionner votre situation familiale</option>
-	            <option class="inline" type="radio" name="situation" value="celibataire">Célibataire
-            	<option class="inline" type="radio" name="situation" value="Veuf">Veuf(ve)
-            	<option class="inline" type="radio" name="situation" value="Divorce">Divorcé(e)
-            	<option class="inline" type="radio" name="situation" value="Sépare">Séparé(e)<br>
-            	<option class="inline" type="radio" name="situation" value="Conjoint disparu">Conjoint(e) disparu(e)
-            	<option class="inline" type="radio" name="situation" value="Remarié(e)">Remarié(e)
-            	<option class="inline" type="radio" name="situation" value="Pacsé(e)">Pacsé(e)
-            	<option class="inline" type="radio" name="situation" value="Vie en convubinage">Vie en convubinage<br>
-              </select>*</br>
-         <!--      <div class="required">
-              <input class="inline required" type="radio" name="situation" value="Célibataire">Célibataire
-              <input class="inline required" type="radio" name="situation" value="Veuf(ve)">Veuf(ve)
-              <input class="inline required" type="radio" name="situation" value="Divorcé(e)">Divorcé(e)
-              <input class="inline required" type="radio" name="situation" value="Séparé(e)">Séparé(e)<br>
-              <input class="inline required" type="radio" name="situation" value="Conjoint(e) disparu(e)">Conjoint(e) disparu(e)
-              <input class="inline required" type="radio" name="situation" value="Remarié(e)">Remarié(e)
-              <input class="inline required" type="radio" name="situation" value="Pacsé(e)">Pacsé(e)
-              <input class="inline required" type="radio" name="situation" value="Vie en convubinage">Vie en convubinage<br>
-              </div> -->
-	           <!--  <label for="password">Password *</label>
-	            <input id="password" name="password" type="text" class="required">
-	            <label for="confirm">Confirm Password *</label>
-	            <input id="confirm" name="confirm" type="text" class="required"> -->
-	            <p>(*) Obligatoire</p>
+	            <option  type="radio" name="situation" value="celibataire">Célibataire</option>
+            	<option  type="radio" name="situation" value="Veuf">Veuf(ve)</option>
+            	<option  type="radio" name="situation" value="Divorce">Divorcé(e)</option>
+            	<option  type="radio" name="situation" value="Sépare">Séparé(e)</option>
+            	<option  type="radio" name="situation" value="Conjoint-disparu">Conjoint(e) disparu(e)</option>
+            	<option  type="radio" name="situation" value="Remarie">Remarié(e)</option>
+            	<option  type="radio" name="situation" value="Pacse">Pacsé(e)</option>
+            	<option  type="radio" name="situation" value="Vie-en-convubinage">Vie en convubinage</option>
+              </select>*
+              <div>
+              <label for="situf">précisez votre situation actuelle depuis le </label>
+              <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="famidate">*</br>
+              </div>
+              <h2>Votre addresse</h2>
+             <div class="jsfiddle-container">             
+               <div class="row">
+                  <label for="street">Adresse: *</label>
+                  <input type="text" id="street" class="required">
+                </div>
+                <div class="row">
+                  <label for="city">Ville: *</label>
+                  <input type="text" id="city" class="required">
+                </div>
+                <div class="row">
+                  <label for="country">Pays: *</label>
+                  <input type="text" id="country" class="required">
+                </div>
+                <div class="row">
+                  <label for="ZIP">Code postale: *</label>
+                  <input type="text" id="ZIP" class="required">
+                </div>
+              </div>
+
+              <div id="conj">
+                <h2 id="conj-tittle">Identité de votre ex-conjoint(e), décédé(e) ou disparu(e)</h2>
+                <div class="row">
+                  <label for="conj-name">Son nom de famille (de naissance) : *</label>
+                  <input type="text" id="conj-name" required>
+                </div>
+                <div class="row">
+                  <label for="conj-usage-name">Son nom d’usage <h5>(s’il y a lieu) : </h5></label>
+                  <input type="text" id="conj-usage-name" class="required">
+                </div>
+                <div class="row">
+                  <label for="conj-prename">Ses prénoms <h5>(en 1er son prénom courant) : </h5>*</label>
+                  <input type="text" id="conj-prename" class="required">
+                </div>
+                <div class="row">
+                  <label for="conjbrth">Sa date de naissance : *</label>
+                  <input class="conjbrth inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="conjbrth">*</br>
+                </div>
+                <div class="row">
+                  <label for="conj-natio">Sa nationalité : *</label>
+                  <input type="text" id="conj-natio" class="required">
+                </div>
+                <div class="row">
+                  <label for="conj-commune">Commune de naissance : <h5>(indiquez l’arrondissement pour Paris, Lyon, Marseille)</h5> *</label>
+                  <input type="text" id="conj-commune" class="required">
+                </div>
+                <div class="row">
+                  <label for="ZIP">Code postale: *</label>
+                  <input type="text" id="ZIP" class="required">
+                </div>
+                <div class="row">
+                  <label for="country">Pays: *</label>
+                  <input type="text" id="country" class="required">
+                </div>
+                <div class="row">
+                  <label for="secu">Son n° de sécurité sociale *</label>
+                  <input type="text" id="secu" class="required">
+                </div>
+              </div>
+
+          <p>(*) Obligatoire</p>
 	        </section>
 	        <h3>Informations sur les ressources</h3>
 	        <section>
 	        	<h2>VOS RESSOURCES</h2>  
-	        	<div class="panel">
-				  <div class="panel-heading">
-				    <label for="" class="panel-title">Revenus professionnels d'activité <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
-				  </div>      
-				  <div class="panel-body">
-				  	<h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions)</h4>
-                        <div class="row bloc">
-                              <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                        </div>
-                       <h4>Revenus professionnels des non-salariés (BIC, BNC, BA...)</h4>
-                       <p>Indiquez le montant annuel retenu par l'administration fiscale.</p>                  
-                       <label for="lastdecla">Dernier exercice déclaré</label>
-                       <input type="text" id="lastdecla" name="_revenusProfessionnels_salaires_0" placeholder="€">                      
-				  </div>
-				</div>
 				<div class="panel">
 				  <div class="panel-heading">
 				    <label for="" class="panel-title">Retraite <a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
@@ -104,6 +117,9 @@
 				  <div class="panel-body">
 				  	<h4>Retraites personnelles de base</h4>
                         <div class="row bloc">
+                          <div class="logo-reg">
+                            <img src="img/LogoCNAV.png">
+                          </div>
                               <div class="col-sm">
                               	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
@@ -117,23 +133,112 @@
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
-                        <h4> Retraites personnelles complémentaires </h4>
-                        <div class="row bloc">
+                        <h4>Selectionner votre/vos retraite complementaire</h4>
+              <div id="retraitecomplet">        
+              <!-- <select class="required" id="retraitecomp" name="retraitecomp[ ]"> -->
+              <!-- <option disabled style="display:none" value="" selected value ">Retraites personnelles complémentaires</option> -->
+              <input  type="checkbox" value="cnracl" class="retcomp" id="cnraclC">CNRACL</option>
+              <input  type="checkbox" value="ratp" class="retcomp" id="ratpC">RATP</option>
+              <input  type="checkbox" value="ircantec" class="retcomp" id="ircantecC">IRCANTEC</option>
+              <input  type="checkbox" value="agrircarrco" class="retcomp" id="agricarrcoC">AGIRC et ARRCO</option>
+              <!-- </select> -->
+              </div>
+                        <div class="row bloc" id="agrircarrco">
+                          <div class="logo-reg">
+                            <img src="img/logo.png">
+                          </div>
                               <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
+                                <label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
+                                <label for="secmth" class="mois"></label>
+                                    <input type="text" id="secmth" name="" placeholder="€">
+                              </div>
+                              <div class="col-sm">
+                                <label for="thrmth" class="mois"></label>
+                                <input type="text" id="thrmth" name="" placeholder="€">
+                              </div>
+                        </div>
+                          <div class="row bloc" id="ircantec">
+                          <div class="logo-reg">
+                            <img src="img/logo_0.png">
+                          </div>
+                              <div class="col-sm">
+                                <label for="fstmth" class="mois"></label>
+                                    <input type="text" id="fstmth" placeholder="€">
+                              </div>
+                              <div class="col-sm">
+                                <label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
+                                <label for="thrmth" class="mois"></label>
+                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
+                              </div>
+                        </div>
+                          <div class="row bloc" id="cnracl">
+                          <div class="logo-reg">
+                            <img src="img/Logo_CNRACL.png">
+                          </div>
+                              <div class="col-sm">
+                                <label for="fstmth" class="mois"></label>
+                                    <input type="text" id="fstmth" placeholder="€">
+                              </div>
+                              <div class="col-sm">
+                                <label for="secmth" class="mois"></label>
+                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
+                              </div>
+                              <div class="col-sm">
+                                <label for="thrmth" class="mois"></label>
+                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
+                              </div>
+                        </div>
+                          <div class="row bloc" id="ratp">
+                          <div class="logo-reg">
+                            <img src="img/crp-ratp-logo.png">
+                          </div>
+                              <div class="col-sm">
+                                <label for="fstmth" class="mois"></label>
+                                    <input type="text" id="fstmth" placeholder="€">
+                              </div>
+                              <div class="col-sm">
+                                <label for="secmth" class="mois"></label>
+                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
+                              </div>
+                              <div class="col-sm">
+                                <label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
 				  </div>
 				</div>
+        <div class="panel">
+          <div class="panel-heading">
+            <label for="" class="panel-title">Revenus professionnels d'activité <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
+          </div>      
+          <div class="panel-body">
+            <h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions)</h4>
+                        <div class="row bloc">
+                              <div class="col-sm">
+                                <label for="fstmth" class="mois"></label>
+                                    <input type="text" id="fstmth" placeholder="€">
+                              </div>
+                              <div class="col-sm">
+                                <label for="secmth" class="mois"></label>
+                                    <input type="text" id="secmth" placeholder="€">
+                              </div>
+                              <div class="col-sm">
+                                <label for="thrmth" class="mois"></label>
+                                <input type="text" id="thrmth" placeholder="€">
+                              </div>
+                        </div>
+                       <h4>Revenus professionnels des non-salariés (BIC, BNC, BA...)</h4>
+                       <p>Indiquez le montant annuel retenu par l'administration fiscale.</p>                  
+                       <label for="lastdecla">Dernier exercice déclaré</label>
+                       <input type="text" id="lastdecla" name="_revenusProfessionnels_salaires_0" placeholder="€">                      
+          </div>
+        </div>
 				<div class="panel">
 				  <div class="panel-heading">
 				    <label for="" class="panel-title">Revenus de remplacement (Allocation chômage, Indemnités journalières) <a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
