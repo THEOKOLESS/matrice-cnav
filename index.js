@@ -123,16 +123,14 @@ $(document).ready(function(){
 
 
 
-          $(function writemth() {
-
+          function writemth() {
             $('.bloc').each(function(){
-
-               eachInMois($(this).find('.mois'))
+               eachInMois($(this).find('.mois'));
             });
-            
+         
 
-          });
-
+          };
+          writemth();
           function  eachInMois(currBloc) {
 
             var date    = new Date($('#startdate').val());
@@ -141,7 +139,7 @@ $(document).ready(function(){
             var year    = date.getFullYear()
             var index   = 0;
             var output  = null;
-            var month2  = month2 = month;
+            // var month2  = month2 = month;
             
             currBloc.each(function(){
 
@@ -151,8 +149,11 @@ $(document).ready(function(){
                     month -= 12; 
                 }
                 output  = moisfr[month] + ' ' + year;
+                if($(this)[0].textContent == ""){
                 $(this).append(output);
-                index++;
+              }
+                     // console.log($(this)[0].textContent);
+                // index++;
                 month++;
             });
         }
@@ -211,16 +212,45 @@ $(document).ready(function(){
 
 
     $(document).on('change', '.retcomp' , function(){
+   
+
    if ($(this).is(':checked')) {
-     // getChecked((this).id);
-     getChecked(document.getElementById((this).id));
-      // console.log("tototototo");
-      // $('#cnracl').show(); 
-   } else {
-      // $('#cnracl').hide();
-      // (this).id.show();
+    if((this).id == "agricarrcoC"){
+    $("#retraitecomplet").after("<div class='row bloc' id='agrircarrco'><div class='logo-reg'> <img src='img/logo.png'></div><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+       writemth();            
+      
+     
+   } else if ((this).id == "cnraclC"){
+       $("#retraitecomplet").after("<div class='row bloc' id='cnracl'><div class='logo-reg'> <img src='img/Logo_CNRACL.png'></div><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+       writemth();  
+
     }
-  
+     else if ((this).id == "ratpC"){
+      console.log((this).id)
+
+       $("#retraitecomplet").after("<div class='row bloc' id='ratp'><div class='logo-reg'> <img src='img/crp-ratp-logo.png'></div><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+       writemth();  
+    }
+     else if ((this).id == "ircantecC"){
+       $("#retraitecomplet").after("<div class='row bloc' id='ircantec'><div class='logo-reg'> <img src='img/logo_0.png'></div><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+       writemth();  
+
+    }
+
+  } else if ($(this).not(':checked')){
+    if((this).id == "agricarrcoC"){
+      document.getElementById("agrircarrco").outerHTML = "";
+    }
+    if((this).id == "cnraclC"){
+      document.getElementById("cnracl").outerHTML = "";
+    }
+    if((this).id == "ratpC"){
+      document.getElementById("ratp").outerHTML = "";
+    }
+    if((this).id == "ircantecC"){
+      document.getElementById("ircantec").outerHTML = "";
+    }
+  }
     // $('#cnracl').slideToggle();
         });
 
@@ -234,4 +264,5 @@ function getValue(param) {
     }
     
 });
+
 
