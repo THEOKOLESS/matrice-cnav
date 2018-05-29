@@ -1438,6 +1438,22 @@ fieldset {
     text-decoration:none;
     text-shadow:0px 0px 0px #2f6627;
 }
+
+.myButton2 {
+    background-color: red;
+    -moz-border-radius:42px;
+    -webkit-border-radius:42px;
+    border-radius:42px;
+    border:2px solid #18ab29;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:22px;
+    padding:0px 10px;
+    text-decoration:none;
+    text-shadow:0px 0px 0px #2f6627;
+}
 .myButton:hover {
     background-color:#5cbf2a;
 }
@@ -1477,3 +1493,87 @@ fieldset {
   margin-left: auto;
   margin-right: auto;
 }
+
+.btn {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.biens{
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+}
+#bibibi{
+    display: none;
+}
+
+#mobi{
+    display: none;
+}
+
+#mobibi{
+    display: none;
+}
+.btn-navbar {
+    display: none;
+    float: right;
+    padding: 12px 15px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#nav{
+    display: none;
+    width: 100%;
+    height: auto;
+    padding-bottom: 0px;
+}
+.icon-bar {
+    display: block;
+    cursor: pointer;
+/*    width: 18px;
+    height: 10px;*/
+    background-color: #CECECE;
+    -webkit-border-radius: 1px; /* Ce sont des préfixes, pour que les navigateurs */
+       -moz-border-radius: 1px; /* prennent en charge les nouvelles propriétés. */
+            border-radius: 1px;
+}
+
+.icon-bar + .icon-bar { /* Le + permet de sélectionner les éléments qui suivent */
+    margin-top: 3px;
+}
+/*contentOther{
+    display: none;
+}*/
+.myButton3 {
+   border-top: 1px solid #96d1f8;
+   background: #8ed665;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e9c57), to(#8ed665));
+   background: -webkit-linear-gradient(top, #3e9c57, #8ed665);
+   background: -moz-linear-gradient(top, #3e9c57, #8ed665);
+   background: -ms-linear-gradient(top, #3e9c57, #8ed665);
+   background: -o-linear-gradient(top, #3e9c57, #8ed665);
+   padding: 7px 14px;
+   -webkit-border-radius: 9px;
+   -moz-border-radius: 9px;
+   border-radius: 9px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 20px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.myButton3:hover {
+   border-top-color: #4e7828;
+   background: #4e7828;
+   color: #ccc;
+   }
+.myButton3:active {
+   border-top-color: #1e5c1b;
+   background: #1e5c1b;
+   }

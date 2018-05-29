@@ -183,7 +183,7 @@ $(document).ready(function(){
         {
             $('#conj').hide();
         }
-        else if (status == "Veuf" || status == "Divorce" || status == "Sépare" || status == "Conjoint disparu")
+        else if (status == "Veuf" || status == "Divorce" || status == "Sépare" || status == "Conjoint-disparu")
         {
              $('#conj').show();
              document.getElementById("conj-tittle").innerHTML = "Identité de votre ex-conjoint(e), décédé(e) ou disparu(e)"; 
@@ -195,6 +195,22 @@ $(document).ready(function(){
         }
         });
 
+      $(document).on('change', '#myDropdown' , function(){
+
+          var status = $('#myDropdown').val();
+          if (status == "celibataire" || status == "Veuf" || status == "Divorce" || status == "Sépare" || status == "Conjoint-disparu")
+        {
+            document.getElementById("alone-title").innerHTML = "VOS BIENS, EN FRANCE ET/OU Á L'ÉTRANGER"; 
+            document.getElementById("alone-sub").innerHTML = "Avez-vous des biens <b>immobiliers</b> en france et/ou á l'étranger ?"; 
+            document.getElementById("alone-mob").innerHTML = "Avez-vous des biens <b>mobiliers</b> en france et/ou á l'étranger ?"; 
+        }
+        else
+        {
+             document.getElementById("alone-title").innerHTML = "VOS BIENS (ET EVENTUELLEMENT CEUX AVEC VOTRE MÉNAGE), EN FRANCE ET/OU Á L'ÉTRANGER"; 
+             document.getElementById("alone-sub").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>immobiliers</b> en france et/ou á l'étranger ?";
+             document.getElementById("alone-mob").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>mobiliers</b> en france et/ou á l'étranger ?";  
+        }
+        });
 
 //         $("#cnracl").click(function() {
 //     var checked=this.checked;
@@ -226,8 +242,6 @@ $(document).ready(function(){
 
     }
      else if ((this).id == "ratpC"){
-      console.log((this).id)
-
        $("#retraitecomplet").after("<div class='row bloc' id='ratp'><div class='logo-reg'> <img src='img/crp-ratp-logo.png'></div><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
        writemth();  
     }
@@ -254,15 +268,122 @@ $(document).ready(function(){
     // $('#cnracl').slideToggle();
         });
 
-    function getChecked(param){
-      param.show();
+$('#contact input[type=radio]').on('change', function() {
+   var input = $('input[name=work_abroad]:checked', '#contact').val();
+   var input2 = $('input[name=mobi]:checked', '#contact').val();
+   if(input == "y"){
+     $('#bibibi').show();
+     $('#mobi').show();
+   }
+    else if (input == "n"){
+      $('#bibibi').hide();
+      $('#mobi').show();
     }
+    if (input2 == "ye"){
+        $('#mobibi').show();
+    }
+    else if (input2 == "no"){
+      $('#mobibi').show();
+    }
+});
+// $(document).on('change', '.retcomp' , function(){   
 
+// function getRadioCheckedValue(radio_name)
+// {
+//    var oRadio = document.forms[0].elements[radio_name];
+ 
+//    for(var i = 0; i < oRadio.length; i++)
+//    {
+//       if(oRadio[i].checked)
+//       {
+//          return oRadio[i].value;
+//       }
+//    }
+ 
+//    return '';
+// }
+// });
+
+
+        $(function(){
+        $('#btnMenu').on('click touch', function(e){
+          e.preventDefault();
+            $('#nav').slideToggle();
+            $('#PalimC').hide();
+            $('#PinvaC').hide();
+        });
+    });
+
+        $(document).on('click', '.icon-bar', function(e){
+          e.preventDefault();
+          var link = $(this);
+       // if (link.hasClass('vis')){
+           // link.hide();
+           if((this).id == "Palim"){
+            $('#PalimC').show();
+          }
+          else if ((this).id == "Pinva"){
+            $('#PinvaC').show();
+          }
+          else if((this).id == "autre"){
+            $("#nav").after("<div class='row bloc' id='PalimC'><h4>preciser votre revenue <input class='inline autow' id='enddate' type='text'> <input class='myButton2 inline' id='cancel' type='button' value='x'></h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+            writemth()
+          }
+
+        // }
+        // else
+        // {
+
+        // }
+          // $("#nav").after("<div class='row bloc' id='PalimC'><h4>Pension alimentaire (hors aide alimentaire obligatoire) <input class='myButton2 inline' id='cancel' type='button' value='x'></h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+          // writemth()
+          // $( ".myButton2" ).click(function($link) {
+          //   link.show();
+          // });
+        
+          // else if ((this).id == "Pinva"){
+          //   $("#nav").after("<div class='row bloc' id='PinvaC'><h4>Pension d'invalidité <input class='myButton2 inline' id='cancel' type='button' value='x'></h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+          // writemth()
+          // $( ".myButton2" ).click(function($link) {
+          //   link.show();
+          // });
+          // }
+
+         // }
+         // link.toggleClass('vis');
+        });
+
+
+
+        // $('#Palim').click(function(){
+
+        //   $('#PalimC').show();
+
+        // });
+
+
+         $(document).on('click', '.myButton2', function(e){
+          e.preventDefault();
+          $(this).parent().parent().hide();  /* remove panel */
+          console.log($(this).parent().parent());
+          // console.log($(this).parent().parent().id);  /* remove panel */
+
+        });
 function getValue(param) {
       var value =  param       // je ferais ma requete
       return value;
     }
-    
+
+    $(document).on('click', '.biens', function(e){
+          e.preventDefault();
+          console.log($(this));
+          $("#bibi").after("<div class='row'><h4>Bien immobilier supplementaire a declarer <input class='myButton2 inline' id='cancel' type='button' value='x'></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label><input type='text' id='nature' placeholder='nature du bien'></div><div class='col-sm'><label for='adresse'>Adresse du bien déclaré</label><input type='text' id='adresse' placeholder='Adresse complete du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'></div></div>")
+      });
+    $(document).on('click', '.biens-mobi', function(e){
+          e.preventDefault();
+          console.log($(this));
+          $("#mobibibi").after("<div class='row'><h4>Bien mobilier supplementaire a declarer <input class='myButton2 inline' id='cancel' type='button' value='x'></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label><input type='text' id='nature' placeholder='nature du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'></div></div>")
+      });
 });
 
 

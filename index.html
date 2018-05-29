@@ -135,8 +135,7 @@
                         </div>
                         <h4>Selectionner votre/vos retraite complementaire</h4>
               <div id="retraitecomplet">        
-              <!-- <select class="required" id="retraitecomp" name="retraitecomp[ ]"> -->
-              <!-- <option disabled style="display:none" value="" selected value ">Retraites personnelles complémentaires</option> -->
+
               <input  type="checkbox" value="cnracl" class="retcomp" id="cnraclC">CNRACL</option>
        
               <input  type="checkbox" value="ratp" class="retcomp" id="ratpC">RATP</option>
@@ -145,28 +144,8 @@
               
               <input  type="checkbox" value="agrircarrco" class="retcomp" id="agricarrcoC">AGIRC et ARRCO</option>
   
-              <!-- </select> -->
-              </div>
-            
-                        <!-- <div class="row bloc" id="agrircarrco">
-                          <div class="logo-reg">
-                            <img src="img/logo.png">
-                          </div>
-                              <div class="col-sm">
-                                <label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                                <label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                                <label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="" placeholder="€">
-                              </div>
-                        </div> -->
-                          
-                         
+  
+              </div>                         
 				  </div>
 				</div>
         <div class="panel">
@@ -237,7 +216,52 @@
 				    <label for="" class="panel-title">Autres revenus (Pension alimentaire, Pension d’invalidité, Rente personnelle accident du travail, Prestations compensatoires)<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
 				  </div>      
 				  <div class="panel-body">
-				  	<h4>Pension alimentaire (hors aide alimentaire obligatoire)</h4>
+                                  <!-- Dans le header -->
+                      <a class="btn myButton3" id="btnMenu"> 
+                        Cliquez ici pour selectionner s'il y a lieu, vos autres revenue  </a>
+
+                        <div id="nav">
+                          <span class="icon-bar vis" id="Palim">Pension alimentaire (hors aide alimentaire obligatoire)</span>
+                            <div class='row bloc contentOther' id='PalimC'> 
+                              <h4>Pension alimentaire (hors aide alimentaire obligatoire) 
+                              <input class='myButton2 inline' id='cancel' type='button' value='x'></h4>
+                              <div class='col-sm'>
+                                <label for='fstmth' class='mois'></label>
+                                <input type='text' id='fstmth' placeholder='€'>
+                              </div>
+                                <div class='col-sm'>
+                                  <label for='secmth' class='mois'></label>
+                                  <input type='text' id='secmth' placeholder='€'>
+                                </div>
+                                <div class='col-sm'>
+                                  <label for='thrmth' class='mois'></label>
+                                  <input type='text' id='thrmth' placeholder='€'>
+                                </div>
+                            </div>
+
+                          <span class="icon-bar vis" id="Pinva">Pension d'invalidité</span>
+                              <div class='row bloc' id='PinvaC'>
+                                <h4>Pension d'invalidité <input class='myButton2 inline' id='cancel' type='button' value='x'></h4>
+                                <div class='col-sm'>
+                                  <label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'>
+                                </div>
+                                <div class='col-sm'>
+                                  <label for='secmth' class='mois'></label>
+                                  <input type='text' id='secmth' placeholder='€'>
+                                </div>
+                                <div class='col-sm'>
+                                  <label for='thrmth' class='mois'></label>
+                                  <input type='text' id='thrmth' placeholder='€'>
+                                </div>
+                              </div>
+         
+                          <span class="icon-bar vis" id="autre">Autre revenue</span>
+                        </div>
+                    
+                      <!-- J'ai aussi ajouté un id à la balise <nav> -->
+
+				  <!-- 	<h4>Pension alimentaire (hors aide alimentaire obligatoire)<input class="myButton2 inline" id="cancel" type="button" value="x"></h4>
+
                         <div class="row bloc">
                               <div class="col-sm">
                               	<label for="fstmth" class="mois"></label>
@@ -251,8 +275,8 @@
                               	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
-                        </div>
-                        <h4> Pension d'invalidité </h4>
+                        </div> -->
+                        <!-- <h4> Pension d'invalidité </h4>
                         <div class="row bloc">
                               <div class="col-sm">
                               	<label for="fstmth" class="mois"></label>
@@ -266,8 +290,8 @@
                               	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
-                        </div>
-                        <h4> Prestations compensatoires </h4>
+                        </div> -->
+                        <!-- <h4> Prestations compensatoires </h4>
                         <div class="row bloc">
                               <div class="col-sm">
                               	<label for="fstmth" class="mois"></label>
@@ -296,7 +320,7 @@
                               	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
-                        </div>
+                        </div> -->
 				  </div>
 				</div>
 				<div id="notAlone">
@@ -471,54 +495,69 @@
 				  </div>
 				</div>
 			</div>
-
-	      <!--       <label for="name">First name *</label>
-	            <input id="name" name="name" type="text" class="required">
-	            <label for="surname">Last name *</label>
-	            <input id="surname" name="surname" type="text" class="required">
-	            <label for="email">Email</label>
-	            <input id="email" name="email" type="text">
-	            <label for="address">Address</label>
-	            <input id="address" name="address" type="text"> -->
-
-	            <p>(*) Obligatoire</p>
-
 	        </section>
 	        <h3>Vos biens</h3>
 	        <section>
-	        	<h2>VOS BIENS (ET EVENTUELLEMENT CEUX AVEC VOTRE MÉNAGE), EN FRANCE ET/OU Á L'ÉTRANGER</h2>
-	        	<h4>Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens mobiliers et/ou immobiliers en france et/ou á l'étranger ?</h4>
-	        	<input class="inline" type="radio" name="bool" value="yes">Oui</br>
-            	<input class="inline" type="radio" name="bool" value="no">Non
+	        	<h2 id="alone-title">VOS BIENS (ET EVENTUELLEMENT CEUX AVEC VOTRE MÉNAGE), EN FRANCE ET/OU Á L'ÉTRANGER</h2>
+	        	<p id="alone-sub">Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens mobiliers et/ou immobiliers en france et/ou á l'étranger ?</p>
+
+              <input type="radio" class="inline" id="work_abroad_y" name="work_abroad" value="y" /><label for="work_abroad_y">Oui</label>
+              <input type="radio" class="inline" id="work_abroad_n" name="work_abroad" value="n" /><label for="work_abroad_n">Non</label>
+              <div class="panel" id="bibibi">
+          <div class="panel-heading">
+            <label for="" class="panel-title">Vos Biens immobiliers <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
+          </div>      
+          <div class="panel-body">
+            <h4>(précisez s’il y a lieu indivis, nue-propriété ou usufruit) : maisons, appartements, terrains, commerces, etc.
+à l’exclusion de votre habitation principale et des bâtiments d’exploitation agricole</h4>
+                        <div class="row">
+                              <div class="col-sm">
+                                <label for="nature">Précisez la nature du bien déclaré</label>
+                                    <input type="text" id="nature" placeholder="nature du bien">
+                              </div>
+                              <div class="col-sm">
+                                <label for="adresse">Adresse du bien déclaré</label>
+                                    <input type="text" id="adresse" placeholder="Rentrer l'adresse complete">
+                              </div>
+                              <div class="col-sm">
+                                <label for="valeur">Valeur actuelle</label>
+                                <input type="text" id="valeur" placeholder="€">
+                              </div>
+                        </div>
+                       <p class="biens myButton3" id="bibi">Cliquez ici pour declarer un autre bien immobilier</p>
+                                           
+          </div>
+        </div>
+            <div id="mobi">
+              <p id="alone-mob">Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens mobiliers et/ou immobiliers en france et/ou á l'étranger ?</p>
+              <input type="radio" class="inline" id="mobiY" name="mobi" value="ye" /><label for="mobiY">Oui</label>
+              <input type="radio" class="inline" id="mobiN" name="mobi" value="no" /><label for="mobiN">Non</label>
+            </div>
+             <div class="panel" id="mobibi">
+          <div class="panel-heading">
+            <label for="" class="panel-title">Vos Biens mobilier <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
+          </div>      
+          <div class="panel-body">
+            <h4>titres, actions, obligations, capitaux d’assurance vie/décès, etc.</h4>
+                        <div class="row">
+                              <div class="col-sm">
+                                <label for="nature">Précisez la nature du bien déclaré</label>
+                                    <input type="text" id="nature" placeholder="nature du bien">
+                              </div>
+                              <div class="col-sm">
+                                <label for="valeur">Valeur actuelle</label>
+                                <input type="text" id="valeur" placeholder="€">
+                              </div>
+                        </div>
+                       <p class="biens-mobi myButton3" id="mobibibi">Cliquez ici pour declarer un autre bien mobilier</p>
+                                           
+          </div>
+        </div>
+
             	<h4>(SI NON)Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens mobiliers et/ou immobiliers en france et/ou á l'étranger DONT VOUS AVEZ FAIS LA DONNATION DEPUIS MOINS DE 10 ANS?</h4>
             	<input class="inline" type="radio" name="boole" value="yes">Oui</br>
             	<input class="inline" type="radio" name="boole" value="no">Non
-            	<div class="panel">
-				  <div class="panel-heading">
-				    <label for="" class="panel-title">Biens immobiliers <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
-				  </div>      
-				  <div class="panel-body">
-				  	<h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions)</h4>
-                        <div class="row">
-                              <div class="col-sm">
-                              	<label for="fstmth"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                        </div>
-                       <h4>Revenus professionnels des non-salariés (BIC, BNC, BA...)</h4>
-                       <p>Indiquez le montant annuel retenu par l'administration fiscale.</p>                  
-                       <label for="lastdecla">Dernier exercice déclaré</label>
-                       <input type="text" id="lastdecla" name="_revenusProfessionnels_salaires_0" placeholder="€">                      
-				  </div>
-				</div>
+            	
 	        </section>
 	        <h3>Finish</h3>
 	        <section>
