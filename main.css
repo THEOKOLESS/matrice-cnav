@@ -1515,12 +1515,33 @@ fieldset {
 #mobibi{
     display: none;
 }
+
+#locateprice{
+    display: none;
+}
+
+#locate{
+    display: none;
+}
+#donnationdiv{
+    display: none;
+}
+/**/
+#bi-donnate{
+    display: none;
+}
 .btn-navbar {
     display: none;
     float: right;
     padding: 12px 15px;
     margin-right: 5px;
     margin-left: 5px;
+}
+#bi-donnate-mobi{
+    display: none;
+}
+#donnationdiv-mobi{
+    display: none;
 }
 
 #nav{

@@ -63,6 +63,10 @@
                   <label for="ZIP">Code postale: *</label>
                   <input type="text" id="ZIP" class="required">
                 </div>
+                <div class="row">
+                  <label for="time">depuis quand habitez vous ici ? *</label>
+                  <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="time">
+                </div>
               </div>
 
               <div id="conj">
@@ -148,7 +152,7 @@
               </div>                         
 				  </div>
 				</div>
-        <div class="panel">
+        <!-- <div class="panel">
           <div class="panel-heading">
             <label for="" class="panel-title">Revenus professionnels d'activité <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
           </div>      
@@ -173,8 +177,8 @@
                        <label for="lastdecla">Dernier exercice déclaré</label>
                        <input type="text" id="lastdecla" name="_revenusProfessionnels_salaires_0" placeholder="€">                      
           </div>
-        </div>
-				<div class="panel">
+        </div> -->
+		<!-- 		<div class="panel">
 				  <div class="panel-heading">
 				    <label for="" class="panel-title">Revenus de remplacement (Allocation chômage, Indemnités journalières) <a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
 				  </div>      
@@ -210,10 +214,10 @@
                               </div>
                         </div>
 				  </div>
-				</div>
+				</div> -->
 				<div class="panel">
 				  <div class="panel-heading">
-				    <label for="" class="panel-title">Autres revenus (Pension alimentaire, Pension d’invalidité, Rente personnelle accident du travail, Prestations compensatoires)<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
+				    <label for="" class="panel-title">Autres revenus <!-- (Pension alimentaire, Pension d’invalidité, Rente personnelle accident du travail, Prestations compensatoires) --><a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
 				  </div>      
 				  <div class="panel-body">
                                   <!-- Dans le header -->
@@ -525,7 +529,18 @@
                               </div>
                         </div>
                        <p class="biens myButton3" id="bibi">Cliquez ici pour declarer un autre bien immobilier</p>
-                                           
+                       <p id="alone-home">Habitez-vous la maison dont vous ou votre conjoint actuel, concubin, partenaire PACS êtes propriétaire ?</p>
+                        <input type="radio" class="inline" id="homeY" name="home" value="ye" /><label for="homeY">Oui</label> 
+                        <input type="radio" class="inline" id="homeN" name="home" value="no" /><label for="homeN">Non</label>
+                      <p id="locate">Une partie de cette maison est-elle louée ?
+                        <input type="radio" class="inline" id="home-lY" name="home-l" value="ye" /><label for="home-lY">Oui</label>
+                        <input type="radio" class="inline" id="home-lN" name="home-l" value="no" /><label for="home-lN">Non</label></p>
+                     <span id="locateprice"> valeur actuelle de la partie louée :    
+                      <div class="col-sm">
+                                <label for="thrmth" class="mois"></label>
+                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
+                      </div>
+                    </span>
           </div>
         </div>
             <div id="mobi">
@@ -554,14 +569,96 @@
           </div>
         </div>
 
-            	<h4>(SI NON)Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens mobiliers et/ou immobiliers en france et/ou á l'étranger DONT VOUS AVEZ FAIS LA DONNATION DEPUIS MOINS DE 10 ANS?</h4>
-            	<input class="inline" type="radio" name="boole" value="yes">Oui</br>
-            	<input class="inline" type="radio" name="boole" value="no">Non
-            	
+            <div id=donnationdiv>
+            	<p id="alone-d-immo">Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens mobiliers et/ou immobiliers en france et/ou á l'étranger DONT VOUS AVEZ FAIS LA DONNATION DEPUIS MOINS DE 10 ANS?</p>
+            	<input type="radio" class="inline" id="donaY" name="donnation" value="ye" /><label for="donaY">Oui</label>
+              <input type="radio" class="inline" id="donaN" name="donnation" value="no" /><label for="donaN">Non</label>
+            </div>
+          <div class="panel" id="bi-donnate">
+          <div class="panel-heading">
+            <label for="" class="panel-title">Biens immobiliers dont vous avez fais la donnation depuis moins de 10ans<a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
+          </div>      
+          <div class="panel-body">
+            <h4>(à l’exclusion de votre habitation principale et des bâtiments d’exploitation agricole)</h4>
+            <div id="alone-donnate-imo">
+            <p>Qui est le donateur ?</p>
+              <input type="radio" class="inline" id="you" name="who" value="ye" /><label for="you">vous-même</label>
+              <input type="radio" class="inline" id="conjoin" name="who" value="no" /><label for="conjoin">votre conjoint actuel, concubin, partenaire PACS</label>
+              <input type="radio" class="inline" id="both" name="who" value="no" /><label for="both">vous et votre conjoint actuel</label>
+            </div>
+                        <div class="row">
+                              <div class="col-sm">
+                                <label for="nature">Précisez la nature du bien déclaré</label>
+                                    <input type="text" id="nature" placeholder="nature du bien">
+                              </div>
+                              <div class="col-sm">
+                                <label for="adresse">Adresse du bien déclaré</label>
+                                    <input type="text" id="adresse" placeholder="Rentrer l'adresse complete">
+                              </div>
+                              <div class="col-sm">
+                                <label for="valeur">Valeur actuelle</label>
+                                <input type="text" id="valeur" placeholder="€">
+                              </div>
+                        </div>
+                        <p>Date de l’acte de donation <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="immo-donna-date">
+                           <div class="col-sm">
+                                <label for="thrmth" class="parent">Lien de parenté avec le bénéficiaire de la donation :</label>
+                                <input type="text" id="thrmth"  placeholder="Lien de parenté">
+                          </div>
+                       <p class="biens-donnate myButton3" id="bibi-do">Cliquez ici pour ajouter une donnation d'un autre bien immobilier</p>    
+          </div>
+        </div>
+         <div id=donnationdiv-mobi>
+              <p id="alone-d-mobi">Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens mobiliers et/ou immobiliers en france et/ou á l'étranger DONT VOUS AVEZ FAIS LA DONNATION DEPUIS MOINS DE 10 ANS?</p>
+              <input type="radio" class="inline" id="dona-mobiY" name="donnation-mobi" value="ye" /><label for="dona-mobiY">Oui</label>
+              <input type="radio" class="inline" id="dona-mobiN" name="donnation-mobi" value="no" /><label for="dona-mobiN">Non</label>
+         </div>
+          <div class="panel" id="bi-donnate-mobi">
+          <div class="panel-heading">
+            <label for="" class="panel-title">Biens mobiliers dont vous avez fais la donnation depuis moins de 10ans<a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
+          </div>      
+          <div class="panel-body">
+            <div id="alone-donnate-mobi">
+            <p>Qui est le donateur ?</p>
+              <input type="radio" class="inline" id="you" name="who" value="ye" /><label for="you">vous-même</label>
+              <input type="radio" class="inline" id="conjoin" name="who" value="no" /><label for="conjoin">votre conjoint actuel, concubin, partenaire PACS</label>
+              <input type="radio" class="inline" id="both" name="who" value="no" /><label for="both">vous et votre conjoint actuel</label>
+            </div>
+                         <div class="row">
+                              <div class="col-sm">
+                                <label for="nature">Précisez la nature du bien déclaré</label>
+                                    <input type="text" id="nature" placeholder="nature du bien">
+                              </div>
+                              <div class="col-sm">
+                                <label for="valeur">Valeur actuelle</label>
+                                <input type="text" id="valeur" placeholder="€">
+                              </div>
+                        </div>
+                        <p>Date de l’acte de donation <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="mobi-donna-date">
+                           <div class="col-sm">
+                                <label for="thrmth" class="parent">Lien de parenté avec le bénéficiaire de la donation :</label>
+                                <input type="text" id="thrmth"  placeholder="Lien de parenté">
+                          </div>
+                       <p class="biens-donnate-mobi myButton3" id="bibi-do-mobi">Cliquez ici pour ajouter une donnation d'un autre bien immobilier</p>    
+          </div>
+        </div>
 	        </section>
 	        <h3>Finish</h3>
 	        <section>
-	            <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
+            <p><b>J’atteste sur l’honneur l’exactitude des renseignements portés sur cette déclaration.
+                Je m’engage :
+                - à faciliter toute enquête pour les vérifier,
+                - à vous faire connaître toute modification de ma situation.</b>
+                Je reconnais être informé(e) qu’une vérification de l’exactitude de mes déclarations et de l’authenticité des documents
+                produits à l’appui de ma demande, peut être effectuée dans le cadre de l’exercice du droit de communication prévu par
+                les articles L.114-19 à L.114-21 du code de la sécurité sociale.</p>
+                <p id="impo">Veuillez nous envoyer votre dernier avis d’impôt sur le revenu et, si vous vivez en concubinage,
+                  une photocopie du dernier avis d’impôt de votre concubin.
+                </p> 
+                <p> <input type="file" name="pic" accept="image/*">
+                    <input type="submit">
+                </p>
+	            <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">Je signe électroniquement pour les 2 partis</label>
 	        </section>
 	    </div>
 	</form>
