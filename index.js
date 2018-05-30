@@ -60,6 +60,15 @@ $( function() {
             dateFormat: 'dd/mm/yy' 
     });
     });
+ $( function() {
+        $( "#since" ).datepicker({
+            changeMonth: true,
+            changeYear: true,
+             minDate: "-100 Y",  
+            maxDate: new Date(),
+            dateFormat: 'dd/mm/yy' 
+    });
+    });
 
     $( function() {
         $( "#famidate" ).datepicker({
@@ -214,8 +223,8 @@ $( function() {
         }
         else if (status == "Veuf" || status == "Divorce" || status == "Sépare" || status == "Conjoint-disparu")
         {
-             $('#conj').show();
-             document.getElementById("conj-tittle").innerHTML = "Identité de votre ex-conjoint(e), décédé(e) ou disparu(e)"; 
+             $('#conj').hide();
+             // document.getElementById("conj-tittle").innerHTML = "Identité de votre ex-conjoint(e), décédé(e) ou disparu(e)"; 
         }
         else
         {
@@ -254,8 +263,43 @@ $( function() {
               document.getElementById("impo").innerHTML = "Veuillez nous envoyer votre dernier avis d’impôt sur le revenu ainsi que le dernier avis d’impôt de votre concubin.";  
               document.getElementById("acceptTerms").innerHTML = "je signe eletroniquement pour les deux partis.";  
         }
+
+          if (status == "marie" || status == "Remarie"){
+               document.getElementById("changement-fam").innerHTML = "<b>Veuillez joindre ci-dessous une copie de votre livret famille</b>";
+               $("#up-liv").show(); 
+             }
+             else if ((status == "Pacse" || status == "Vie-en-convubinage")){
+              document.getElementById("changement-fam").innerHTML = "<b>Veuillez joindre ci-dessous une attestation d’enregistrement d’un pacte civil de solidarité</b>";
+              $("#up-liv").show(); 
+             }
+              else if ((status == "Divorce" || status == "Sépare")){
+                document.getElementById("changement-fam").innerHTML = "<b>Veuillez joindre ci-dessous un jugement de séparation</b>";
+                $("#up-liv").show(); 
+              }
+              else{
+                $("#up-liv").hide(); 
+              }
         });
 
+
+        // $(document).on('change', '#myDropdown' , function(){
+        //   var status = $('#myDropdown').val();
+        //      if (status == "marie" || status == "Remarie"){
+        //        document.getElementById("changement-fam").innerHTML = "Veuillez joindre ci-dessous une copie de votre livret famille";
+        //        $("#up-liv").show(); 
+        //      }
+        //      else if ((status == "Pacse" || status == "Vie-en-convubinage")){
+        //       document.getElementById("changement-fam").innerHTML = "Veuillez joindre ci-dessous une attestation d’enregistrement d’un pacte civil de solidarité";
+        //       $("#up-liv").show(); 
+        //      }
+        //       else if ((status == "Divorce" || status == "Sépare")){
+        //         document.getElementById("changement-fam").innerHTML = "Veuillez joindre ci-dessous un jugement de séparation";
+        //         $("#up-liv").show(); 
+        //       }
+        //       else{
+        //         $("#up-liv").hide(); 
+        //       }
+        // });
 //         $("#cnracl").click(function() {
 //     var checked=this.checked;
 //     if(checked==true)
@@ -276,21 +320,21 @@ $( function() {
 
    if ($(this).is(':checked')) {
     if((this).id == "agricarrcoC"){
-    $("#retraitecomplet").after("<div class='row bloc' id='agrircarrco'><div class='logo-reg'> <img src='img/logo.png'></div><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+    $("#retraitecomplet").after("<div class='row bloc' id='agrircarrco'><div class='logo-reg col-md-auto'> <img src='img/logo.png'></div><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
        writemth();            
       
      
    } else if ((this).id == "cnraclC"){
-       $("#retraitecomplet").after("<div class='row bloc' id='cnracl'><div class='logo-reg'> <img src='img/Logo_CNRACL.png'></div><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+       $("#retraitecomplet").after("<div class='row bloc' id='cnracl'><div class='logo-reg col-md-auto'> <img src='img/Logo_CNRACL.png'></div><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
        writemth();  
 
     }
      else if ((this).id == "ratpC"){
-       $("#retraitecomplet").after("<div class='row bloc' id='ratp'><div class='logo-reg'> <img src='img/crp-ratp-logo.png'></div><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+       $("#retraitecomplet").after("<div class='row bloc' id='ratp'><div class='logo-reg col-md-auto'> <img src='img/crp-ratp-logo.png'></div><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
        writemth();  
     }
      else if ((this).id == "ircantecC"){
-       $("#retraitecomplet").after("<div class='row bloc' id='ircantec'><div class='logo-reg'> <img src='img/logo_0.png'></div><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+       $("#retraitecomplet").after("<div class='row bloc' id='ircantec'><div class='logo-reg col-md-auto'> <img src='img/logo_0.png'></div><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
        writemth();  
 
     }
@@ -367,6 +411,66 @@ $('#contact input[type=radio]').on('change', function() {
       $('#bi-donnate-mobi').hide();
     }
 });
+
+  $(document).on('click', '#addr', function(e){
+        e.preventDefault();
+        var street =  document.getElementById ( "street-offi" ).innerText;
+        var city   =  document.getElementById ( "city-offi" ).innerText;
+        var zip    =  document.getElementById ( "zip-offi" ).innerText;
+        $(".centerBlock").hide();
+        $("#add").show();
+        $("#addr").hide();
+         $("#street").prop('value', street);
+         $("#city").prop('value', city);
+         $("#ZIP").prop('value', zip);
+  });
+
+   $(document).on('click', '#addr-valid', function(e){
+        e.preventDefault();
+        var street =  $('#street').val();//document.getElementById ( "street" );
+        var city   =  $('#city').val();//
+        var zip    =  $('#ZIP').val();//
+
+
+        $(".centerBlock").show();
+        $("#add").hide();
+        $("#addr").show();
+
+
+         document.getElementById("street-offi").innerHTML = street;
+         document.getElementById("city-offi").innerHTML = city;
+         document.getElementById("zip-offi").innerHTML = zip;
+  });
+
+
+
+
+  $(document).on('click', '#modif-situ', function(e){
+        e.preventDefault();
+
+        $("#situation-fami").show();
+        $("#modif-situ").hide();
+        $("#situation-offi").hide();
+
+
+  });
+
+    $(document).on('click', '#modified-situ', function(e){
+        e.preventDefault();
+
+        var status = $("#myDropdown option:selected").text();
+        
+          document.getElementById("fianl-situ").innerHTML = status;
+        $("#situation-fami").hide();
+        $("#modif-situ").show();
+        $("#situation-offi").show();
+
+  });
+
+
+
+
+
 
         $(function(){
         $('#btnMenu').on('click touch', function(e){

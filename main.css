@@ -1,5 +1,7 @@
 html, body {
-  font-family:'Arial,Helvetica,sans-serif;';
+  font-family: 'Arial';
+  font-size: 20px !important; 
+  /*color: #146455;*/
 }
 /*
  * HTML5 Boilerplate
@@ -392,7 +394,9 @@ button,
 input,
 select,
 textarea {
-    font-family: 'Titillium Web';
+  font-family: 'Arial Bold';
+  font-size: 30px; 
+  color: #146455;
 }
 
 /**
@@ -530,7 +534,9 @@ code,
 kbd,
 pre,
 samp {
- font-family: 'Titillium Web';
+ font-family: 'Arial Bold'
+ font-size 30px 
+ /*color: #146455*/
     font-size: 1em;
 }
 
@@ -1051,7 +1057,7 @@ table {
 .wizard > .content > .body label.error
 {
     color: #8a1f11;
-    display: inline-block;
+    display: block; /*error after*/
     margin-left: 1.5em;
 }
 
@@ -1233,16 +1239,17 @@ table {
 }
 
 body {
-   font-family: 'Titillium Web';
+  font-family: 'Arial Bold';
+  font-size: 30px; 
+  /*color: #146455*/
   font-weight: 100;
   font-size: 12px;
   line-height: 30px;
-  color: #777;
   background: #FFF;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1419px;
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -1400,6 +1407,7 @@ fieldset {
     margin-top: 0;
     margin-bottom: 0;
     color: #146455;
+    width: 100%;
 }
 
 .panel-body
@@ -1447,9 +1455,9 @@ fieldset {
     border:2px solid #18ab29;
     display:inline-block;
     cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:22px;
+    font-family: 'Arial Bold';
+   font-size: 30px; 
+   color: #146455;
     padding:0px 10px;
     text-decoration:none;
     text-shadow:0px 0px 0px #2f6627;
@@ -1473,9 +1481,9 @@ fieldset {
     display: none;
 }
 
-.logo-reg {
+/*.logo-reg {
   padding: 0px;
-}
+}*/
 .logo-reg>img {
   height: 100%;
   padding-bottom:  15px;
@@ -1487,7 +1495,7 @@ fieldset {
     height:58px;
     overflow-y: scroll;
 }
-.jsfiddle-container {
+.adr-container {
   display: block;
   max-width: 27rem;
   margin-left: auto;
@@ -1526,10 +1534,12 @@ fieldset {
 #donnationdiv{
     display: none;
 }
-/**/
+
+
 #bi-donnate{
     display: none;
 }
+
 .btn-navbar {
     display: none;
     float: right;
@@ -1584,8 +1594,9 @@ fieldset {
    box-shadow: rgba(0,0,0,1) 0 1px 0;
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
    color: white;
-   font-size: 20px;
-   font-family: Georgia, serif;
+   font-family: 'Arial Bold';
+   font-size: 30px; 
+   color: #146455;
    text-decoration: none;
    vertical-align: middle;
    }
@@ -1598,3 +1609,37 @@ fieldset {
    border-top-color: #1e5c1b;
    background: #1e5c1b;
    }
+
+#test-add input[type="text"]{
+    width: 50%;
+}
+#conj input[type="text"]{
+    width: 50%;
+}
+#add{
+    display: none;
+}
+#situation-fami{
+    display: none;
+}
+
+.wizard > .actions > ul > li.disabled {
+  display: none;
+}
+
+#up-liv{
+    display: none;
+}
+#retraites{
+     display : inline;
+}
+
+.toogle{
+    float:right;
+}
+.orange{
+    background-color: #d03e0b;
+}
+.orange2{
+    background-color: #ff9b24;
+}
