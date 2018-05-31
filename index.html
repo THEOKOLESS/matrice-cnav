@@ -396,35 +396,35 @@
             <hr color="blue">
               <div id="conj">
                 <h2 id="conj-tittle">Identité de votre ex-conjoint(e), décédé(e) ou disparu(e)</h2>
-                <div class="row">
-                  <label for="conj-name">Son nom de famille (de naissance) : *</label>
+                <!-- <div class="row"> -->
+                  <label for="conj-name">Son nom de famille (de naissance) : </label>
                   <input type="text" id="conj-name" required>
-                </div>
-                <div class="row">
+                <!-- </div> -->
+                <!-- <div class="row"> -->
                   <label for="conj-usage-name">Son nom d’usage</label>
                   <input type="text" id="conj-usage-name" class="required">
-                </div>
-                <div class="row">
+                <!-- </div> -->
+                <!-- <div class="row"> -->
                   <label for="conj-prename">Ses prénoms (en 1er son prénom courant) :</label>
                   <input type="text" id="conj-prename" class="required">
-                </div>
-                <div class="row">
-                  <label for="conjbrth">Sa date de naissance : *</label>
+                <!-- </div> -->
+                <!-- <div class="row"> -->
+                  <label for="conjbrth">Sa date de naissance : </label>
                   <input class="conjbrth inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="conjbrth">*</br>
-                </div>
-                <div class="row">
-                  <label for="conj-natio">Sa nationalité : *</label>
+                <!-- </div> -->
+                <!-- <div class="row"> -->
+                  <label for="conj-natio">Sa nationalité : </label>
                   <input type="text" id="conj-natio" class="required">
-                </div>
-                <div class="row">
+                <!-- </div> -->
+                <!-- <div class="row"> -->
                   <label for="conj-commune">Commune de naissance : (indiquez l’arrondissement pour Paris, Lyon, Marseille) *</label>
                   <input type="text" id="conj-commune" class="required">
-                </div>
-                <div class="row">
-                  <label for="ZIP">Code postale: *</label>
+                <!-- </div> -->
+                <!-- <div class="row"> -->
+                  <label for="ZIP">Code postale: </label>
                   <input type="text" id="ZIP" class="required">
-                </div>
-                <div class="row">
+                <!-- </div> -->
+                <!-- <div class="row"> -->
                 <label for="pays" class="inline">pays de naissance</label>
                     <select id="">
                     <option disabled style="display:none" value="" selected value>Sélectionner le pays de naissance</option>
@@ -678,11 +678,11 @@
                     <option value="ZMB">Zambia</option>
                     <option value="ZWE">Zimbabwe</option>
                   </select>
-                </div>
-                <div class="row">
+                <!-- </div> -->
+                <!-- <div class="row"> --></br>
                   <label for="secu">Son n° de sécurité sociale *</label>
                   <input type="text" id="secu" class="required" maxlength="13">
-                </div>
+                <!-- </div> -->
               </div>
 
          
@@ -694,7 +694,7 @@
 				  <div class="panel-heading">
 				    <label for="" class="panel-title">Retraites<a class="toogle visible"><input class=" myButton inline " id="moreless" type="button" value="-"/></a></label>
 				  </div>      
-				  <div class="panel-body" id="retraites">
+				  <div class="panel-body" id="retraites" style="display: inline-block;">
 				  	<h4>Retraites personnelles de base</h4>
                         <div class="row bloc">
                           <div class="logo-reg col-md-auto">
@@ -714,7 +714,74 @@
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€" value="800">
                               </div>
                         </div>
-                        <!-- <h4>Selectionner votre/vos retraite complementaire</h4> -->
+                        <h4>vos retraites complementaire</h4>
+                        <div class='row bloc' id='ircantec'>
+                          <div class='logo-reg col-md-auto'> 
+                            <img src='img/ircanted-resised.png'></div>
+                            <div class='col-sm'>
+                              <label for='fstmth' class='mois'></label>
+                              <input type='text' id='fstmth' placeholder='€'>
+                            </div>
+                            <div class='col-sm'>
+                              <label for='secmth' class='mois'></label>
+                              <input type='text' id='secmth' placeholder='€'>
+                            </div>
+                            <div class='col-sm'>
+                              <label for='thrmth' class='mois'></label>
+                              <input type='text' id='thrmth' placeholder='€'>
+                            </div>
+                          </div>
+
+                        <div class='row bloc' id='ratp'>
+                          <div class='logo-reg col-md-auto'> 
+                            <img src='img/ratp-resized.png'></div>
+                            <div class='col-sm'>
+                              <label for='fstmth' class='mois'></label>
+                              <input type='text' id='fstmth' placeholder='€'>
+                            </div>
+                            <div class='col-sm'>
+                              <label for='secmth' class='mois'></label>
+                              <input type='text' id='secmth' placeholder='€'>
+                            </div>
+                            <div class='col-sm'>
+                              <label for='thrmth' class='mois'></label>
+                              <input type='text' id='thrmth' placeholder='€'>
+                            </div>
+                          </div>
+
+                              <div class='row bloc' id='agrircarrco'>
+                          <div class='logo-reg col-md-auto'> 
+                            <img src='img/agri-resized.png'></div>
+                            <div class='col-sm'>
+                              <label for='fstmth' class='mois'></label>
+                              <input type='text' id='fstmth' placeholder='€'>
+                            </div>
+                            <div class='col-sm'>
+                              <label for='secmth' class='mois'></label>
+                              <input type='text' id='secmth' placeholder='€'>
+                            </div>
+                            <div class='col-sm'>
+                              <label for='thrmth' class='mois'></label>
+                              <input type='text' id='thrmth' placeholder='€'>
+                            </div>
+                          </div>
+
+                              <div class='row bloc' id='cnracl'>
+                          <div class='logo-reg col-md-auto'> 
+                            <img src='img/cnracl-resized.png'></div>
+                            <div class='col-sm'>
+                              <label for='fstmth' class='mois'></label>
+                              <input type='text' id='fstmth' placeholder='€'>
+                            </div>
+                            <div class='col-sm'>
+                              <label for='secmth' class='mois'></label>
+                              <input type='text' id='secmth' placeholder='€'>
+                            </div>
+                            <div class='col-sm'>
+                              <label for='thrmth' class='mois'></label>
+                              <input type='text' id='thrmth' placeholder='€'>
+                            </div>
+                          </div>
 <!--               <div id="retraitecomplet">        
 
               <input  type="checkbox" value="cnracl" class="retcomp" id="cnraclC">CNRACL</option>
@@ -798,19 +865,19 @@
 				  </div>      
 				  <div class="panel-body">
                                   <!-- Dans le header -->
-                  <button type="button" class="btn btn-primary orange">
-                  <span class=" glyphicon glyphicon-plus"  aria-hidden="true"></span>
-                </button>
-                <a class="btn btn-primary orange2" id="btnMenu">Cliquez ici pour selectionner s'il y a lieu, vos autres revenue</a>
-              <!--   </div> -->
-                  <!--     <a class="btn myButton3" id="btnMenu"> 
+                <!--   <button type="button" class="btn btn-primary orange btnMenu">
+                  <span class=" glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button> -->
+                <a class="btn btn-primary orange2 btnMenu" >Cliquez ici pour selectionner s'il y a lieu, vos autres revenue</a>
+             <!--    </div>
+ -->                  <!--     <a class="btn myButton3" id="btnMenu"> 
                         Cliquez ici pour selectionner s'il y a lieu, vos autres revenue  </a> -->
 
                         <div id="nav">
-                          <span class="icon-bar vis" id="Palim">Pension alimentaire (hors aide alimentaire obligatoire)</span>
-                            <div class='row bloc contentOther' id='PalimC'> 
+                          <span class="icon-bar vis white-bar" id="Palim">Pension alimentaire (hors aide alimentaire obligatoire)</span>
+                            <div class='row bloc' id='PalimC'> 
                               <h4>Pension alimentaire (hors aide alimentaire obligatoire) 
-                              <input class='myButton2 inline' id='cancel' type='button' value='x'></h4>
+                              <button type="button" class="myButton2 inline"><span class="glyphicon glyphicon-remove no-l-h"></span></button></h4>
                               <div class='col-sm'>
                                 <label for='fstmth' class='mois'></label>
                                 <input type='text' id='fstmth' placeholder='€'>
@@ -825,11 +892,63 @@
                                 </div>
                             </div>
 
-                          <span class="icon-bar vis" id="Pinva">Pension d'invalidité</span>
+                          <span class="icon-bar vis white-bar" id="Pinva">Pension d'invalidité</span>
                               <div class='row bloc' id='PinvaC'>
-                                <h4>Pension d'invalidité <input class='myButton2 inline' id='cancel' type='button' value='x'></h4>
+                                <h4>Pension d'invalidité <button type="button" class="myButton2 inline"><span class="glyphicon glyphicon-remove no-l-h"></span></button></h4>
                                 <div class='col-sm'>
-                                  <label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'>
+                                  <label for='fstmth' class='mois'></label>
+                                  <input type='text' id='fstmth' placeholder='€'>
+                                </div>
+                                <div class='col-sm'>
+                                  <label for='secmth' class='mois'></label>
+                                  <input type='text' id='secmth' placeholder='€'>
+                                </div>
+                                <div class='col-sm'>
+                                  <label for='thrmth' class='mois'></label>
+                                  <input type='text' id='thrmth' placeholder='€'>
+                                </div>
+                              </div>
+
+                              <span class="icon-bar vis white-bar" id="RDR">Revenus de remplacement</span>
+                              <div class='row bloc' id='RDRC'>
+                                <h4>Pension d'invalidité <button type="button" class="myButton2 inline"><span class="glyphicon glyphicon-remove no-l-h"></span></button></h4>
+                                 <div class='col-sm'>
+                                  <label for='fstmth' class='mois'></label>
+                                  <input type='text' id='fstmth' placeholder='€'>
+                                </div>
+                                <div class='col-sm'>
+                                  <label for='secmth' class='mois'></label>
+                                  <input type='text' id='secmth' placeholder='€'>
+                                </div>
+                                <div class='col-sm'>
+                                  <label for='thrmth' class='mois'></label>
+                                  <input type='text' id='thrmth' placeholder='€'>
+                                </div>
+                              </div>
+
+                              <span class="icon-bar vis white-bar" id="PR">Retraites de réversion</span>
+                              <div class='row bloc' id='PRC'>
+                                <h4>Retraites de réversion <button type="button" class="myButton2 inline"><span class="glyphicon glyphicon-remove no-l-h"></span></button></h4>
+                                 <div class='col-sm'>
+                                  <label for='fstmth' class='mois'></label>
+                                  <input type='text' id='fstmth' placeholder='€'>
+                                </div>
+                                <div class='col-sm'>
+                                  <label for='secmth' class='mois'></label>
+                                  <input type='text' id='secmth' placeholder='€'>
+                                </div>
+                                <div class='col-sm'>
+                                  <label for='thrmth' class='mois'></label>
+                                  <input type='text' id='thrmth' placeholder='€'>
+                                </div>
+                              </div>
+
+                              <span class="icon-bar vis white-bar" id="RPA">Revenus professionnels d’activité</span>
+                              <div class='row bloc' id='RPAC'>
+                                <h4>Revenus professionnels d’activité <button type="button" class="myButton2 inline"><span class="glyphicon glyphicon-remove no-l-h"></span></button></h4>
+                                 <div class='col-sm'>
+                                  <label for='fstmth' class='mois'></label>
+                                  <input type='text' id='fstmth' placeholder='€'>
                                 </div>
                                 <div class='col-sm'>
                                   <label for='secmth' class='mois'></label>
@@ -841,7 +960,7 @@
                                 </div>
                               </div>
          
-                          <span class="icon-bar vis" id="autre">Autre revenue</span>
+                          <span class="icon-bar vis" id="autre">Cliquez ici pour ajouter un autre revenus <input class=" myButton inline " id="moreless" type="button" value="+"/></span>
                         </div>
                     
                       <!-- J'ai aussi ajouté un id à la balise <nav> -->
@@ -918,7 +1037,7 @@
 				    <label for="" class="panel-title">Revenus professionnels d'activité <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
 				  </div>      
 				  <div class="panel-body">
-				  	<h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions)</h4>
+				  	<h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions) </h4>
                         <div class="row bloc">
                               <div class="col-sm">
                               	<label for="fstmth" class="mois"></label>
@@ -943,9 +1062,9 @@
 				  <div class="panel-heading">
 				    <label for="" class="panel-title">Retraite <a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
 				  </div>      
-				  <div class="panel-body">
-				  	<h4>Retraites personnelles de base</h4>
-                        <div class="row bloc">
+				  <div class="panel-body" >
+				  	<h4>Retraites personnelles de base <button type="button" class="myButton4 inline has-more" id="more-base-retraite"><span class="glyphicon glyphicon-plus no-l-h"></span></button></h4>
+                        <div class="row bloc " >
                               <div class="col-sm">
                               	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
@@ -959,8 +1078,8 @@
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
-                        <h4> Retraites personnelles complémentaires </h4>
-                        <div class="row bloc">
+                        <h4> Retraites personnelles complémentaires  <button type="button" class="myButton4 inline has-more" id="more-comp-retraite"><span class="glyphicon glyphicon-plus no-l-h"></span></button></h4>
+                        <div class="row bloc " >
                               <div class="col-sm">
                               	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
@@ -987,12 +1106,12 @@
                               	<label for="fstmth" class="mois"></label>
                                     <input type="text" id="fstmth" placeholder="€">
                               </div>
-                              <div class="col-sm" class="mois">
-                              	<label for="secmth"></label>
+                              <div class="col-sm"">
+                              	<label for="secmth" class="mois"></label>
                                     <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
-                              <div class="col-sm" class="mois">
-                              	<label for="thrmth"></label>
+                              <div class="col-sm" >
+                              	<label for="thrmth" class="mois"></label>
                                 <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
                               </div>
                         </div>
@@ -1084,7 +1203,7 @@
 	        </section>
 	        <h3>Vos biens</h3>
 	        <section>
-	        	<h2 id="alone-title">VOS BIENS (ET EVENTUELLEMENT CEUX AVEC VOTRE MÉNAGE), EN FRANCE ET/OU Á L'ÉTRANGER</h2>
+	        	<h2 id="alone-title">VOUS N ETES PAS CENSE LIRE CA</h2>
 	        	<p id="alone-sub">Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens mobiliers et/ou immobiliers en france et/ou á l'étranger ?</p>
 
               <input type="radio" class="inline" id="work_abroad_y" name="work_abroad" value="y" /><label for="work_abroad_y">Oui</label>
@@ -1110,7 +1229,7 @@
                                 <input type="text" id="valeur" placeholder="€">
                               </div>
                         </div>
-                       <p class="biens myButton3" id="bibi">Cliquez ici pour declarer un autre bien immobilier</p>
+                       <p class="biens btn btn-primary orange2 btnMenu" id="bibi">Cliquez ici pour declarer un autre bien immobilier</p>
                        <p id="alone-home">Habitez-vous la maison dont vous ou votre conjoint actuel, concubin, partenaire PACS êtes propriétaire ?</p>
                         <input type="radio" class="inline" id="homeY" name="home" value="ye" /><label for="homeY">Oui</label> 
                         <input type="radio" class="inline" id="homeN" name="home" value="no" /><label for="homeN">Non</label>
@@ -1146,7 +1265,7 @@
                                 <input type="text" id="valeur" placeholder="€">
                               </div>
                         </div>
-                       <p class="biens-mobi myButton3" id="mobibibi">Cliquez ici pour declarer un autre bien mobilier</p>
+                       <p class="biens-mobi btn btn-primary orange2 btnMenu" id="mobibibi">Cliquez ici pour declarer un autre bien mobilier</p>
                                            
           </div>
         </div>
@@ -1187,7 +1306,7 @@
                                 <label for="thrmth" class="parent">Lien de parenté avec le bénéficiaire de la donation :</label>
                                 <input type="text" id="thrmth"  placeholder="Lien de parenté">
                           </div>
-                       <p class="biens-donnate myButton3" id="bibi-do">Cliquez ici pour ajouter une donnation d'un autre bien immobilier</p>    
+                       <p class="biens-donnate btn btn-primary orange2 btnMenu" id="bibi-do">Cliquez ici pour ajouter une donnation d'un autre bien immobilier</p>    
           </div>
         </div>
          <div id=donnationdiv-mobi>
@@ -1221,16 +1340,16 @@
                                 <label for="thrmth" class="parent">Lien de parenté avec le bénéficiaire de la donation :</label>
                                 <input type="text" id="thrmth"  placeholder="Lien de parenté">
                           </div>
-                       <p class="biens-donnate-mobi myButton3" id="bibi-do-mobi">Cliquez ici pour ajouter une donnation d'un autre bien immobilier</p>    
+                       <p class="biens-donnate-mobi btn btn-primary orange2 btnMenu" id="bibi-do-mobi">Cliquez ici pour ajouter une donnation d'un autre bien immobilier</p>    
           </div>
         </div>
 	        </section>
-	        <h3>Récapitulatif</h3>
+	        <h3>Votre validation</h3>
 	        <section>
             <p><b>J’atteste sur l’honneur l’exactitude des renseignements portés sur cette déclaration.
                 Je m’engage :
                 - à faciliter toute enquête pour les vérifier,
-                - à vous faire connaître toute modification de ma situation.</b>
+                - à vous faire connaître toute immédiatement modification de ma situation.</b>
                 Je reconnais être informé(e) qu’une vérification de l’exactitude de mes déclarations et de l’authenticité des documents
                 produits à l’appui de ma demande, peut être effectuée dans le cadre de l’exercice du droit de communication prévu par
                 les articles L.114-19 à L.114-21 du code de la sécurité sociale.</p>

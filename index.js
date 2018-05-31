@@ -129,10 +129,13 @@ $( function() {
             var month = date3mois.getMonth();
             var year = date3mois.getFullYear();
             // if (month > 4){
-              month = month - 3;
+              month -= 4;
             // }
+            console.log(date3mois);
             date3mois.setMonth(month);
             date3mois.setUTCDate('1');
+            console.log(date3mois);
+
           date3mois = date3mois.toLocaleDateString().toString();
           date3mois = date3mois.split("T");
           $("#startdate").prop('value', date3mois[0]) 
@@ -141,6 +144,8 @@ $( function() {
           else
             return year;
           }
+
+
           function callDate2(){
             var date3mois = new Date($("#startdate").val());
             var month = date3mois.getMonth();
@@ -233,7 +238,7 @@ $( function() {
         }
         });
 
-      $(document).on('change', '#myDropdown' , function(){
+        $(function(){
 
           var status = $('#myDropdown').val();
           if (status == "celibataire" || status == "Veuf" || status == "Divorce" || status == "Sépare" || status == "Conjoint-disparu")
@@ -252,12 +257,60 @@ $( function() {
         }
         else
         {
-             document.getElementById("alone-title").innerHTML = "VOS BIENS (ET EVENTUELLEMENT CEUX AVEC VOTRE MÉNAGE), EN FRANCE ET/OU Á L'ÉTRANGER"; 
+             document.getElementById("alone-title").innerHTML = "VOS BIENS (et enventuellement ceux de votre ménage), EN FRANCE ET/OU Á L'ÉTRANGER"; 
              document.getElementById("alone-sub").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>immobiliers</b> en france et/ou á l'étranger ?";
              document.getElementById("alone-home").innerHTML = "Habitez-vous la maison dont vous ou votre conjoint actuel, concubin, partenaire PACS êtes propriétaire ?"; 
              document.getElementById("alone-mob").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>mobiliers</b> en france et/ou á l'étranger ?";  
              document.getElementById("alone-d-immo").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>immobiliers</b> en france et/ou á l'étranger DONT VOUS AVEZ FAIS LA DONNATION DEPUIS MOINS DE 10 ANS ?";  
              document.getElementById("alone-d-immo").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>mobiliers</b> en france et/ou á l'étranger DONT VOUS AVEZ FAIS LA DONNATION DEPUIS MOINS DE 10 ANS ?";
+             $('#alone-donnate-imo').show();
+             $('#alone-donnate-mobi').show(); 
+              document.getElementById("impo").innerHTML = "Veuillez nous envoyer votre dernier avis d’impôt sur le revenu ainsi que le dernier avis d’impôt de votre concubin.";  
+              document.getElementById("acceptTerms").innerHTML = "je signe eletroniquement pour les deux partis.";  
+        }
+
+          if (status == "marie" || status == "Remarie"){
+               document.getElementById("changement-fam").innerHTML = "<b>Veuillez joindre ci-dessous une copie de votre livret famille</b>";
+               $("#up-liv").show(); 
+             }
+             else if ((status == "Pacse" || status == "Vie-en-convubinage")){
+              document.getElementById("changement-fam").innerHTML = "<b>Veuillez joindre ci-dessous une attestation d’enregistrement d’un pacte civil de solidarité</b>";
+              $("#up-liv").show(); 
+             }
+              else if ((status == "Divorce" || status == "Sépare")){
+                document.getElementById("changement-fam").innerHTML = "<b>Veuillez joindre ci-dessous un jugement de séparation</b>";
+                $("#up-liv").show(); 
+              }
+              else{
+                $("#up-liv").hide(); 
+              }
+        });
+
+      $(document).on('change', '#myDropdown' , function(){
+
+          var status = $('#myDropdown').val();
+          if (status == "celibataire" || status == "Veuf" || status == "Divorce" || status == "Sépare" || status == "Conjoint-disparu")
+        {
+            document.getElementById("alone-title").innerHTML = "VOS BIENS, EN FRANCE ET/OU Á L'ÉTRANGER"; 
+            document.getElementById("alone-sub").innerHTML = "Avez-vous des biens <b>immobiliers</b> en france et/ou á l'étranger ?"; 
+            document.getElementById("alone-home").innerHTML = "Habitez-vous la maison dont vous êtes propriétaire ?"; 
+            document.getElementById("alone-mob").innerHTML = "Avez-vous des biens <b>mobiliers</b> en france et/ou á l'étranger ?";  
+            document.getElementById("alone-d-immo").innerHTML = "Avez-vous des biens <b>immobiliers</b> en France et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONATION DEPUIS MOINS DE 10 ANS ?";
+            document.getElementById("alone-d-mobi").innerHTML = "Avez-vous des biens <b>mobiliers</b> en France et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONATION DEPUIS MOINS DE 10 ANS ?";
+            $('#alone-donnate-imo').hide();
+            $('#alone-donnate-mobi').hide();
+            document.getElementById("impo").innerHTML = "Veuillez nous envoyer votre dernier avis d’impôt sur le revenu.";
+            document.getElementById("acceptTerms").innerHTML = "je signe eletroniquement.";  
+ 
+        }
+        else
+        {
+             document.getElementById("alone-title").innerHTML = "VOS BIENS (et enventuellement ceux de votre ménage), EN FRANCE ET/OU Á L'ÉTRANGER"; 
+             document.getElementById("alone-sub").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>immobiliers</b> en france et/ou á l'étranger ?";
+             document.getElementById("alone-home").innerHTML = "Habitez-vous la maison dont vous ou votre conjoint actuel, concubin, partenaire PACS êtes propriétaire ?"; 
+             document.getElementById("alone-mob").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>mobiliers</b> en france et/ou á l'étranger ?";  
+             document.getElementById("alone-d-immo").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>immobiliers</b> en France et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONATION DEPUIS MOINS DE 10 ANS ?";  
+             document.getElementById("alone-d-immo").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>mobiliers</b> en France et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONATION DEPUIS MOINS DE 10 ANS ?";
              $('#alone-donnate-imo').show();
              $('#alone-donnate-mobi').show(); 
               document.getElementById("impo").innerHTML = "Veuillez nous envoyer votre dernier avis d’impôt sur le revenu ainsi que le dernier avis d’impôt de votre concubin.";  
@@ -473,11 +526,14 @@ $('#contact input[type=radio]').on('change', function() {
 
 
         $(function(){
-        $('#btnMenu').on('click touch', function(e){
+        $('.btnMenu').on('click touch', function(e){
           e.preventDefault();
             $('#nav').slideToggle();
             $('#PalimC').hide();
             $('#PinvaC').hide();
+            $('#RDRC').hide();
+            $('#PRC').hide();
+            $('#RPAC').hide();
         });
     });
 
@@ -492,42 +548,43 @@ $('#contact input[type=radio]').on('change', function() {
           else if ((this).id == "Pinva"){
             $('#PinvaC').show();
           }
+          else if ((this).id == "RDR"){
+            $('#RDRC').show();
+          }
+          else if ((this).id == "PR"){
+            $('#PRC').show();
+          }
+          else if ((this).id == "RPA"){
+            $('#RPAC').show();
+          }
           else if((this).id == "autre"){
-            $("#nav").after("<div class='row bloc' id='PalimC'><h4>preciser votre revenue <input class='inline autow' id='enddate' type='text'> <input class='myButton2 inline' id='cancel' type='button' value='x'></h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+            $("#nav").after("<div class='row bloc' id='PalimC'><h4>preciser votre revenue <input class='inline autow' type='text' placeholder='le nom de votre revenue'> <button type='button' \
+              class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></span></button></h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' \
+              id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label>\
+              <input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
             writemth()
           }
-
-        // }
-        // else
-        // {
-
-        // }
-          // $("#nav").after("<div class='row bloc' id='PalimC'><h4>Pension alimentaire (hors aide alimentaire obligatoire) <input class='myButton2 inline' id='cancel' type='button' value='x'></h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
-          // writemth()
-          // $( ".myButton2" ).click(function($link) {
-          //   link.show();
-          // });
-        
-          // else if ((this).id == "Pinva"){
-          //   $("#nav").after("<div class='row bloc' id='PinvaC'><h4>Pension d'invalidité <input class='myButton2 inline' id='cancel' type='button' value='x'></h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label><input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
-          // writemth()
-          // $( ".myButton2" ).click(function($link) {
-          //   link.show();
-          // });
-          // }
-
-         // }
-         // link.toggleClass('vis');
         });
 
 
+   $(document).on('click', '.has-more', function(e){
+          e.preventDefault();
+            if((this).id == "more-base-retraite"){
+              $(this).parent().next().after("<div class='row bloc retraite-base'><h4>retraite de base supplementaire<input class='inline autow' type='text' placeholder='retraite de base'> <button type='button' \
+              class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></span></button></h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' \
+              id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label>\
+              <input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+            writemth();
+            }
+            else if((this).id == "more-comp-retraite"){
+              $(this).parent().next().after("<div class='row bloc retraite-comp'><h4>retraite complementaire supplementaire<input class='inline autow' type='text' placeholder='retraite complementaire'> <button type='button' \
+              class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></span></button></h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' \
+              id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label>\
+              <input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
+            writemth();
+            }
 
-        // $('#Palim').click(function(){
-
-        //   $('#PalimC').show();
-
-        // });
-
+        });
 
          $(document).on('click', '.myButton2', function(e){
           e.preventDefault();
@@ -543,17 +600,17 @@ function getValue(param) {
     $(document).on('click', '.biens', function(e){
           e.preventDefault();
           console.log($(this));
-          $("#bibi").after("<div class='row'><h4>Bien immobilier supplementaire a declarer <input class='myButton2 inline' id='cancel' type='button' value='x'></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label><input type='text' id='nature' placeholder='nature du bien'></div><div class='col-sm'><label for='adresse'>Adresse du bien déclaré</label><input type='text' id='adresse' placeholder='Adresse complete du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'></div></div>")
+          $("#bibi").after("<div class='row'><h4>Bien immobilier supplementaire a declarer <button type='button' class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label><input type='text' id='nature' placeholder='nature du bien'></div><div class='col-sm'><label for='adresse'>Adresse du bien déclaré</label><input type='text' id='adresse' placeholder='Adresse complete du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'></div></div>")
       });
     $(document).on('click', '.biens-mobi', function(e){
           e.preventDefault();
           console.log($(this));
-          $("#mobibibi").after("<div class='row'><h4>Bien mobilier supplementaire a declarer <input class='myButton2 inline' id='cancel' type='button' value='x'></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label><input type='text' id='nature' placeholder='nature du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'></div></div>")
+          $("#mobibibi").after("<div class='row'><h4>Bien mobilier supplementaire a declarer <button type='button' class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label><input type='text' id='nature' placeholder='nature du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'></div></div>")
       });
     $(document).on('click', '.biens-donnate', function(e){
           e.preventDefault();
           console.log($(this));
-          $("#bibi-do").after("<div class='row'><h4>Bien immobilier supplementaire a declarer <input class='myButton2 inline' id='cancel' type='button' value='x'></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label><input type='text' id='nature' placeholder='nature du bien'>\
+          $("#bibi-do").after("<div class='row'><h4>Bien immobilier supplementaire a declarer <button type='button' class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label><input type='text' id='nature' placeholder='nature du bien'>\
             </div><div class='col-sm'><label for='adresse'>Adresse du bien déclaré</label><input type='text' id='adresse' placeholder='Adresse complete du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'> <p>Date de l’acte de \
             donation <input class='situf inline' type='text' placeholder='jj/mm/aaaa' name='famidate' id='immo-donna-date'> <div class='col-sm'>\
                                 <label for='thrmth' class='parent'>Lien de parenté avec le bénéficiaire de la donation :</label>\
@@ -564,7 +621,7 @@ function getValue(param) {
     $(document).on('click', '.biens-donnate-mobi', function(e){
           e.preventDefault();
           console.log($(this));
-          $("#bibi-do-mobi").after("<div class='row'><h4>Bien mobilier supplementaire a declarer <input class='myButton2 inline' id='cancel' type='button' value='x'></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label>\
+          $("#bibi-do-mobi").after("<div class='row'><h4>Bien mobilier supplementaire a declarer <button type='button' class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></span></button></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label>\
             <input type='text' id='nature' placeholder='nature du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'><p>Date de l’acte de \
             donation <input class='situf inline' type='text' placeholder='jj/mm/aaaa' name='famidate' id='immo-donna-date'> <div class='col-sm'>\
                                 <label for='thrmth' class='parent'>Lien de parenté avec le bénéficiaire de la donation :</label>\

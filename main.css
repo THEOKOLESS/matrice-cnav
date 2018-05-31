@@ -1280,8 +1280,8 @@ body {
 #contact h4 {
   margin: 5px 0 15px;
   display: block;
-  font-size: 13px;
-  font-weight: 400;
+  font-size: 29px;
+  font-weight: bold;
 }
 
 fieldset {
@@ -1565,10 +1565,10 @@ fieldset {
     cursor: pointer;
 /*    width: 18px;
     height: 10px;*/
-    background-color: #CECECE;
-    -webkit-border-radius: 1px; /* Ce sont des préfixes, pour que les navigateurs */
-       -moz-border-radius: 1px; /* prennent en charge les nouvelles propriétés. */
-            border-radius: 1px;
+    background-color: #ffb3008f;
+    -webkit-border-radius: 10px; /* Ce sont des préfixes, pour que les navigateurs */
+       -moz-border-radius: 10px; /* prennent en charge les nouvelles propriétés. */
+            border-radius: 10px;
 }
 
 .icon-bar + .icon-bar { /* Le + permet de sélectionner les éléments qui suivent */
@@ -1642,4 +1642,38 @@ fieldset {
 }
 .orange2{
     background-color: #ff9b24;
+}
+.btn-primary{
+        border-color: #000
+}
+.btn-primary:hover{
+    background-color: #d03e0b;
+    color: white; 
+}
+
+.white-bar{
+    border-bottom:solid white 2px !important;
+}
+
+.no-l-h{
+    line-height: unset;
+}
+
+.myButton4 {
+    background-color: green;
+    -moz-border-radius:42px;
+    -webkit-border-radius:42px;
+    border-radius:42px;
+    border:2px solid #18ab29;
+    display:inline-block;
+    cursor:pointer;
+    font-family: 'Arial Bold';
+   font-size: 30px; 
+   color: #fff;
+    padding:0px 10px;
+    text-decoration:none;
+    text-shadow:0px 0px 0px #2f6627;
+}
+h4{
+
 }
