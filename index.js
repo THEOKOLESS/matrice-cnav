@@ -512,14 +512,34 @@ $('#contact input[type=radio]').on('change', function() {
         e.preventDefault();
 
         var status = $("#myDropdown option:selected").text();
-        
-          document.getElementById("fianl-situ").innerHTML = status;
+        var save   = $("#situation-offi").text();
+   
+        if(save != status && status != "Veuillez sélectionner votre situation familiale" && status != "Vie en convubinage" && status != "conjoint(e) porté(e) disparu(e)"){
+          document.getElementById("situation-offi").innerHTML = "Vous êtes " + status;
+        }
+        else if (status == "Vie en convubinage")
+        {
+          document.getElementById("situation-offi").innerHTML = "Vous vivez en concubinage";
+        }
+        else if (status == "conjoint(e) porté(e) disparu(e)")
+        {
+          document.getElementById("situation-offi").innerHTML = "Votre conjoint(e) est porté(e) disparu(e)";
+        }
+        console.log(status)
         $("#situation-fami").hide();
         $("#modif-situ").show();
         $("#situation-offi").show();
 
   });
 
+  $(document).on('click', '#annuled-situ', function(e){
+        e.preventDefault();
+      
+        $("#situation-fami").hide();
+        $("#modif-situ").show();
+        $("#situation-offi").show();
+
+  });
 
 
 

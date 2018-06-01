@@ -7,8 +7,11 @@
 <head>	  
   <meta charset="utf-8" />  
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap.css"> <!--bootstrap  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- bootstrap glyphicone -->
+    <link rel="stylesheet" href="bootstrap/bootstrap.css"> <!--bootstrap  -->
+    <!-- <link rel="stylesheet" href="bootstrap-cnav/bootstrap_cnav_v1.0"> -->
+    <link rel="stylesheet" href="bootstrap-cnav/bootstrap.css">
+    <!-- <link rel="stylesheet" href="bootstrap-cnav/ie.css"> -->
     <link rel="stylesheet" type="text/css" href="main.css"> <!-- --><!-- css -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
@@ -37,59 +40,79 @@
 
     </section>
 	        <h3>votre situation de famille et votre adresse </h3>
-	        <section>
+	   <section>
+       <!-- <div class="row"> -->
         <p>(*) Obligatoire</p>
 				  <h2>Votre situation de famille actuelle </h2> 
-          <p id="situation-offi">Vous etes <span id="fianl-situ">Marié(e)</span></p>
+          <p id="situation-offi">Vous etes Marié(e)</span></p>
               <div class="btn-group" role="group" id="modif-situ">
                 <button type="button" class="btn btn-primary orange">
                   <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 </button>
                 <a class="btn btn-primary orange2">Modifier votre situation familiale</a>
               </div>
-      
-          <div id="situation-fami">* 
-              <select class="required" id="myDropdown">
-              <option disabled style="display:none" value="" selected value>Veuillez sélectionner votre situation familiale</option>
-	            <option  type="radio" name="situation" value="celibataire">Célibataire</option>
-            	<option  type="radio" name="situation" value="Veuf">Veuf(ve)</option>
-            	<option  type="radio" name="situation" value="Divorce">Divorcé(e)</option>
-            	<option  type="radio" name="situation" value="Sépare">Séparé(e)</option>
-            	<option  type="radio" name="situation" value="Conjoint-disparu">conjoint(e) porté(e) disparu(e)</option>
-              <option  type="radio" name="situation" value="marie">Marié(e)</option>
-            	<option  type="radio" name="situation" value="Remarie">Remarié(e)</option>
-            	<option  type="radio" name="situation" value="Pacse">Pacsé(e)</option>
-            	<option  type="radio" name="situation" value="Vie-en-convubinage">Vie en convubinage</option>
-              </select>
-              <div>
-              <label for="situf">depuis le </label>
-              *<input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="famidate">
-                <div class="btn-group inline" role="group" id="modified-situ"">
-                  <button type="button" class="btn btn-primary orange">
-                  <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                </button>
-                <a class="btn btn-primary ng-binding orange2">Valider cette situation familiale</a>
-                </div>
-              </div>
-            </div>
+            
+                 <div id="situation-fami">
+                    <div class="row"> 
+                       <div class="col-xs-6"> 
+                        <select class="required" id="myDropdown">
+                        <option disabled style="display:none" value="" selected value>Veuillez sélectionner votre situation familiale</option>
+          	            <option  type="radio" name="situation" value="celibataire">Célibataire</option>
+                      	<option  type="radio" name="situation" value="Veuf">Veuf(ve)</option>
+                      	<option  type="radio" name="situation" value="Divorce">Divorcé(e)</option>
+                      	<option  type="radio" name="situation" value="Sépare">Séparé(e)</option>
+                      	<option  type="radio" name="situation" value="Conjoint-disparu">conjoint(e) porté(e) disparu(e)</option>
+                        <option  type="radio" name="situation" value="marie">Marié(e)</option>
+                      	<option  type="radio" name="situation" value="Remarie">Remarié(e)</option>
+                      	<option  type="radio" name="situation" value="Pacse">Pacsé(e)</option>
+                      	<option  type="radio" name="situation" value="Vie-en-convubinage">Vie en convubinage</option>
+                        </select>
+                        </br>
+                        <label for="situf">depuis le </label>
+                        <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="famidate">
+                      </div>
+
+                      <div class="col-xs-6"> 
+                              <div class="row"> 
+                                <div class="btn-group inline" role="group" id="modified-situ"">
+                                  <button type="button" class="btn btn-primary orange">
+                                    <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                  </button>
+                                    <a class="btn btn-primary ng-binding orange2">Valider cette situation familiale</a>
+                                </div>
+                              </div>
+                              <div class="row">                              
+                                 <div class="btn-group inline" role="group" id="annuled-situ"">
+                                    <button type="button" class="btn btn-primary orange">
+                                      <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    </button>
+                                    <a class="btn btn-primary ng-binding orange2">Annuler les changements</a>
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+                <!-- </div> -->
+
                <hr color="blue">
-             <div class="row">
-             <div class="col-xs-6">
+             <!-- <div class="row"> -->
+             <!-- <div class="col-xs-6"> -->
                 <div class="centerBlock">
                 <p>MME ALEXANDRE AGNES</p>
                 <p id="street-offi">38 AVENUE DES MANGOLIAS</p>
                 <p><span id="zip-offi">77340</span> <span id="city-offi">PONTAULT COMBAULT</span></p>
-               </div>
-             </div>
-             <div class="col-xs-6">
+               
+             <!-- </div> -->
+             <!-- <div class="col-xs-6"> -->
                 <div class="btn-group" role="group" id="addr">
                 <button type="button" class="btn btn-primary orange">
                   <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 </button>
                 <a class="btn btn-primary orange2">Modifier cette adresse</a>
                 </div>
-             </div>
-           </div>
+                </div>
+             <!-- </div> -->
+           <!-- </div> -->
         
        
            <div id="add">
@@ -366,6 +389,12 @@
                   <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 </button>
                 <a class="btn btn-primary orange2">Valider cette adresse</a>
+                <div class="btn-group inline" role="group" id="annuled-situ"">
+                                    <button type="button" class="btn btn-primary orange">
+                                      <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    </button>
+                                    <a class="btn btn-primary ng-binding orange2">Annuler les changements</a>
+                  </div>
                 </div>
                 </div>
            </div>

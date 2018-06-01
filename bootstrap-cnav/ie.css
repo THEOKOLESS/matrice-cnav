@@ -1,0 +1,19 @@
+/*Hack IE9 styles*/
+		.select_style{
+			overflow:hidden;
+			background: none;	
+			border:0;
+			height: 40px;
+		}
+		.select_style select{
+			background:white;
+			border: 1px solid #ababab;
+			width:100%;
+			padding-right: 5px;
+			height: 40px;
+			
+		}
+		.hIEheight{
+			height: 55px;
+		}
+		.visible-print-block.printPR .cadre{overflow: auto;}
