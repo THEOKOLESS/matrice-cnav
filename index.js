@@ -176,7 +176,7 @@ $( function() {
           callDate();
           callDate2();
           callDate3();
-
+          initText();
 
 
           function writemth() {
@@ -225,7 +225,7 @@ $( function() {
         {
             $('#notAlone').hide();// $("#myDropdown").prop("selectedIndex", -1);
         }
-        else
+        else  
         {
              $('#notAlone').show();
         }
@@ -251,83 +251,72 @@ $( function() {
         }
         });
 
-        $(function(){
-
+           function initText(){
           var status = $('#myDropdown').val();
           if (status == "celibataire" || status == "Veuf" || status == "Divorce" || status == "Sépare" || status == "Conjoint-disparu")
         {
-            document.getElementById("alone-title").innerHTML = "VOS BIENS, EN FRANCE ET/OU Á L'ÉTRANGER"; 
-            document.getElementById("alone-sub").innerHTML = "Avez-vous des biens <b>immobiliers</b> en france et/ou á l'étranger ?"; 
+            document.getElementById("alone-title").innerHTML = "Vos biens, en France et/ou á l'étranger"; 
+            document.getElementById("alone-sub").innerHTML = "Avez-vous des biens <b>immobiliers</b> en France et/ou á l'étranger ?"; 
             document.getElementById("alone-home").innerHTML = "Habitez-vous la maison dont vous êtes propriétaire ?"; 
-            document.getElementById("alone-mob").innerHTML = "Avez-vous des biens <b>mobiliers</b> en france et/ou á l'étranger ?";  
-            document.getElementById("alone-d-immo").innerHTML = "Avez-vous des biens <b>immobiliers</b> en france et/ou á l'étranger DONT VOUS AVEZ FAIS LA DONNATION DEPUIS MOINS DE 10 ANS ?";
-            document.getElementById("alone-d-mobi").innerHTML = "Avez-vous des biens <b>mobiliers</b> en france et/ou á l'étranger DONT VOUS AVEZ FAIS LA DONNATION DEPUIS MOINS DE 10 ANS ?";
+            document.getElementById("alone-mob").innerHTML = "Avez-vous des biens <b>mobiliers</b> en France et/ou á l'étranger ?";  
+            document.getElementById("alone-d-immo").innerHTML = "Avez-vous des biens <b>immobiliers</b> en France et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONATION DEPUIS MOINS DE 10 ANS ?";
+            document.getElementById("alone-d-mobi").innerHTML = "Avez-vous des biens <b>mobiliers</b> en France et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONATION DEPUIS MOINS DE 10 ANS ?";
             $('#alone-donnate-imo').hide();
             $('#alone-donnate-mobi').hide();
             document.getElementById("impo").innerHTML = "Veuillez nous envoyer votre dernier avis d’impôt sur le revenu.";
-            document.getElementById("acceptTerms").innerHTML = "je signe eletroniquement.";  
+            document.getElementById("accept-test").innerHTML = "je signe eletroniquement.";             
+            document.getElementById("alone-d-mobi").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>mobilier</b> en france et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONNATION DEPUIS MOINS DE 10 ANS?.";
  
         }
         else
         {
-             document.getElementById("alone-title").innerHTML = "VOS BIENS (et enventuellement ceux de votre ménage), EN FRANCE ET/OU Á L'ÉTRANGER"; 
-             document.getElementById("alone-sub").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>immobiliers</b> en france et/ou á l'étranger ?";
+             document.getElementById("alone-title").innerHTML = "Vos biens (et éventuellement ceux de votre ménage), en France et/ou á l'étranger"; 
+             document.getElementById("alone-sub").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>immobiliers</b> en France et/ou á l'étranger ?";
              document.getElementById("alone-home").innerHTML = "Habitez-vous la maison dont vous ou votre conjoint actuel, concubin, partenaire PACS êtes propriétaire ?"; 
-             document.getElementById("alone-mob").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>mobiliers</b> en france et/ou á l'étranger ?";  
-             document.getElementById("alone-d-immo").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>immobiliers</b> en france et/ou á l'étranger DONT VOUS AVEZ FAIS LA DONNATION DEPUIS MOINS DE 10 ANS ?";  
-             document.getElementById("alone-d-immo").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>mobiliers</b> en france et/ou á l'étranger DONT VOUS AVEZ FAIS LA DONNATION DEPUIS MOINS DE 10 ANS ?";
+             document.getElementById("alone-mob").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>mobiliers</b> en France et/ou á l'étranger ?";  
+             document.getElementById("alone-d-immo").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>immobiliers</b> en France et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONATION DEPUIS MOINS DE 10 ANS ?";  
              $('#alone-donnate-imo').show();
              $('#alone-donnate-mobi').show(); 
               document.getElementById("impo").innerHTML = "Veuillez nous envoyer votre dernier avis d’impôt sur le revenu ainsi que le dernier avis d’impôt de votre concubin.";  
-              document.getElementById("acceptTerms").innerHTML = "je signe eletroniquement pour les deux partis.";  
+              document.getElementById("accept-test").innerHTML = "je signe eletroniquement pour les deux parties.";
+              document.getElementById("alone-d-mobi").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>mobilier</b> en france et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONNATION DEPUIS MOINS DE 10 ANS?.";  
         }
 
-          if (status == "marie" || status == "Remarie"){
-               document.getElementById("changement-fam").innerHTML = "<b>Veuillez joindre ci-dessous une copie de votre livret famille</b>";
-               $("#up-liv").show(); 
-             }
-             else if ((status == "Pacse" || status == "Vie-en-convubinage")){
-              document.getElementById("changement-fam").innerHTML = "<b>Veuillez joindre ci-dessous une attestation d’enregistrement d’un pacte civil de solidarité</b>";
-              $("#up-liv").show(); 
-             }
-              else if ((status == "Divorce" || status == "Sépare")){
-                document.getElementById("changement-fam").innerHTML = "<b>Veuillez joindre ci-dessous un jugement de séparation</b>";
-                $("#up-liv").show(); 
-              }
-              else{
-                $("#up-liv").hide(); 
-              }
-        });
+       
+        };
+
+
 
       $(document).on('change', '#myDropdown' , function(){
 
           var status = $('#myDropdown').val();
           if (status == "celibataire" || status == "Veuf" || status == "Divorce" || status == "Sépare" || status == "Conjoint-disparu")
         {
-            document.getElementById("alone-title").innerHTML = "VOS BIENS, EN FRANCE ET/OU Á L'ÉTRANGER"; 
-            document.getElementById("alone-sub").innerHTML = "Avez-vous des biens <b>immobiliers</b> en france et/ou á l'étranger ?"; 
+            document.getElementById("alone-title").innerHTML = "Vos biens, en France et/ou á l'étranger"; 
+            document.getElementById("alone-sub").innerHTML = "Avez-vous des biens <b>immobiliers</b> en France et/ou á l'étranger ?"; 
             document.getElementById("alone-home").innerHTML = "Habitez-vous la maison dont vous êtes propriétaire ?"; 
-            document.getElementById("alone-mob").innerHTML = "Avez-vous des biens <b>mobiliers</b> en france et/ou á l'étranger ?";  
+            document.getElementById("alone-mob").innerHTML = "Avez-vous des biens <b>mobiliers</b> en France et/ou á l'étranger ?";  
             document.getElementById("alone-d-immo").innerHTML = "Avez-vous des biens <b>immobiliers</b> en France et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONATION DEPUIS MOINS DE 10 ANS ?";
             document.getElementById("alone-d-mobi").innerHTML = "Avez-vous des biens <b>mobiliers</b> en France et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONATION DEPUIS MOINS DE 10 ANS ?";
             $('#alone-donnate-imo').hide();
             $('#alone-donnate-mobi').hide();
             document.getElementById("impo").innerHTML = "Veuillez nous envoyer votre dernier avis d’impôt sur le revenu.";
-            document.getElementById("acceptTerms").innerHTML = "je signe eletroniquement.";  
+            document.getElementById("acceptTerms").innerHTML = "je signe eletroniquement.";
+            document.getElementById("alone-d-mobi").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>mobilier</b> en france et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONNATION DEPUIS MOINS DE 10 ANS?.";  
  
         }
         else
         {
-             document.getElementById("alone-title").innerHTML = "VOS BIENS (et enventuellement ceux de votre ménage), EN FRANCE ET/OU Á L'ÉTRANGER"; 
-             document.getElementById("alone-sub").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>immobiliers</b> en france et/ou á l'étranger ?";
+             document.getElementById("alone-title").innerHTML = "Vos biens (et éventuellement ceux de votre ménage), en France et/ou á l'étranger"; 
+             document.getElementById("alone-sub").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>immobiliers</b> en France et/ou á l'étranger ?";
              document.getElementById("alone-home").innerHTML = "Habitez-vous la maison dont vous ou votre conjoint actuel, concubin, partenaire PACS êtes propriétaire ?"; 
-             document.getElementById("alone-mob").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>mobiliers</b> en france et/ou á l'étranger ?";  
+             document.getElementById("alone-mob").innerHTML = "Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) des biens <b>mobiliers</b> en France et/ou á l'étranger ?";  
              document.getElementById("alone-d-immo").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>immobiliers</b> en France et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONATION DEPUIS MOINS DE 10 ANS ?";  
-             document.getElementById("alone-d-immo").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>mobiliers</b> en France et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONATION DEPUIS MOINS DE 10 ANS ?";
              $('#alone-donnate-imo').show();
              $('#alone-donnate-mobi').show(); 
               document.getElementById("impo").innerHTML = "Veuillez nous envoyer votre dernier avis d’impôt sur le revenu ainsi que le dernier avis d’impôt de votre concubin.";  
-              document.getElementById("acceptTerms").innerHTML = "je signe eletroniquement pour les deux partis.";  
+              document.getElementById("acceptTerms").innerHTML = "je signe eletroniquement pour les deux parties.";
+               document.getElementById("alone-d-mobi").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>mobilier</b> en france et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONNATION DEPUIS MOINS DE 10 ANS?.";  
         }
 
           if (status == "marie" || status == "Remarie"){
@@ -658,7 +647,7 @@ function getValue(param) {
     $(document).on('click', '.biens-donnate', function(e){
           e.preventDefault();
           console.log($(this));
-          $("#bibi-do").after("<h4>Bien immobilier supplementaire dont vous avez fais la donation depus moins de 10ans a declarer <input class='myButton cancel inline' type='button' value='x'></h4>\
+          $("#bibi-do").after("<h4>Bien immobilier supplementaire dont vous avez fait la donation depus moins de 10ans a declarer <input class='myButton cancel inline' type='button' value='x'></h4>\
                         <div class='row'>\
                               <div class='col-sm'>\
                                 <label for='nature'>Précisez la nature du bien déclaré</label>\
@@ -683,7 +672,7 @@ function getValue(param) {
     $(document).on('click', '.biens-donnate-mobi', function(e){
           e.preventDefault();
           console.log($(this));
-          $("#bibi-do-mobi").after("<h4>Bien mobilier supplementaire dont vous avez fais la donation depus moins de 10ans a declarer <input class='myButton cancel inline' type='button' value='x'></h4>\
+          $("#bibi-do-mobi").after("<h4>Bien mobilier supplementaire dont vous avez fait la donation depus moins de 10ans a declarer <input class='myButton cancel inline' type='button' value='x'></h4>\
                         <div class='row'>\
                               <div class='col-sm'>\
                                 <label for='nature'>Précisez la nature du bien déclaré</label>\

@@ -1521,6 +1521,10 @@ fieldset {
   margin-right: auto;
 }
 
+/*.btn:hover{
+    color: white;
+}*/
+
 .btn {
     display: inline-block;
     cursor: pointer;
@@ -1663,11 +1667,12 @@ fieldset {
     background-color: #ff9b24;
 }
 .btn-primary{
-        border-color: #000
+        border-color: #000;
+        color: #000;
 }
 .btn-primary:hover{
     background-color: #d03e0b;
-    color: white; 
+    color: #fff!important; 
 }
 
 .white-bar{
