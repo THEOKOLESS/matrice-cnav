@@ -515,6 +515,8 @@ $('#contact input[type=radio]').on('change', function() {
   });
 
   $(document).on('click', '#annuled-add', function(e){
+    e.preventDefault();
+
         $(".centerBlock").show();
         $("#add").hide();
         $("#addr").show();
@@ -538,7 +540,7 @@ $('#contact input[type=radio]').on('change', function() {
         var save   = $("#situation-offi").text();
    
         if(save != status && status != "Veuillez sélectionner votre situation familiale" && status != "Vie en convubinage" && status != "conjoint(e) porté(e) disparu(e)"){
-          document.getElementById("situation-offi").innerHTML = "Vous êtes " + status;
+          document.getElementById("situation-offi").innerHTML = "Vous êtes " + status; 
         }
         else if (status == "Vie en convubinage")
         {
@@ -601,8 +603,8 @@ $('#contact input[type=radio]').on('change', function() {
             $('#RPAC').show();
           }
           else if((this).id == "autre"){
-            $("#nav").after("<div class='row bloc' id='PalimC'><h4>preciser votre revenue <input class='inline autow' type='text' placeholder='le nom de votre revenue'> <button type='button' \
-              class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></span></button></h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' \
+            $("#autre").after("<div class='row bloc'><h4>preciser votre revenu <input class='inline autow' type='text' placeholder='le nom de votre revenu'><input class='myButton inline cancel' type='button' value='x'/> \
+              </h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' \
               id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label>\
               <input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
             writemth()
@@ -613,15 +615,16 @@ $('#contact input[type=radio]').on('change', function() {
    $(document).on('click', '.has-more', function(e){
           e.preventDefault();
             if((this).id == "more-base-retraite"){
-              $(this).parent().next().after("<div class='row bloc retraite-base'><h4>retraite de base supplementaire<input class='inline autow' type='text' placeholder='retraite de base'> <button type='button' \
-              class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></span></button></h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' \
+              $(this).parent().next().after("<div class='row bloc retraite-base'><h4>retraite de base supplementaire<input class='inline autow' type='text' placeholder='retraite de base'> <input class='myButton cancel inline' id='more-comp-retraite' type='button' value='x'>\
+                </h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' \
               id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label>\
               <input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
             writemth();
             }
             else if((this).id == "more-comp-retraite"){
-              $(this).parent().next().after("<div class='row bloc retraite-comp'><h4>retraite complementaire supplementaire<input class='inline autow' type='text' placeholder='retraite complementaire'> <button type='button' \
-              class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></span></button></h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' \
+              $(this).parent().next().after("<div class='row bloc retraite-comp'><h4>retraite complementaire supplementaire<input class='inline autow' type='text' placeholder='retraite complementaire'>\
+               <input class='myButton cancel inline' type='button' value='x'>\
+                </h4><div class='col-sm'><label for='fstmth' class='mois'></label><input type='text' \
               id='fstmth' placeholder='€'></div><div class='col-sm'><label for='secmth' class='mois'></label>\
               <input type='text' id='secmth' placeholder='€'></div><div class='col-sm'><label for='thrmth' class='mois'></label><input type='text' id='thrmth' placeholder='€'></div></div>")
             writemth();
@@ -629,9 +632,9 @@ $('#contact input[type=radio]').on('change', function() {
 
         });
 
-         $(document).on('click', '.myButton2', function(e){
+         $(document).on('click', '.cancel', function(e){
           e.preventDefault();
-          $(this).parent().parent().hide();  /* remove panel */
+          $(this).parent().parent().remove();  /* remove panel */
         });
 
 
@@ -643,45 +646,71 @@ function getValue(param) {
     $(document).on('click', '.biens', function(e){
           e.preventDefault();
           console.log($(this));
-          $("#bibi").after("<div class='row'><h4>Bien immobilier supplementaire a declarer <button type='button' class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label><input type='text' id='nature' placeholder='nature du bien'></div><div class='col-sm'><label for='adresse'>Adresse du bien déclaré</label><input type='text' id='adresse' placeholder='Adresse complete du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'></div></div>")
+          $("#bibi").after("<div class='row'><h4>Bien immobilier supplementaire a declarer <input class='myButton cancel inline'' type='button' value='x'>\
+            </h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label><input type='text' id='nature' placeholder='nature du bien'></div><div class='col-sm'><label for='adresse'>Adresse du bien déclaré</label><input type='text' id='adresse' placeholder='Adresse complete du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'></div></div>")
       });
     $(document).on('click', '.biens-mobi', function(e){
           e.preventDefault();
           console.log($(this));
-          $("#mobibibi").after("<div class='row'><h4>Bien mobilier supplementaire a declarer <button type='button' class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label><input type='text' id='nature' placeholder='nature du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'></div></div>")
+          $("#mobibibi").after("<div class='row'><h4>Bien mobilier supplementaire a declarer <input class='myButton cancel inline'' type='button' value='x'>\
+            </h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label><input type='text' id='nature' placeholder='nature du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'></div></div>")
       });
     $(document).on('click', '.biens-donnate', function(e){
           e.preventDefault();
           console.log($(this));
-          $("#bibi-do").after("<div class='row'><h4>Bien immobilier supplementaire a declarer <button type='button' class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label><input type='text' id='nature' placeholder='nature du bien'>\
-            </div><div class='col-sm'><label for='adresse'>Adresse du bien déclaré</label><input type='text' id='adresse' placeholder='Adresse complete du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'> <p>Date de l’acte de \
-            donation <input class='situf inline' type='text' placeholder='jj/mm/aaaa' name='famidate' id='immo-donna-date'> <div class='col-sm'>\
+          $("#bibi-do").after("<h4>Bien immobilier supplementaire dont vous avez fais la donation depus moins de 10ans a declarer <input class='myButton cancel inline' type='button' value='x'></h4>\
+                        <div class='row'>\
+                              <div class='col-sm'>\
+                                <label for='nature'>Précisez la nature du bien déclaré</label>\
+                                    <input type='text' id='nature' placeholder='nature du bien'>\
+                              </div>\
+                              <div class='col-sm'>\
+                                <label for='adresse'>Adresse du bien déclaré</label>\
+                                    <input type='text' id='adresse' placeholder='adresse complete du bien'>\
+                              </div>\
+                              <div class='col-sm'>\
+                                <label for='valeur'>Valeur actuelle</label>\
+                                <input type='text' id='valeur' placeholder='€'>\
+                              </div>\
+                        </div>\
+                        <p>Date de l’acte de donation <input class='situf inline' required type='text' placeholder='jj/mm/aaaa' name='famidate' id='immo-donna-date'>\
+                           <div class='col-sm'>\
                                 <label for='thrmth' class='parent'>Lien de parenté avec le bénéficiaire de la donation :</label>\
-                                <input type='text' id='thrmth'  placeholder='Lien de parenté'>\
-                          </div></div></div>")
+                                <input type='text' class='autow inline'   placeholder='Lien de parenté'>\
+                          </div>")
       });
 
     $(document).on('click', '.biens-donnate-mobi', function(e){
           e.preventDefault();
           console.log($(this));
-          $("#bibi-do-mobi").after("<div class='row'><h4>Bien mobilier supplementaire a declarer <button type='button' class='myButton2 inline'><span class='glyphicon glyphicon-remove no-l-h'></span></button></h4><div class='col-sm'><label for='nature'>Précisez la nature du bien déclaré</label>\
-            <input type='text' id='nature' placeholder='nature du bien'></div><div class='col-sm'><label for='valeur'>Valeur actuelle</label><input type='text' id='valeur' placeholder='€'><p>Date de l’acte de \
-            donation <input class='situf inline' type='text' placeholder='jj/mm/aaaa' name='famidate' id='immo-donna-date'> <div class='col-sm'>\
+          $("#bibi-do-mobi").after("<h4>Bien mobilier supplementaire dont vous avez fais la donation depus moins de 10ans a declarer <input class='myButton cancel inline' type='button' value='x'></h4>\
+                        <div class='row'>\
+                              <div class='col-sm'>\
+                                <label for='nature'>Précisez la nature du bien déclaré</label>\
+                                    <input type='text' id='nature' placeholder='nature du bien'>\
+                              </div>\
+                              <div class='col-sm'>\
+                                <label for='valeur'>Valeur actuelle</label>\
+                                <input type='text' id='valeur' placeholder='€'>\
+                              </div>\
+                        </div>\
+                        <p>Date de l’acte de donation <input class='situf inline' required type='text' placeholder='jj/mm/aaaa' name='famidate' id='immo-donna-date'>\
+                           <div class='col-sm'>\
                                 <label for='thrmth' class='parent'>Lien de parenté avec le bénéficiaire de la donation :</label>\
-                                <input type='text' id='thrmth'  placeholder='Lien de parenté'>\
-                          </div></div></div>")
+                                <input type='text' class='autow inline'   placeholder='Lien de parenté'>\
+                          </div>")
       });
 });
 
 
 
-$(function(){
-$('.design').prepend($('#wizard').addClass("top-actions"));
+// $(function(){
+// $('.design').prepend($('#wizard').addClass("top-actions"));
 
-  var button = '<button type="button" class="btn btn-primary orange"> \
-                  <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>\
-                </button>';
+//   var button = '<button type="button" class="btn btn-primary orange"> \
+//                   <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>\
+//                 </button>';
 
-  // $('').before(button);
-}); 
+//   // $('').before(button);
+// }); 
 

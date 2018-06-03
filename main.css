@@ -1288,7 +1288,7 @@ body {
 #contact h4 {
   margin: 5px 0 15px;
   display: block;
-  font-size: 29px;
+  font-size: 21px;
   font-weight: bold;
 }
 
@@ -1357,7 +1357,9 @@ fieldset {
 
 #contact input:focus,
 #contact textarea:focus {
-  outline: 0;
+/*  outline: 0;
+  border: 1px solid #aaa;*/
+    outline: 1;
   border: 1px solid #aaa;
 }
 
@@ -1410,7 +1412,14 @@ fieldset {
     border-bottom: 1px
 }
 
+.tiny-head{
+    padding: 0px;
+    min-height: 0px;
+}
 
+.tiny-tittle{
+    margin-bottom: 0!important; 
+}
 .panel-title {
     margin-top: 0;
     margin-bottom: 0;
@@ -1432,7 +1441,9 @@ fieldset {
     padding: 0 0 8px 0;
     width: 100%;
 }
-
+.tiny-panel{
+    margin-bottom: 6px;
+}
 .inline{
     display: inline-block !important;
 }
@@ -1440,7 +1451,7 @@ fieldset {
     width: 24% !important;
 }
 .myButton {
-    background-color:#44c767;
+    background-color:#d03e0b;
     -moz-border-radius:42px;
     -webkit-border-radius:42px;
     border-radius:42px;
@@ -1471,7 +1482,7 @@ fieldset {
     text-shadow:0px 0px 0px #2f6627;
 }
 .myButton:hover {
-    background-color:#5cbf2a;
+    background-color:#d03e0b;
 }
 .myButton:active {
     position:relative;
@@ -1720,6 +1731,72 @@ width: 12%!important;
 .full-w{
     width: 100%!important;
 }
+
+/*.switch-field{
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}*/
+
+
+/*.cont-radio{
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+*/
+/*.checkmark {
+    position: absolute;
+    top: -9px;
+    left: 28px;
+    height: 50px;
+    width: 50px;
+    background-color: #eee0;
+    border: 3px solid red;
+    
+}*/
+
+/*.cont-radio  input:checked ~ .checkmark {
+    background-color: #2196F3;
+}*/
+
+
+.cont-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+.cont-radioinput [type="radio"] {
+    display: none;
+}
+
+.cont-radio label {
+  padding: 10px 20px;
+  background-color: #ffa50000;
+  border: thin solid #ff9b24;
+  border-radius: 5px;
+  margin:5px;
+  display: inline-block;
+}
+
+.cont-radio input[type="radio"]:checked + label {
+    background-color: #ff9b24;
+    cursor: default;
+    color: black;
+}
+
 /*#locationField, #controls {
         position: relative;
         width: 480px;
