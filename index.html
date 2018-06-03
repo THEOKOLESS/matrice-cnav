@@ -42,7 +42,7 @@
 	        <h3>votre situation de famille et votre adresse </h3>
 	   <section>
        <!-- <div class="row"> -->
-        <p>(*) Obligatoire</p>
+        <!-- <p>( ) Obligatoire</p> -->
 				  <h2>Votre situation de famille actuelle </h2> 
           <p id="situation-offi" class="recap">Vous etes Marié(e)</span></p>
               <div class="btn-group" role="group" id="modif-situ">
@@ -100,7 +100,7 @@
              <!-- <div class="col-xs-6"> -->
                 <div class="centerBlock">
                 <p>MME ALEXANDRE AGNES</p>
-                <p><span id="number-offi">38</span> <span id="street-offi">AVENUE DES MANGOLIAS</span></p>
+                <p><span id="number-offi" class="recap">38</span> <span id="street-offi">AVENUE DES MANGOLIAS</span></p>
                 <p><span id="zip-offi">77340</span> <span id="city-offi">PONTAULT COMBAULT</span></p>
                
              <!-- </div> -->
@@ -547,7 +547,7 @@
                   <div class="row" style="margin-bottom: 20px;">
                     <div class="col-sm-6">
                       <label for="conjbrth">Sa date de naissance : </label>
-                      <input class="conjbrth inline full-w"  type="text" placeholder="jj/mm/aaaa" name="famidate" id="conjbrth">*</br>
+                      <input class="conjbrth inline full-w"  type="text" placeholder="jj/mm/aaaa" name="famidate" id="conjbrth"></br>
                     </div>  
                   </div>
 
@@ -560,7 +560,7 @@
 
                   <div class="row" style="margin-bottom: 20px;">
                     <div class="col-sm-6">
-                      <label for="conj-commune">Commune de naissance : (indiquez l’arrondissement pour Paris, Lyon, Marseille) *</label>
+                      <label for="conj-commune">Commune de naissance : (indiquez l’arrondissement pour Paris, Lyon, Marseille) </label>
                       <input type="text" id="conj-commune" class=" full-w">
                     </div>
                     <div class="col-sm-6" style="padding-top: 29px;">
@@ -829,7 +829,7 @@
                   
                 <div class="row" style="margin-bottom: 20px;">
                   <div class="col-sm-6">
-                    <label for="secu">Son n° de sécurité sociale *</label>
+                    <label for="secu">Son n° de sécurité sociale </label>
                     <input type="text" id="secu" class=" full-w" maxlength="13">
                   </div>
                 </div>
@@ -1585,14 +1585,14 @@
                 <input type="file" name="pic" accept="image/*">
                 <input type="submit">
                 </div>  
-                <div class="row">
-                  <p>Rappel de vos saisis</p>
-                  <p id="end-add"></p>
-                  <p id="end-situ"></p>
-                  <p id="end-conj-name"></p>
-                  <p id="end-ress"></p>
-                  <p id="end-bien"></p>
-                </div>       
+             <!--    <div >
+                  <p><b>Rappel de vos saisis: </b></p>
+                  <p id="end-add" style="display: block;">Vous avez changé d'adresse</p>
+                  <p id="end-situ" style="display: block;"></p>
+                  <p id="end-conj-name" style="display: block;"></p>
+                  <p id="end-ress" style="display: block;"></p>
+                  <p id="end-bien" style="display: block;"></p>
+                </div>  -->      
 	            <input id="end" type="checkbox"> 
               <label for="end" id="accept-test">pas possible</label>
 	        </section>
