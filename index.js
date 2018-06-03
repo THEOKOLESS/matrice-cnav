@@ -1,3 +1,4 @@
+
 // var form = $("#contact");
 // form.validate({
 //     errorPlacement: function errorPlacement(error, element) { element.before(error); },
@@ -124,33 +125,30 @@ $( function() {
 //         return false;
 //     }
 // });
-          function callDate(param){
+          function callDate(){
             var date3mois = new Date();
-            var month = date3mois.getMonth();
+            var month = date3mois.getMonth() - 3;
             var year = date3mois.getFullYear();
             // if (month > 4){
-              month -= 4;
+              // month -= 4;
             // }
-            console.log(date3mois);
             date3mois.setMonth(month);
             date3mois.setUTCDate('1');
             console.log(date3mois);
 
           date3mois = date3mois.toLocaleDateString().toString();
           date3mois = date3mois.split("T");
-          $("#startdate").prop('value', date3mois[0]) 
-          if (param == 1)
-            return month;
-          else
-            return year;
+          $("#startdate").prop('value', date3mois) 
+         
           }
 
-
+          callDate();
           function callDate2(){
             var date3mois = new Date($("#startdate").val());
+            console.log(date3mois)
             var month = date3mois.getMonth();
             // if (month > 3){
-              month = month + 2;
+              // month = month + 2;
             // }
             date3mois.setMonth(month);
             // date3mois.setUTCDate('32');
@@ -160,9 +158,24 @@ $( function() {
           $("#enddate").prop('value', lastDayOfMonth) 
           }
 
+          function callDate3(){
+            var date3mois = new Date();
+            var month = date3mois.getMonth();
+            // if (month > 3){
+              month += 1;
+            // }
+            date3mois.setMonth(month);
+            date3mois.setUTCDate('1');
+
+          date3mois = date3mois.toLocaleDateString().toString();
+          date3mois = date3mois.split("T");
+          $("#echeance").prop('value', date3mois) 
+          }
+
+
           callDate();
           callDate2();
-
+          callDate3();
 
 
 
@@ -467,6 +480,7 @@ $('#contact input[type=radio]').on('change', function() {
 
   $(document).on('click', '#addr', function(e){
         e.preventDefault();
+
         var street =  document.getElementById ( "street-offi" ).innerText;
         var city   =  document.getElementById ( "city-offi" ).innerText;
         var zip    =  document.getElementById ( "zip-offi" ).innerText;
@@ -480,22 +494,31 @@ $('#contact input[type=radio]').on('change', function() {
 
    $(document).on('click', '#addr-valid', function(e){
         e.preventDefault();
-        var street =  $('#street').val();//document.getElementById ( "street" );
-        var city   =  $('#city').val();//
-        var zip    =  $('#ZIP').val();//
+        var streetnumver = $('#street_number').val();
+        var street =  $('#route').val();//document.getElementById ( "street" );
+        var city   =  $('#locality').val();//
+        var zip    =  $('#postal_code').val();//
 
 
         $(".centerBlock").show();
         $("#add").hide();
         $("#addr").show();
 
-
+        if (streetnumver)
+         document.getElementById("number-offi").innerHTML = streetnumver;
+       if(street)
          document.getElementById("street-offi").innerHTML = street;
+       if (city)
          document.getElementById("city-offi").innerHTML = city;
+       if (zip)
          document.getElementById("zip-offi").innerHTML = zip;
   });
 
-
+  $(document).on('click', '#annuled-add', function(e){
+        $(".centerBlock").show();
+        $("#add").hide();
+        $("#addr").show();
+  });
 
 
   $(document).on('click', '#modif-situ', function(e){
@@ -650,4 +673,15 @@ function getValue(param) {
       });
 });
 
+
+
+$(function(){
+$('.design').prepend($('#wizard').addClass("top-actions"));
+
+  var button = '<button type="button" class="btn btn-primary orange"> \
+                  <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>\
+                </button>';
+
+  // $('').before(button);
+}); 
 

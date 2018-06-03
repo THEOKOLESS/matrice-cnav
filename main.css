@@ -305,6 +305,7 @@ textarea {
 }
 
 
+
 /*! normalize.css v1.1.1 | MIT License | git.io/normalize */
 
 /* ==========================================================================
@@ -917,7 +918,7 @@ table {
 
 .wizard > .steps > ul > li
 {
-    width: 25%;
+    width: 20%;
 }
 
 .wizard > .steps > ul > li,
@@ -951,8 +952,8 @@ table {
 .wizard > .steps .disabled a:hover,
 .wizard > .steps .disabled a:active
 {
-    background: #eee;
-    color: #aaa;
+    background: #c4c4c4;
+    color: #656565;
     cursor: default;
 }
 
@@ -960,7 +961,8 @@ table {
 .wizard > .steps .current a:hover,
 .wizard > .steps .current a:active
 {
-    background: #fcfcfc;
+    /*background: #fcfcfc;*/
+    background:  #ff9b24;
     color: #111;
     cursor: default;
 }
@@ -969,7 +971,8 @@ table {
 .wizard > .steps .done a:hover,
 .wizard > .steps .done a:active
 {
-    background: #4CAF50;
+    /*background: #4CAF50;*/
+      background: #d03e0b;
     color: #fff;
 }
 
@@ -1096,16 +1099,21 @@ table {
 .wizard > .actions a,
 .wizard > .actions a:hover,
 .wizard > .actions a:active
-{
+{/*
     background: #2184be;
     color: #fff;
     display: block;
     padding: 0.5em 1em;
+    text-decoration: none;*/
+      color: #000;
     text-decoration: none;
+    background-color: #ff9b24;
+    border: 2px solid #d03e0b; 
+    /*border-color: #d03e0b;*/
 
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    /*-webkit-border-radius: 5px;*/
+    /*-moz-border-radius: 5px;*/
+    /*border-radius: 5px;*/
 }
 
 .wizard > .actions .disabled a,
@@ -1674,6 +1682,83 @@ fieldset {
     text-decoration:none;
     text-shadow:0px 0px 0px #2f6627;
 }
-h4{
+
+
+#enddate{
+width: 12%!important;
+}
+
+#startdate{
+width: 12%!important;
+}
+
+#echeance{
+    color :red;
+    width: 12%!important;
 
 }
+
+.little-gap {
+    width: 100%;
+    height: 10px;
+}
+.label{
+    color: #333;
+}
+
+.field{
+    padding: 5px;
+    width: 55%;
+}
+#address{
+     width: 100%;
+}
+
+#noswag  {
+  list-style-type: none !important;
+}
+.full-w{
+    width: 100%!important;
+}
+/*#locationField, #controls {
+        position: relative;
+        width: 480px;
+      }
+      #autocomplete {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 99%;
+      }
+      .label {
+        text-align: right;
+        font-weight: bold;
+        width: 100px;
+        color: #303030;
+      }
+      #address {
+        border: 1px solid #000090;
+        background-color: #f0f0ff;
+        width: 480px;
+        padding-right: 2px;
+      }
+      #address td {
+        font-size: 10pt;
+      }
+      .field {
+        width: 99%;
+      }
+      .slimField {
+        width: 80px;
+      }
+      .wideField {
+        width: 200px;
+      }
+      #locationField {
+        height: 20px;
+        margin-bottom: 2px;
+      }
+*/
+/*.design {
+    column-count: 4;
+}*/
