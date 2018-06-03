@@ -44,7 +44,7 @@
        <!-- <div class="row"> -->
         <p>(*) Obligatoire</p>
 				  <h2>Votre situation de famille actuelle </h2> 
-          <p id="situation-offi">Vous etes Marié(e)</span></p>
+          <p id="situation-offi" class="recap">Vous etes Marié(e)</span></p>
               <div class="btn-group" role="group" id="modif-situ">
                 <button type="button" class="btn btn-primary orange">
                   <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
@@ -117,9 +117,9 @@
         
        
       <div id="add">
-                <div id="locationField">
+          <div id="locationField">
       <input id="autocomplete" placeholder="Entrer votre adresse"
-             onFocus="geolocate()" type="text"></input>
+             type="text"></input>
     </div>
 
     <table id="address">
@@ -529,43 +529,43 @@
                   <div class="row" style="margin-bottom: 20px;">
                     <div class="col-sm-6">
                       <label for="conj-name">Son nom de famille (de naissance) : </label>
-                      <input type="text" id="conj-name" required class="full-w">
+                      <input type="text" id="conj-name"  class="full-w">
                     </div>
                     <div class="col-sm-6">
                       <label for="conj-usage-name">Son nom d’usage</label>
-                      <input type="text" id="conj-usage-name" class="required full-w">
+                      <input type="text" id="conj-usage-name" class=" full-w">
                     </div>
                   </div>
 
                   <div class="row" style="margin-bottom: 20px;">
                     <div class="col-sm-6">
                       <label for="conj-prename">Ses prénoms (en 1er son prénom courant) :</label>
-                      <input type="text" id="conj-prename" class="required full-w">
+                      <input type="text" id="conj-prename" class=" full-w">
                     </div>
                   </div>
 
                   <div class="row" style="margin-bottom: 20px;">
                     <div class="col-sm-6">
                       <label for="conjbrth">Sa date de naissance : </label>
-                      <input class="conjbrth inline full-w" required type="text" placeholder="jj/mm/aaaa" name="famidate" id="conjbrth">*</br>
+                      <input class="conjbrth inline full-w"  type="text" placeholder="jj/mm/aaaa" name="famidate" id="conjbrth">*</br>
                     </div>  
                   </div>
 
                   <div class="row" style="margin-bottom: 20px;">
                     <div class="col-sm-6">
                       <label for="conj-natio">Sa nationalité : </label>
-                      <input type="text" id="conj-natio" class="required full-w">
+                      <input type="text" id="conj-natio" class=" full-w">
                     </div>
                   </div>
 
                   <div class="row" style="margin-bottom: 20px;">
                     <div class="col-sm-6">
                       <label for="conj-commune">Commune de naissance : (indiquez l’arrondissement pour Paris, Lyon, Marseille) *</label>
-                      <input type="text" id="conj-commune" class="required full-w">
+                      <input type="text" id="conj-commune" class=" full-w">
                     </div>
                     <div class="col-sm-6" style="padding-top: 29px;">
                       <label for="conj-ZIP">Code postale: </label>
-                      <input type="text" id="conj-ZIP" class="required full-w">
+                      <input type="text" id="conj-ZIP" class=" full-w">
                     </div>
                   </div>
 
@@ -830,7 +830,7 @@
                 <div class="row" style="margin-bottom: 20px;">
                   <div class="col-sm-6">
                     <label for="secu">Son n° de sécurité sociale *</label>
-                    <input type="text" id="secu" class="required full-w" maxlength="13">
+                    <input type="text" id="secu" class=" full-w" maxlength="13">
                   </div>
                 </div>
                 <!-- <div class="row"> --></br>
@@ -1427,10 +1427,9 @@
                               <div class="col-sm">
                                 <label for="addresse-imo">Adresse du bien déclaré</label>
                                   <div id="addresse-imo">
-                                      <input id="autocomplete" placeholder="Entrer votre adresse"
-                                       onFocus="geolocate()" type="text"></input>
+                                      <input id="autocomplete" placeholder="Entrer votre adresse"  type="text"></input>
                                         </div>
-                       <!--    <input type="text" id="adresse" placeholder="Rentrer l'adresse complete"> -->
+                       <!--    <input type="text" id="adresse" placeholder="Rentrer l'adresse complete">            onFocus="geolocate()"-->
                               </div>
                               <div class="col-sm">
                                 <label for="valeur">Valeur actuelle</label>
@@ -1519,7 +1518,7 @@
                                 <input type="text" id="valeur" placeholder="€">
                               </div>
                         </div>
-                        <p>Date de l’acte de donation <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="immo-donna-date">
+                        <p>Date de l’acte de donation <input class="situf inline "  type="text" placeholder="jj/mm/aaaa" name="famidate" id="immo-donna-date">
                            <div class="col-sm">
                                 <label for="thrmth" class="parent">Lien de parenté avec le bénéficiaire de la donation :</label>
                                 <input type="text" class="autow inline"   placeholder="Lien de parenté">
@@ -1557,7 +1556,7 @@
                                 <input type="text" id="valeur" placeholder="€">
                               </div>
                         </div>
-                        <p>Date de l’acte de donation <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="mobi-donna-date">
+                        <p>Date de l’acte de donation <input class="situf inline "  type="text" placeholder="jj/mm/aaaa" name="famidate" id="mobi-donna-date">
                            <div class="col-sm">
                                 <label for="thrmth" class="parent">Lien de parenté avec le bénéficiaire de la donation :</label>
                                 <input type="text" class="autow inline"  placeholder="Lien de parenté">
@@ -1585,9 +1584,17 @@
                 <p id="changement-fam"></p>              
                 <input type="file" name="pic" accept="image/*">
                 <input type="submit">
-                </div>         
-	            <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> 
-              <label for="acceptTerms" id="accept-test">pas possible</label>
+                </div>  
+                <div class="row">
+                  <p>Rappel de vos saisis</p>
+                  <p id="end-add"></p>
+                  <p id="end-situ"></p>
+                  <p id="end-conj-name"></p>
+                  <p id="end-ress"></p>
+                  <p id="end-bien"></p>
+                </div>       
+	            <input id="end" type="checkbox"> 
+              <label for="end" id="accept-test">pas possible</label>
 	        </section>
 
 	    </div>
@@ -1613,7 +1620,7 @@
 <script type="text/javascript">
 var form = $("#contact");
   form.validate({
-      errorPlacement: function errorPlacement(error, element) { element.after(error); },
+      errorPlacement: function errorPlacement(error, element) { element.after(error); element.toggleClass('ha') },
       // rules: {
       //     confirm: {
       //         equalTo: "#password"
@@ -1627,23 +1634,23 @@ form.children("div").steps({
     clearFixCssClass: "design clearfix",
     labels: 
     {
-        finish: "envoyer",
+        finish: "Envoyer",
         next: "Etape suivante",
         previous: "Etape précédente"
     },
     onStepChanging: function (event, currentIndex, newIndex)
     {
-        form.validate().settings.ignore = ":disabled,:hidden";
+        // form.validate().settings.ignore = ":disabled,:hidden";
         return form.valid();
     },
     onFinishing: function (event, currentIndex)
     {
-        form.validate().settings.ignore = ":disabled";
+        // form.validate().settings.ignore = ":disabled";
         return form.valid();
     },
     onFinished: function (event, currentIndex)
     {
-        alert("Submitted!");
+        alert("Le formulaire a bien état envoyé, vous allez recevoir un e-mail de confirmation!");
     }
 });
 jQuery.extend(jQuery.validator.messages, {
@@ -1666,6 +1673,8 @@ jQuery.extend(jQuery.validator.messages, {
     max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
     min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
 });
+
+
 </script>
 <script type="text/javascript">
 // document.getElementById("mois").innerHTML = "Hello Dolly.";
