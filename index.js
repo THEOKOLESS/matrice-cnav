@@ -134,11 +134,12 @@ $( function() {
             // }
             date3mois.setMonth(month);
             date3mois.setUTCDate('1');
-            console.log(date3mois);
+            // console.log(date3mois);
 
           date3mois = date3mois.toLocaleDateString().toString();
           date3mois = date3mois.split("T");
-          $("#startdate").prop('value', date3mois) 
+          // $("#startdate").prop('value', date3mois)
+          $("#startdate").prop('value', "01/03/2018")  
          
           }
 
@@ -155,7 +156,8 @@ $( function() {
             var lastDayOfMonth = new Date(date3mois.getFullYear(), date3mois.getMonth()+1, 0);
           lastDayOfMonth = lastDayOfMonth.toLocaleDateString().toString();
           lastDayOfMonth = lastDayOfMonth.split("T");
-          $("#enddate").prop('value', lastDayOfMonth) 
+          // $("#enddate").prop('value', lastDayOfMonth)
+           $("#enddate").prop('value', "31/05/2018")  
           }
 
           function callDate3(){
@@ -169,7 +171,8 @@ $( function() {
 
           date3mois = date3mois.toLocaleDateString().toString();
           date3mois = date3mois.split("T");
-          $("#echeance").prop('value', date3mois) 
+          // $("#echeance").prop('value', date3mois)
+          $("#echeance").prop('value', "31/07/2018") 
           }
 
 
@@ -191,7 +194,8 @@ $( function() {
 
             var date    = new Date($('#startdate').val());
             var moisfr  = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
-            var month   = date.getMonth();
+            // var month   = date.getMonth();
+            var month   = 2;
             var year    = date.getFullYear()
             var index   = 0;
             var output  = null;
@@ -216,7 +220,12 @@ $( function() {
 
 
 
-
+        function writend(){
+          $('.recap').each(function(){
+            console.log("coucoucoucocu")
+              document.getElementById("end-situ").innerHTML = document.getElementById((this).id).innerText;
+          });
+        }
 
         $(document).on('change', '#myDropdown' , function(){
 
@@ -301,7 +310,7 @@ $( function() {
             $('#alone-donnate-imo').hide();
             $('#alone-donnate-mobi').hide();
             document.getElementById("impo").innerHTML = "Veuillez nous envoyer votre dernier avis d’impôt sur le revenu.";
-            document.getElementById("acceptTerms").innerHTML = "je signe eletroniquement.";
+            document.getElementById("accept-test").innerHTML = "je signe eletroniquement.";
             document.getElementById("alone-d-mobi").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>mobilier</b> en france et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONNATION DEPUIS MOINS DE 10 ANS?.";  
  
         }
@@ -315,7 +324,7 @@ $( function() {
              $('#alone-donnate-imo').show();
              $('#alone-donnate-mobi').show(); 
               document.getElementById("impo").innerHTML = "Veuillez nous envoyer votre dernier avis d’impôt sur le revenu ainsi que le dernier avis d’impôt de votre concubin.";  
-              document.getElementById("acceptTerms").innerHTML = "je signe eletroniquement pour les deux parties.";
+              document.getElementById("accept-test").innerHTML = "je signe eletroniquement pour les deux parties.";
                document.getElementById("alone-d-mobi").innerHTML = "Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens <b>mobilier</b> en france et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONNATION DEPUIS MOINS DE 10 ANS?.";  
         }
 
@@ -367,7 +376,13 @@ $( function() {
 //          $('#cnracl').hide()
 //         }
 // });
+ $(document).on('change', '.recap' , function(){
 
+        if((this).id == "situation-offi"){
+          console.log("test");
+          document.getElementById("end-situ").outerHTML = document.getElementById("situation-offi").innerText;
+        }
+ });
 
 
     $(document).on('change', '.retcomp' , function(){
@@ -460,9 +475,11 @@ $('#contact input[type=radio]').on('change', function() {
       $("#donnationdiv-mobi").show();
     }
      if (input6 == "ye"){
+      writend();
       $('#bi-donnate-mobi').show();
     }
     else if (input6 == "no"){
+      writend();
       $('#bi-donnate-mobi').hide();
     }
 });
@@ -690,6 +707,8 @@ function getValue(param) {
                           </div>")
       });
 });
+
+
 
 
 
