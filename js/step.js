@@ -1,11 +1,12 @@
+
       var form = $("#contact");
       form.validate({
-          errorPlacement: function errorPlacement(error, element) { element.after(error); element.toggleClass('ha') },
-          // rules: {
-          //     confirm: {
-          //         equalTo: "#password"
-          //     }
-          // }
+          // errorPlacement: function errorPlacement(error, element) { element.after(error);}
+          rules: {
+              "autocomplete": {
+            "required": true
+         }
+          }
       });
     form.children("div").steps({
         headerTag: "h3",

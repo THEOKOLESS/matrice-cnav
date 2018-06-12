@@ -1,12 +1,15 @@
 
+  $.getScript("js/writmth.js");
 
 $(document).ready(function(){
-  initText();
-  writemth();
+
   $.getScript("js/etape1.js");
-  $.getScript("js/etape2.js");	
+  $.getScript("js/etape2.js");  
   $.getScript("js/etape3.js");
   $.getScript("js/etape4.js");
+  initText();
+  writemth();
+
   $(document).on('click', '.toogle' , function(){
     var $link = $(this);
     $link.parent().parent().next().slideToggle();
@@ -18,39 +21,6 @@ $(document).ready(function(){
      $link.toggleClass('visible');
     });
     
-    function writemth() {
-      $('.bloc').each(function(){
-         eachInMois($(this).find('.mois'));
-      });
-    };
-    
-    function  eachInMois(currBloc) {
-    var date    = new Date("01/03/2018");
-    console.log(date);
-    var moisfr  = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
-    // var month   = date.getMonth();
-    var month   = 2;
-    var year    = date.getFullYear()
-    var index   = 0;
-    var output  = null;
-    // var month2  = month2 = month;
-      
-      currBloc.each(function(){
-
-          if(month > 12)
-          {
-              year += 1;
-              month -= 12; 
-          }
-          output  = moisfr[month] + ' ' + year;
-          if($(this)[0].textContent == ""){
-          $(this).append(output);
-        }
-               // console.log($(this)[0].textContent);
-          // index++;
-          month++;
-      });
-  }
 
 
 

@@ -1,1689 +1,1230 @@
 <!-- <?php
-
-// include('connexion.php')
-?> -->
+   // include('connexion.php')
+   ?> -->
 <!DOCTYPE html>
 <html>
-<head>	  
-  <meta charset="utf-8" />  
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!-- bootstrap glyphicone -->
-    <link rel="stylesheet" href="bootstrap/bootstrap.css"> <!--bootstrap  -->
-    <!-- <link rel="stylesheet" href="bootstrap-cnav/bootstrap_cnav_v1.0"> -->
-    <link rel="stylesheet" href="bootstrap-cnav/bootstrap.css">
-    <!-- <link rel="stylesheet" href="bootstrap-cnav/ie.css"> -->
-    <link rel="stylesheet" type="text/css" href="main.css"> <!-- --><!-- css -->
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
-  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
-  crossorigin="anonymous"></script> <!-- jquerry 1.12 -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!-- datpicker js -->
-    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css"><!-- datpicker design -->
-    <script type="text/javascript" src="index.js"></script><!-- js -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script><!--form VALIDATE -->
-    <script src="jquery.steps.min.js"></script><!--from STEPs -->
-     <script src="https://d79i1fxsrar4t.cloudfront.net/jquery.liveaddress/5.1/jquery.liveaddress.min.js"></script><!--addres -->
+   <head>
+      <meta charset="utf-8" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!-- bootstrap glyphicone -->
+      <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+      <!--bootstrap  -->
+      <!-- <link rel="stylesheet" href="bootstrap-cnav/bootstrap_cnav_v1.0"> -->
+      <link rel="stylesheet" href="bootstrap-cnav/bootstrap.css">
+      <!-- <link rel="stylesheet" href="bootstrap-cnav/ie.css"> -->
+      <link rel="stylesheet" type="text/css" href="css/main.css">
+      <!-- --><!-- css -->
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+         crossorigin="anonymous"></script> <!-- jquerry 1.12 -->
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!-- datpicker js -->
+      <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
+      <!-- datpicker design -->
+      <script type="text/javascript" src="js/index.js"></script><!-- js -->
+      <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script><!--form VALIDATE -->
+      <script src="jquery.steps.min.js"></script><!--from STEPs -->
+      <script src="https://d79i1fxsrar4t.cloudfront.net/jquery.liveaddress/5.1/jquery.liveaddress.min.js"></script><!--addres -->
+      <title>Questionnaire ressource</title>
+   </head>
+   <body>
+      <div class="container">
+         <form id="contact" action="#" class="form-inline">
+            <div>
 
 
-	<title>Questionnaire ressource</title>
-</head>
-<body>
-	<div class="container">
-	<form id="contact" action="#" class="form-inline">
-	    <div>
-    <h3>Introduction</h3>
-      <section>
-        <p>Pour nous permettre de poursuivre le versement de votre retraite, nous devons connaître votre situation familiale actuelle et vos ressources pour la période : <b>du <input class="inline autow" id="startdate"  type="text" name="periodStart" readonly > au <input class="inline autow" id="enddate"  type="text" name="periodEnd"  readonly></b>
-        </p>
-        <p>Pour cela, veuillez compléter le questionnaire ci-après en précisant dans la période indiquée ci-dessus. </p>
-        <ul>
-        <li> Si vous vivez seul(e), vos ressources perçues en France et/ou à l’étranger,</li>
-        <div class="little-gap"></div>
-        <li> Si vous vivez en couple (mariage, Pacs ou concubinage), vos ressources et celles de votre conjoint(e), concubin(e) ou partenaire pacsé perçues en France et/ou à l’étranger.</li>
-      </ul>
-        <p>N’oubliez pas de joindre une photocopie de votre dernier avis d’impôt sur le revenu ou votre avis de situation déclarative à l’impôt sur le revenu et, si vous vivez en concubinage, la photocopie du dernier avis de votre concubin ou de votre partenaire pacsé.</p>
-        <p style="color:red">IMPORTANT : Vous devez envoyer votre déclaration avant le  <input class="inline autow" id="echeance"  type="text" name="periodStart" readonly >. Passé ce délai, sans information sur votre situation familiale, vos ressources et  votre justificatif fiscal, le paiement de vos allocations/retraite de réversion  sera interrompu jusqu’à réception de ce questionnaire.</p>
 
-    </section>
-	        <h3>votre situation de famille et votre adresse </h3>
-	   <section>
-       <!-- <div class="row"> -->
-        <!-- <p>( ) Obligatoire</p> -->
-				  <h2>Votre situation de famille actuelle </h2> 
-          <p id="situation-offi" class="recap">Vous etes Marié(e)</span></p>
-              <div class="btn-group" role="group" id="modif-situ">
-                <button type="button" class="btn btn-primary orange">
-                  <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                </button>
-                <a class="btn btn-primary orange2">Modifier votre situation familiale</a>
-              </div>
-            
-                 <div id="situation-fami">
-                    <div class="row"> 
-                       <div class="col-xs-6"> 
-                        Votre situation : <select class="required" id="myDropdown">
-                        <!-- <option disabled style="display:none" value="" selected value>e</option> -->
-          	            <option  type="radio" name="situation" value="celibataire">Célibataire</option>
-                      	<option  type="radio" name="situation" value="Veuf">Veuf(ve)</option>
-                      	<option  type="radio" name="situation" value="Divorce">Divorcé(e)</option>
-                      	<option  type="radio" name="situation" value="Sépare">Séparé(e)</option>
-                      	<option  type="radio" name="situation" value="Conjoint-disparu">conjoint(e) porté(e) disparu(e)</option>
-                        <option  type="radio" name="situation" value="marie" selected>Marié(e)</option>
-                      	<option  type="radio" name="situation" value="Remarie">Remarié(e)</option>
-                      	<option  type="radio" name="situation" value="Pacse">Pacsé(e)</option>
-                      	<option  type="radio" name="situation" value="Vie-en-convubinage">Vie en convubinage</option>
-                        </select>
-                        </br>
+
+
+               <!-- ÉTAPE 1 -->
+
+
+
+
+
+               <h3>Introduction</h3>
+               <section>
+                  <p>Pour nous permettre de poursuivre le versement de votre retraite, nous devons connaître votre situation familiale actuelle et vos ressources pour la période : <b>du <input class="inline autow" id="startdate"  type="text" name="periodStart" readonly > au <input class="inline autow" id="enddate"  type="text" name="periodEnd"  readonly></b>
+                  </p>
+                  <p>Pour cela, veuillez compléter le questionnaire ci-après en précisant dans la période indiquée ci-dessus. </p>
+                  <ul>
+                     <li> Si vous vivez seul(e), vos ressources perçues en France et/ou à l’étranger,</li>
+                     <div class="little-gap"></div>
+                     <li> Si vous vivez en couple (mariage, Pacs ou concubinage), vos ressources et celles de votre conjoint(e), concubin(e) ou partenaire pacsé perçues en France et/ou à l’étranger.</li>
+                  </ul>
+                  <p>N’oubliez pas de joindre une photocopie de votre dernier avis d’impôt sur le revenu ou votre avis de situation déclarative à l’impôt sur le revenu et, si vous vivez en concubinage, la photocopie du dernier avis de votre concubin ou de votre partenaire pacsé.</p>
+                  <p style="color:red">IMPORTANT : Vous devez envoyer votre déclaration avant le  <input class="inline autow" id="echeance"  type="text" name="periodStart" readonly >. Passé ce délai, sans information sur votre situation familiale, vos ressources et  votre justificatif fiscal, le paiement de vos allocations/retraite de réversion  sera interrompu jusqu’à réception de ce questionnaire.</p>
+               </section>
+
+
+
+
+
+
+                <!-- ÉTAPE 2 -->
+
+
+
+
+
+
+               <h3>votre situation de famille et votre adresse </h3>
+               <section>
+                  <h2>Votre situation de famille actuelle </h2>
+                  <p id="situation-offi" class="recap">Vous etes Marié(e)</span></p>
+                  <div class="btn-group" role="group" id="modif-situ">
+                     <button type="button" class="btn btn-primary orange">
+                     <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                     </button>
+                     <a class="btn btn-primary orange2">Modifier votre situation familiale</a>
+                  </div>
+                  <div id="situation-fami">
+                     <div class="row">
+                        <div class="col-xs-6">
+                           Votre situation : 
+                           <select class="required" id="myDropdown">
+                              <option  type="radio" name="situation" value="celibataire">Célibataire</option>
+                              <option  type="radio" name="situation" value="Veuf">Veuf(ve)</option>
+                              <option  type="radio" name="situation" value="Divorce">Divorcé(e)</option>
+                              <option  type="radio" name="situation" value="Sépare">Séparé(e)</option>
+                              <option  type="radio" name="situation" value="Conjoint-disparu">conjoint(e) porté(e) disparu(e)</option>
+                              <option  type="radio" name="situation" value="marie" selected>Marié(e)</option>
+                              <option  type="radio" name="situation" value="Remarie">Remarié(e)</option>
+                              <option  type="radio" name="situation" value="Pacse">Pacsé(e)</option>
+                              <option  type="radio" name="situation" value="Vie-en-convubinage">Vie en convubinage</option>
+                           </select>
+                           </br>
+                           <div class="little-gap"></div>
+                           <label for="situf">depuis le </label>
+                           <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="famidate">
+                        </div>
+                        <div class="col-xs-6">
+                           <div class="row" style="margin-bottom: 10px;">
+                              <div class="btn-group inline" role="group" id="modified-situ">
+                                 <button type="button" class="btn btn-primary orange">
+                                 <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                 </button>
+                                 <a class="btn btn-primary ng-binding orange2">Valider cette situation familiale</a>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="btn-group inline" role="group" id="annuled-situ"">
+                                 <button type="button" class="btn btn-primary orange">
+                                 <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                 </button>
+                                 <a class="btn btn-primary ng-binding orange2">Annuler les changements</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <hr color="blue">
+                  <div class="centerBlock">
+                     <p>MME DUPONT MONIQUE</p>
+                     <p><span id="number-offi" class="recap">38</span> <span id="street-offi">AVENUE DES MANGOLIAS</span></p>
+                     <p><span id="zip-offi">77340</span> <span id="city-offi">PONTAULT COMBAULT</span></p>
+                     <div class="btn-group" role="group" id="addr">
+                        <button type="button" class="btn btn-primary orange">
+                        <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        </button>
+                        <a class="btn btn-primary orange2">Modifier cette adresse</a>
+                     </div>
+                  </div>
+                  <div id="add">
+                     <div id="locationField">
+                        <input id="autocomplete" placeholder="Entrer votre adresse"
+                           type="text"></input>
+                     </div>
+                     <table id="address">
+                        <tr>
+                           <td class="label">Votre pays de résidence :</td>
+                           <td class="wideField" colspan="3"><input class="field"
+                              id="country" readonly></input></td>
+                        </tr>
+                        <tr>
+                           <td class="label">Code postal</td>
+                           <td class="wideField"><input class="field" id="postal_code"
+                              readonly></input></td>
+                        </tr>
+                        <tr>
+                           <td class="label">Ville</td>
+                           <td class="wideField" colspan="3"><input class="field" id="locality"
+                              readonly></input></td>
+                        </tr>
+                        <tr>
+                           <td class="label">Numéro de voie</td>
+                           <td class="slimField"><input class="field" id="street_number"
+                              readonly></input></td>
+                        </tr>
+                        <tr>
+                           <td class="label">Nom de la voie</td>
+                           <td class="wideField" colspan="2"><input class="field" id="route"
+                              readonly"></input></td>
+                        </tr>
+                        <tr>
+                           <td class="label">région</td>
+                           <td class="slimField"><input class="field"
+                              id="administrative_area_level_1" readonly></input></td>
+                        </tr>
+                        <tr>
+                           <td class="label">Compélement</td>
+                           <td class="wideField" colspan="3"><input class="field"
+                              id="complement" readonly></input></td>
+                        </tr>
                         <div class="little-gap"></div>
-                        <label for="situf">depuis le </label>
-                        <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="famidate">
-                      </div>
-
-                      <div class="col-xs-6"> 
-                              <div class="row" style="margin-bottom: 10px;"> 
-                                <div class="btn-group inline" role="group" id="modified-situ"">
-                                  <button type="button" class="btn btn-primary orange">
-                                    <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                  </button>
-                                    <a class="btn btn-primary ng-binding orange2">Valider cette situation familiale</a>
-                                </div>
-                              </div>
-                              <div class="row">                              
-                                 <div class="btn-group inline" role="group" id="annuled-situ"">
-                                    <button type="button" class="btn btn-primary orange">
-                                      <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                    </button>
-                                    <a class="btn btn-primary ng-binding orange2">Annuler les changements</a>
-                                </div>
-                            </div>
-                      </div>
-                    </div>
+                        <tr>
+                           <td>
+                              </br>
+                              Veuillez saisir s'il y a lieu vos complements d'adresse
+                           </td>
+                        </tr>
+                        <div class="little-gap"></div>
+                        <tr>
+                           <td>
+                              <label for="complement" class="label inline">complément d'adresse (bâtiment, immeuble): </label>
+                              <input type="text" id="complement" >
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <label for="complement2" class="label inline">complément d'adresse (étage, service): </label>
+                              <input type="text" id="complement2">
+                           </td>
+                        </tr>
+                     </table>
+                     <div class="little-gap"></div>
+                     <ul id="noswag">
+                        <li>
+                           <div class="btn-group inline" role="group" id="addr-valid">
+                              <button type="button" class="btn btn-primary orange">
+                              <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                              </button>
+                              <a class="btn btn-primary orange2">Valider cette adresse</a>
+                           </div>
+                        </li>
+                        <div class="little-gap"></div>
+                        <li>
+                           <div class="btn-group inline" role="group" id="annuled-add"">
+                              <button type="button" class="btn btn-primary orange">
+                              <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                              </button>
+                              <a class="btn btn-primary ng-binding orange2">Annuler les changements</a>
+                           </div>
+                        </li>
+                     </ul>
                   </div>
-                <!-- </div> -->
-
-               <hr color="blue">
-             <!-- <div class="row"> -->
-             <!-- <div class="col-xs-6"> -->
-                <div class="centerBlock">
-                <p>MME DUPONT MONIQUE</p>
-                <p><span id="number-offi" class="recap">38</span> <span id="street-offi">AVENUE DES MANGOLIAS</span></p>
-                <p><span id="zip-offi">77340</span> <span id="city-offi">PONTAULT COMBAULT</span></p>
-               
-             <!-- </div> -->
-             <!-- <div class="col-xs-6"> -->
-                <div class="btn-group" role="group" id="addr">
-                <button type="button" class="btn btn-primary orange">
-                  <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                </button>
-                <a class="btn btn-primary orange2">Modifier cette adresse</a>
-                </div>
-                </div>
-             <!-- </div> -->
-           <!-- </div> -->
-        
-       
-      <div id="add">
-          <div id="locationField">
-      <input id="autocomplete" placeholder="Entrer votre adresse"
-             type="text"></input>
-    </div>
-
-    <table id="address">
-      
-      <tr>
-        <td class="label">Votre pays de résidence :</td>
-        <td class="wideField" colspan="3"><input class="field"
-              id="country" readonly></input></td>
-      </tr>
-
-      <tr>
-          <td class="label">Code postal</td>
-          <td class="wideField"><input class="field" id="postal_code"
-              readonly></input></td>
-      </tr>
-      
-      <tr>
-        <td class="label">Ville</td>
-        <td class="wideField" colspan="3"><input class="field" id="locality"
-              readonly></input></td>
-      </tr>
-
-
-      <tr>
-
-        <td class="label">Numéro de voie</td>
-        <td class="slimField"><input class="field" id="street_number"
-              readonly></input></td>
-      </tr>
-      <tr>
-        <td class="label">Nom de la voie</td>
-        <td class="wideField" colspan="2"><input class="field" id="route"
-              readonly"></input></td>
-      </tr>
-    
-      <tr>
-        <td class="label">région</td>
-        <td class="slimField"><input class="field"
-              id="administrative_area_level_1" readonly></input></td>
-      <!--   <td class="label">Zip code</td>
-        <td class="wideField"><input class="field" id="postal_code"
-              disabled="true"></input></td> -->
-      </tr>
-   
-      <tr>
-        <td class="label">Compélement</td>
-        <td class="wideField" colspan="3"><input class="field"
-              id="complement" readonly></input></td>
-      </tr>
-     <div class="little-gap"></div>
-
-      <tr>
-        <td>
-        </br>
-          Veuillez saisir s'il y a lieu vos complements d'adresse
-        </td>
-      </tr>
-      <div class="little-gap"></div>
- <!--      <p></p> -->
- 
-      <tr>
-        <td>
-          <label for="complement" class="label inline">complément d'adresse (bâtiment, immeuble): </label>
-          <input type="text" id="complement" >
-          </td>
-        </tr>
-        <tr>
-          <td>
-          <label for="complement2" class="label inline">complément d'adresse (étage, service): </label>
-          <input type="text" id="complement2">
-        </td>
-      </tr>
-    </table>
-    <div class="little-gap"></div>
-    <ul id="noswag">
-      <li>
-      <div class="btn-group inline" role="group" id="addr-valid">
-      <button type="button" class="btn btn-primary orange">
-      <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    </button>
-    <a class="btn btn-primary orange2">Valider cette adresse</a>
-  </div>
-</li>
-      <div class="little-gap"></div>
-  <li>
-    <div class="btn-group inline" role="group" id="annuled-add"">
-    <button type="button" class="btn btn-primary orange">
-      <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    </button>
-    <a class="btn btn-primary ng-binding orange2">Annuler les changements</a>
-  </div>
-  </li>
-</ul>
-<!-- </div> -->
-
-                  <!-- <label for="pays" class="inline">Votre pays de résidence</label>
-                    <select id="pays">
-                    <option disabled style="display:none" value="" selected value>Sélectionner votre pays</option>
-                    <option value="AFG">Afghanistan</option>
-                    <option value="ALA">Åland Islands</option>
-                    <option value="ALB">Albania</option>
-                    <option value="DZA">Algeria</option>
-                    <option value="ASM">American Samoa</option>
-                    <option value="AND">Andorra</option>
-                    <option value="AGO">Angola</option>
-                    <option value="AIA">Anguilla</option>
-                    <option value="ATA">Antarctica</option>
-                    <option value="ATG">Antigua and Barbuda</option>
-                    <option value="ARG">Argentina</option>
-                    <option value="ARM">Armenia</option>
-                    <option value="ABW">Aruba</option>
-                    <option value="AUS">Australia</option>
-                    <option value="AUT">Austria</option>
-                    <option value="AZE">Azerbaijan</option>
-                    <option value="BHS">Bahamas</option>
-                    <option value="BHR">Bahrain</option>
-                    <option value="BGD">Bangladesh</option>
-                    <option value="BRB">Barbados</option>
-                    <option value="BLR">Belarus</option>
-                    <option value="BEL">Belgium</option>
-                    <option value="BLZ">Belize</option>
-                    <option value="BEN">Benin</option>
-                    <option value="BMU">Bermuda</option>
-                    <option value="BTN">Bhutan</option>
-                    <option value="BOL">Bolivia, Plurinational State of</option>
-                    <option value="BES">Bonaire, Sint Eustatius and Saba</option>
-                    <option value="BIH">Bosnia and Herzegovina</option>
-                    <option value="BWA">Botswana</option>
-                    <option value="BVT">Bouvet Island</option>
-                    <option value="BRA">Brazil</option>
-                    <option value="IOT">British Indian Ocean Territory</option>
-                    <option value="BRN">Brunei Darussalam</option>
-                    <option value="BGR">Bulgaria</option>
-                    <option value="BFA">Burkina Faso</option>
-                    <option value="BDI">Burundi</option>
-                    <option value="KHM">Cambodia</option>
-                    <option value="CMR">Cameroon</option>
-                    <option value="CAN">Canada</option>
-                    <option value="CPV">Cape Verde</option>
-                    <option value="CYM">Cayman Islands</option>
-                    <option value="CAF">Central African Republic</option>
-                    <option value="TCD">Chad</option>
-                    <option value="CHL">Chile</option>
-                    <option value="CHN">China</option>
-                    <option value="CXR">Christmas Island</option>
-                    <option value="CCK">Cocos (Keeling) Islands</option>
-                    <option value="COL">Colombia</option>
-                    <option value="COM">Comoros</option>
-                    <option value="COG">Congo</option>
-                    <option value="COD">Congo, the Democratic Republic of the</option>
-                    <option value="COK">Cook Islands</option>
-                    <option value="CRI">Costa Rica</option>
-                    <option value="CIV">Côte d'Ivoire</option>
-                    <option value="HRV">Croatia</option>
-                    <option value="CUB">Cuba</option>
-                    <option value="CUW">Curaçao</option>
-                    <option value="CYP">Cyprus</option>
-                    <option value="CZE">Czech Republic</option>
-                    <option value="DNK">Denmark</option>
-                    <option value="DJI">Djibouti</option>
-                    <option value="DMA">Dominica</option>
-                    <option value="DOM">Dominican Republic</option>
-                    <option value="ECU">Ecuador</option>
-                    <option value="EGY">Egypt</option>
-                    <option value="SLV">El Salvador</option>
-                    <option value="GNQ">Equatorial Guinea</option>
-                    <option value="ERI">Eritrea</option>
-                    <option value="EST">Estonia</option>
-                    <option value="ETH">Ethiopia</option>
-                    <option value="FLK">Falkland Islands (Malvinas)</option>
-                    <option value="FRO">Faroe Islands</option>
-                    <option value="FJI">Fiji</option>
-                    <option value="FIN">Finland</option>
-                    <option value="FRA">France</option>
-                    <option value="GUF">French Guiana</option>
-                    <option value="PYF">French Polynesia</option>
-                    <option value="ATF">French Southern Territories</option>
-                    <option value="GAB">Gabon</option>
-                    <option value="GMB">Gambia</option>
-                    <option value="GEO">Georgia</option>
-                    <option value="DEU">Germany</option>
-                    <option value="GHA">Ghana</option>
-                    <option value="GIB">Gibraltar</option>
-                    <option value="GRC">Greece</option>
-                    <option value="GRL">Greenland</option>
-                    <option value="GRD">Grenada</option>
-                    <option value="GLP">Guadeloupe</option>
-                    <option value="GUM">Guam</option>
-                    <option value="GTM">Guatemala</option>
-                    <option value="GGY">Guernsey</option>
-                    <option value="GIN">Guinea</option>
-                    <option value="GNB">Guinea-Bissau</option>
-                    <option value="GUY">Guyana</option>
-                    <option value="HTI">Haiti</option>
-                    <option value="HMD">Heard Island and McDonald Islands</option>
-                    <option value="VAT">Holy See (Vatican City State)</option>
-                    <option value="HND">Honduras</option>
-                    <option value="HKG">Hong Kong</option>
-                    <option value="HUN">Hungary</option>
-                    <option value="ISL">Iceland</option>
-                    <option value="IND">India</option>
-                    <option value="IDN">Indonesia</option>
-                    <option value="IRN">Iran, Islamic Republic of</option>
-                    <option value="IRQ">Iraq</option>
-                    <option value="IRL">Ireland</option>
-                    <option value="IMN">Isle of Man</option>
-                    <option value="ISR">Israel</option>
-                    <option value="ITA">Italy</option>
-                    <option value="JAM">Jamaica</option>
-                    <option value="JPN">Japan</option>
-                    <option value="JEY">Jersey</option>
-                    <option value="JOR">Jordan</option>
-                    <option value="KAZ">Kazakhstan</option>
-                    <option value="KEN">Kenya</option>
-                    <option value="KIR">Kiribati</option>
-                    <option value="PRK">Korea, Democratic People's Republic of</option>
-                    <option value="KOR">Korea, Republic of</option>
-                    <option value="KWT">Kuwait</option>
-                    <option value="KGZ">Kyrgyzstan</option>
-                    <option value="LAO">Lao People's Democratic Republic</option>
-                    <option value="LVA">Latvia</option>
-                    <option value="LBN">Lebanon</option>
-                    <option value="LSO">Lesotho</option>
-                    <option value="LBR">Liberia</option>
-                    <option value="LBY">Libya</option>
-                    <option value="LIE">Liechtenstein</option>
-                    <option value="LTU">Lithuania</option>
-                    <option value="LUX">Luxembourg</option>
-                    <option value="MAC">Macao</option>
-                    <option value="MKD">Macedonia, the former Yugoslav Republic of</option>
-                    <option value="MDG">Madagascar</option>
-                    <option value="MWI">Malawi</option>
-                    <option value="MYS">Malaysia</option>
-                    <option value="MDV">Maldives</option>
-                    <option value="MLI">Mali</option>
-                    <option value="MLT">Malta</option>
-                    <option value="MHL">Marshall Islands</option>
-                    <option value="MTQ">Martinique</option>
-                    <option value="MRT">Mauritania</option>
-                    <option value="MUS">Mauritius</option>
-                    <option value="MYT">Mayotte</option>
-                    <option value="MEX">Mexico</option>
-                    <option value="FSM">Micronesia, Federated States of</option>
-                    <option value="MDA">Moldova, Republic of</option>
-                    <option value="MCO">Monaco</option>
-                    <option value="MNG">Mongolia</option>
-                    <option value="MNE">Montenegro</option>
-                    <option value="MSR">Montserrat</option>
-                    <option value="MAR">Morocco</option>
-                    <option value="MOZ">Mozambique</option>
-                    <option value="MMR">Myanmar</option>
-                    <option value="NAM">Namibia</option>
-                    <option value="NRU">Nauru</option>
-                    <option value="NPL">Nepal</option>
-                    <option value="NLD">Netherlands</option>
-                    <option value="NCL">New Caledonia</option>
-                    <option value="NZL">New Zealand</option>
-                    <option value="NIC">Nicaragua</option>
-                    <option value="NER">Niger</option>
-                    <option value="NGA">Nigeria</option>
-                    <option value="NIU">Niue</option>
-                    <option value="NFK">Norfolk Island</option>
-                    <option value="MNP">Northern Mariana Islands</option>
-                    <option value="NOR">Norway</option>
-                    <option value="OMN">Oman</option>
-                    <option value="PAK">Pakistan</option>
-                    <option value="PLW">Palau</option>
-                    <option value="PSE">Palestinian Territory, Occupied</option>
-                    <option value="PAN">Panama</option>
-                    <option value="PNG">Papua New Guinea</option>
-                    <option value="PRY">Paraguay</option>
-                    <option value="PER">Peru</option>
-                    <option value="PHL">Philippines</option>
-                    <option value="PCN">Pitcairn</option>
-                    <option value="POL">Poland</option>
-                    <option value="PRT">Portugal</option>
-                    <option value="PRI">Puerto Rico</option>
-                    <option value="QAT">Qatar</option>
-                    <option value="REU">Réunion</option>
-                    <option value="ROU">Romania</option>
-                    <option value="RUS">Russian Federation</option>
-                    <option value="RWA">Rwanda</option>
-                    <option value="BLM">Saint Barthélemy</option>
-                    <option value="SHN">Saint Helena, Ascension and Tristan da Cunha</option>
-                    <option value="KNA">Saint Kitts and Nevis</option>
-                    <option value="LCA">Saint Lucia</option>
-                    <option value="MAF">Saint Martin (French part)</option>
-                    <option value="SPM">Saint Pierre and Miquelon</option>
-                    <option value="VCT">Saint Vincent and the Grenadines</option>
-                    <option value="WSM">Samoa</option>
-                    <option value="SMR">San Marino</option>
-                    <option value="STP">Sao Tome and Principe</option>
-                    <option value="SAU">Saudi Arabia</option>
-                    <option value="SEN">Senegal</option>
-                    <option value="SRB">Serbia</option>
-                    <option value="SYC">Seychelles</option>
-                    <option value="SLE">Sierra Leone</option>
-                    <option value="SGP">Singapore</option>
-                    <option value="SXM">Sint Maarten (Dutch part)</option>
-                    <option value="SVK">Slovakia</option>
-                    <option value="SVN">Slovenia</option>
-                    <option value="SLB">Solomon Islands</option>
-                    <option value="SOM">Somalia</option>
-                    <option value="ZAF">South Africa</option>
-                    <option value="SGS">South Georgia and the South Sandwich Islands</option>
-                    <option value="SSD">South Sudan</option>
-                    <option value="ESP">Spain</option>
-                    <option value="LKA">Sri Lanka</option>
-                    <option value="SDN">Sudan</option>
-                    <option value="SUR">Suriname</option>
-                    <option value="SJM">Svalbard and Jan Mayen</option>
-                    <option value="SWZ">Swaziland</option>
-                    <option value="SWE">Sweden</option>
-                    <option value="CHE">Switzerland</option>
-                    <option value="SYR">Syrian Arab Republic</option>
-                    <option value="TWN">Taiwan, Province of China</option>
-                    <option value="TJK">Tajikistan</option>
-                    <option value="TZA">Tanzania, United Republic of</option>
-                    <option value="THA">Thailand</option>
-                    <option value="TLS">Timor-Leste</option>
-                    <option value="TGO">Togo</option>
-                    <option value="TKL">Tokelau</option>
-                    <option value="TON">Tonga</option>
-                    <option value="TTO">Trinidad and Tobago</option>
-                    <option value="TUN">Tunisia</option>
-                    <option value="TUR">Turkey</option>
-                    <option value="TKM">Turkmenistan</option>
-                    <option value="TCA">Turks and Caicos Islands</option>
-                    <option value="TUV">Tuvalu</option>
-                    <option value="UGA">Uganda</option>
-                    <option value="UKR">Ukraine</option>
-                    <option value="ARE">United Arab Emirates</option>
-                    <option value="GBR">United Kingdom</option>
-                    <option value="USA">United States</option>
-                    <option value="UMI">United States Minor Outlying Islands</option>
-                    <option value="URY">Uruguay</option>
-                    <option value="UZB">Uzbekistan</option>
-                    <option value="VUT">Vanuatu</option>
-                    <option value="VEN">Venezuela, Bolivarian Republic of</option>
-                    <option value="VNM">Viet Nam</option>
-                    <option value="VGB">Virgin Islands, British</option>
-                    <option value="VIR">Virgin Islands, U.S.</option>
-                    <option value="WLF">Wallis and Futuna</option>
-                    <option value="ESH">Western Sahara</option>
-                    <option value="YEM">Yemen</option>
-                    <option value="ZMB">Zambia</option>
-                    <option value="ZWE">Zimbabwe</option>
-                  </select>
-                  <div id=test-add>
-                  <label for="street" class="inline">Adresse postale</label>
-                  <! <input type="text" id="street" >
-                  <input type="text" id="localisation">
-                  <label for="ZIP" class="inline">Code postale: </label>
-                  <input type="text" id="ZIP">
-                  <label for="city" class="inline">Ville: </label>
-                  <input type="text" id="city" >
-                  
-                  <label for="complement" class="inline">complément d'adresse(bâtiment, immeuble): </label>
-                  <input type="text" id="complement" >
-                  <label for="complement2" class="inline">complément d'adresse(étage, service): </label>
-                  <input type="text" id="complement2">
-                  <label for="since">depuis le</label>
-                  <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="since">
-                  <div class="btn-group inline" role="group" id="addr-valid">
-                  <button type="button" class="btn btn-primary orange">
-                  <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                </button>
-                <a class="btn btn-primary orange2">Valider cette adresse</a>
-                <div class="btn-group inline" role="group" id="annuled-situ"">
-                                    <button type="button" class="btn btn-primary orange">
-                                      <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                    </button>
-                                    <a class="btn btn-primary ng-binding orange2">Annuler les changements</a>
+                  <hr color="blue">
+                  <div id="conj">
+                     <h2 id="conj-tittle">Identité de votre ex-conjoint(e), décédé(e) ou disparu(e)</h2>
+                       <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-sm-6">
+                           <label for="conj-name">Son nom de famille (de naissance) : </label>
+                           <input type="text" id="conj-name"  class="full-w">
+                        </div>
+                        <div class="col-sm-6">
+                           <label for="conj-usage-name">Son nom d’usage</label>
+                           <input type="text" id="conj-usage-name" class=" full-w">
+                        </div>
+                     </div>
+                     <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-sm-6">
+                           <label for="conj-prename">Ses prénoms (en 1er son prénom courant) :</label>
+                           <input type="text" id="conj-prename" class=" full-w">
+                        </div>
+                     </div>
+                     <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-sm-6">
+                           <label for="conjbrth">Sa date de naissance : </label>
+                           <input class="conjbrth inline full-w"  type="text" placeholder="jj/mm/aaaa" name="famidate" id="conjbrth"></br>
+                        </div>
+                     </div>
+                     <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-sm-6">
+                           <label for="conj-natio">Sa nationalité : </label>
+                           <input type="text" id="conj-natio" class=" full-w">
+                        </div>
+                     </div>
+                     <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-sm-6">
+                           <label for="conj-commune">Commune de naissance : (indiquez l’arrondissement pour Paris, Lyon, Marseille) </label>
+                           <input type="text" id="conj-commune" class=" full-w">
+                        </div>
+                        <div class="col-sm-6" style="padding-top: 29px;">
+                           <label for="conj-ZIP">Code postale: </label>
+                           <input type="text" id="conj-ZIP" class=" full-w">
+                        </div>
+                     </div>
+                     <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-sm-6">
+                           <label for="pays" class="inline">pays de naissance</label>
+                           <select id="">
+                              <option disabled style="display:none" value="" selected value>Sélectionner le pays de naissance</option>
+                              <option value="AFG">Afghanistan</option>
+                              <option value="ALA">Åland Islands</option>
+                              <option value="ALB">Albania</option>
+                              <option value="DZA">Algeria</option>
+                              <option value="ASM">American Samoa</option>
+                              <option value="AND">Andorra</option>
+                              <option value="AGO">Angola</option>
+                              <option value="AIA">Anguilla</option>
+                              <option value="ATA">Antarctica</option>
+                              <option value="ATG">Antigua and Barbuda</option>
+                              <option value="ARG">Argentina</option>
+                              <option value="ARM">Armenia</option>
+                              <option value="ABW">Aruba</option>
+                              <option value="AUS">Australia</option>
+                              <option value="AUT">Austria</option>
+                              <option value="AZE">Azerbaijan</option>
+                              <option value="BHS">Bahamas</option>
+                              <option value="BHR">Bahrain</option>
+                              <option value="BGD">Bangladesh</option>
+                              <option value="BRB">Barbados</option>
+                              <option value="BLR">Belarus</option>
+                              <option value="BEL">Belgium</option>
+                              <option value="BLZ">Belize</option>
+                              <option value="BEN">Benin</option>
+                              <option value="BMU">Bermuda</option>
+                              <option value="BTN">Bhutan</option>
+                              <option value="BOL">Bolivia, Plurinational State of</option>
+                              <option value="BES">Bonaire, Sint Eustatius and Saba</option>
+                              <option value="BIH">Bosnia and Herzegovina</option>
+                              <option value="BWA">Botswana</option>
+                              <option value="BVT">Bouvet Island</option>
+                              <option value="BRA">Brazil</option>
+                              <option value="IOT">British Indian Ocean Territory</option>
+                              <option value="BRN">Brunei Darussalam</option>
+                              <option value="BGR">Bulgaria</option>
+                              <option value="BFA">Burkina Faso</option>
+                              <option value="BDI">Burundi</option>
+                              <option value="KHM">Cambodia</option>
+                              <option value="CMR">Cameroon</option>
+                              <option value="CAN">Canada</option>
+                              <option value="CPV">Cape Verde</option>
+                              <option value="CYM">Cayman Islands</option>
+                              <option value="CAF">Central African Republic</option>
+                              <option value="TCD">Chad</option>
+                              <option value="CHL">Chile</option>
+                              <option value="CHN">China</option>
+                              <option value="CXR">Christmas Island</option>
+                              <option value="CCK">Cocos (Keeling) Islands</option>
+                              <option value="COL">Colombia</option>
+                              <option value="COM">Comoros</option>
+                              <option value="COG">Congo</option>
+                              <option value="COD">Congo, the Democratic Republic of the</option>
+                              <option value="COK">Cook Islands</option>
+                              <option value="CRI">Costa Rica</option>
+                              <option value="CIV">Côte d'Ivoire</option>
+                              <option value="HRV">Croatia</option>
+                              <option value="CUB">Cuba</option>
+                              <option value="CUW">Curaçao</option>
+                              <option value="CYP">Cyprus</option>
+                              <option value="CZE">Czech Republic</option>
+                              <option value="DNK">Denmark</option>
+                              <option value="DJI">Djibouti</option>
+                              <option value="DMA">Dominica</option>
+                              <option value="DOM">Dominican Republic</option>
+                              <option value="ECU">Ecuador</option>
+                              <option value="EGY">Egypt</option>
+                              <option value="SLV">El Salvador</option>
+                              <option value="GNQ">Equatorial Guinea</option>
+                              <option value="ERI">Eritrea</option>
+                              <option value="EST">Estonia</option>
+                              <option value="ETH">Ethiopia</option>
+                              <option value="FLK">Falkland Islands (Malvinas)</option>
+                              <option value="FRO">Faroe Islands</option>
+                              <option value="FJI">Fiji</option>
+                              <option value="FIN">Finland</option>
+                              <option value="FRA">France</option>
+                              <option value="GUF">French Guiana</option>
+                              <option value="PYF">French Polynesia</option>
+                              <option value="ATF">French Southern Territories</option>
+                              <option value="GAB">Gabon</option>
+                              <option value="GMB">Gambia</option>
+                              <option value="GEO">Georgia</option>
+                              <option value="DEU">Germany</option>
+                              <option value="GHA">Ghana</option>
+                              <option value="GIB">Gibraltar</option>
+                              <option value="GRC">Greece</option>
+                              <option value="GRL">Greenland</option>
+                              <option value="GRD">Grenada</option>
+                              <option value="GLP">Guadeloupe</option>
+                              <option value="GUM">Guam</option>
+                              <option value="GTM">Guatemala</option>
+                              <option value="GGY">Guernsey</option>
+                              <option value="GIN">Guinea</option>
+                              <option value="GNB">Guinea-Bissau</option>
+                              <option value="GUY">Guyana</option>
+                              <option value="HTI">Haiti</option>
+                              <option value="HMD">Heard Island and McDonald Islands</option>
+                              <option value="VAT">Holy See (Vatican City State)</option>
+                              <option value="HND">Honduras</option>
+                              <option value="HKG">Hong Kong</option>
+                              <option value="HUN">Hungary</option>
+                              <option value="ISL">Iceland</option>
+                              <option value="IND">India</option>
+                              <option value="IDN">Indonesia</option>
+                              <option value="IRN">Iran, Islamic Republic of</option>
+                              <option value="IRQ">Iraq</option>
+                              <option value="IRL">Ireland</option>
+                              <option value="IMN">Isle of Man</option>
+                              <option value="ISR">Israel</option>
+                              <option value="ITA">Italy</option>
+                              <option value="JAM">Jamaica</option>
+                              <option value="JPN">Japan</option>
+                              <option value="JEY">Jersey</option>
+                              <option value="JOR">Jordan</option>
+                              <option value="KAZ">Kazakhstan</option>
+                              <option value="KEN">Kenya</option>
+                              <option value="KIR">Kiribati</option>
+                              <option value="PRK">Korea, Democratic People's Republic of</option>
+                              <option value="KOR">Korea, Republic of</option>
+                              <option value="KWT">Kuwait</option>
+                              <option value="KGZ">Kyrgyzstan</option>
+                              <option value="LAO">Lao People's Democratic Republic</option>
+                              <option value="LVA">Latvia</option>
+                              <option value="LBN">Lebanon</option>
+                              <option value="LSO">Lesotho</option>
+                              <option value="LBR">Liberia</option>
+                              <option value="LBY">Libya</option>
+                              <option value="LIE">Liechtenstein</option>
+                              <option value="LTU">Lithuania</option>
+                              <option value="LUX">Luxembourg</option>
+                              <option value="MAC">Macao</option>
+                              <option value="MKD">Macedonia, the former Yugoslav Republic of</option>
+                              <option value="MDG">Madagascar</option>
+                              <option value="MWI">Malawi</option>
+                              <option value="MYS">Malaysia</option>
+                              <option value="MDV">Maldives</option>
+                              <option value="MLI">Mali</option>
+                              <option value="MLT">Malta</option>
+                              <option value="MHL">Marshall Islands</option>
+                              <option value="MTQ">Martinique</option>
+                              <option value="MRT">Mauritania</option>
+                              <option value="MUS">Mauritius</option>
+                              <option value="MYT">Mayotte</option>
+                              <option value="MEX">Mexico</option>
+                              <option value="FSM">Micronesia, Federated States of</option>
+                              <option value="MDA">Moldova, Republic of</option>
+                              <option value="MCO">Monaco</option>
+                              <option value="MNG">Mongolia</option>
+                              <option value="MNE">Montenegro</option>
+                              <option value="MSR">Montserrat</option>
+                              <option value="MAR">Morocco</option>
+                              <option value="MOZ">Mozambique</option>
+                              <option value="MMR">Myanmar</option>
+                              <option value="NAM">Namibia</option>
+                              <option value="NRU">Nauru</option>
+                              <option value="NPL">Nepal</option>
+                              <option value="NLD">Netherlands</option>
+                              <option value="NCL">New Caledonia</option>
+                              <option value="NZL">New Zealand</option>
+                              <option value="NIC">Nicaragua</option>
+                              <option value="NER">Niger</option>
+                              <option value="NGA">Nigeria</option>
+                              <option value="NIU">Niue</option>
+                              <option value="NFK">Norfolk Island</option>
+                              <option value="MNP">Northern Mariana Islands</option>
+                              <option value="NOR">Norway</option>
+                              <option value="OMN">Oman</option>
+                              <option value="PAK">Pakistan</option>
+                              <option value="PLW">Palau</option>
+                              <option value="PSE">Palestinian Territory, Occupied</option>
+                              <option value="PAN">Panama</option>
+                              <option value="PNG">Papua New Guinea</option>
+                              <option value="PRY">Paraguay</option>
+                              <option value="PER">Peru</option>
+                              <option value="PHL">Philippines</option>
+                              <option value="PCN">Pitcairn</option>
+                              <option value="POL">Poland</option>
+                              <option value="PRT">Portugal</option>
+                              <option value="PRI">Puerto Rico</option>
+                              <option value="QAT">Qatar</option>
+                              <option value="REU">Réunion</option>
+                              <option value="ROU">Romania</option>
+                              <option value="RUS">Russian Federation</option>
+                              <option value="RWA">Rwanda</option>
+                              <option value="BLM">Saint Barthélemy</option>
+                              <option value="SHN">Saint Helena, Ascension and Tristan da Cunha</option>
+                              <option value="KNA">Saint Kitts and Nevis</option>
+                              <option value="LCA">Saint Lucia</option>
+                              <option value="MAF">Saint Martin (French part)</option>
+                              <option value="SPM">Saint Pierre and Miquelon</option>
+                              <option value="VCT">Saint Vincent and the Grenadines</option>
+                              <option value="WSM">Samoa</option>
+                              <option value="SMR">San Marino</option>
+                              <option value="STP">Sao Tome and Principe</option>
+                              <option value="SAU">Saudi Arabia</option>
+                              <option value="SEN">Senegal</option>
+                              <option value="SRB">Serbia</option>
+                              <option value="SYC">Seychelles</option>
+                              <option value="SLE">Sierra Leone</option>
+                              <option value="SGP">Singapore</option>
+                              <option value="SXM">Sint Maarten (Dutch part)</option>
+                              <option value="SVK">Slovakia</option>
+                              <option value="SVN">Slovenia</option>
+                              <option value="SLB">Solomon Islands</option>
+                              <option value="SOM">Somalia</option>
+                              <option value="ZAF">South Africa</option>
+                              <option value="SGS">South Georgia and the South Sandwich Islands</option>
+                              <option value="SSD">South Sudan</option>
+                              <option value="ESP">Spain</option>
+                              <option value="LKA">Sri Lanka</option>
+                              <option value="SDN">Sudan</option>
+                              <option value="SUR">Suriname</option>
+                              <option value="SJM">Svalbard and Jan Mayen</option>
+                              <option value="SWZ">Swaziland</option>
+                              <option value="SWE">Sweden</option>
+                              <option value="CHE">Switzerland</option>
+                              <option value="SYR">Syrian Arab Republic</option>
+                              <option value="TWN">Taiwan, Province of China</option>
+                              <option value="TJK">Tajikistan</option>
+                              <option value="TZA">Tanzania, United Republic of</option>
+                              <option value="THA">Thailand</option>
+                              <option value="TLS">Timor-Leste</option>
+                              <option value="TGO">Togo</option>
+                              <option value="TKL">Tokelau</option>
+                              <option value="TON">Tonga</option>
+                              <option value="TTO">Trinidad and Tobago</option>
+                              <option value="TUN">Tunisia</option>
+                              <option value="TUR">Turkey</option>
+                              <option value="TKM">Turkmenistan</option>
+                              <option value="TCA">Turks and Caicos Islands</option>
+                              <option value="TUV">Tuvalu</option>
+                              <option value="UGA">Uganda</option>
+                              <option value="UKR">Ukraine</option>
+                              <option value="ARE">United Arab Emirates</option>
+                              <option value="GBR">United Kingdom</option>
+                              <option value="USA">United States</option>
+                              <option value="UMI">United States Minor Outlying Islands</option>
+                              <option value="URY">Uruguay</option>
+                              <option value="UZB">Uzbekistan</option>
+                              <option value="VUT">Vanuatu</option>
+                              <option value="VEN">Venezuela, Bolivarian Republic of</option>
+                              <option value="VNM">Viet Nam</option>
+                              <option value="VGB">Virgin Islands, British</option>
+                              <option value="VIR">Virgin Islands, U.S.</option>
+                              <option value="WLF">Wallis and Futuna</option>
+                              <option value="ESH">Western Sahara</option>
+                              <option value="YEM">Yemen</option>
+                              <option value="ZMB">Zambia</option>
+                              <option value="ZWE">Zimbabwe</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="row" style="margin-bottom: 20px;">
+                        <div class="col-sm-6">
+                           <label for="secu">Son n° de sécurité sociale </label>
+                           <input type="text" id="secu" class="full-w" maxlength="13">
+                        </div>
+                     </div>
+                   </br>
                   </div>
-                </div>
-                </div> --> 
-           </div>
+               </section>
 
 
 
-<!-- <div class="row">
-                  <label for="street">Adresse: *</label>
-                  <input type="text" id="street" class="required">
-                </div>
-                <div class="row">
-                  <label for="city">Ville: *</label>
-                  <input type="text" id="city" class="required">
-                </div>
-                <div class="row">
-                  <label for="country">Pays: *</label>
-                  <input type="text" id="country" class="required">
-                </div>
-                <div class="row">
-                  <label for="ZIP">Code postale: *</label>
-                  <input type="text" id="ZIP" class="required">
-                </div>
-                <div class="row">
-                  <label for="time">depuis quand habitez vous ici ? *</label>
-                  <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="time">
-                </div>-->
-              <!-- </div> -->
-            <hr color="blue">
-              <div id="conj">
-                <h2 id="conj-tittle">Identité de votre ex-conjoint(e), décédé(e) ou disparu(e)</h2>
-                <!-- <div class="row"> -->
-                  
-                  <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-sm-6">
-                      <label for="conj-name">Son nom de famille (de naissance) : </label>
-                      <input type="text" id="conj-name"  class="full-w">
-                    </div>
-                    <div class="col-sm-6">
-                      <label for="conj-usage-name">Son nom d’usage</label>
-                      <input type="text" id="conj-usage-name" class=" full-w">
-                    </div>
-                  </div>
 
-                  <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-sm-6">
-                      <label for="conj-prename">Ses prénoms (en 1er son prénom courant) :</label>
-                      <input type="text" id="conj-prename" class=" full-w">
-                    </div>
-                  </div>
+                <!-- ÉTAPE 3 -->
 
-                  <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-sm-6">
-                      <label for="conjbrth">Sa date de naissance : </label>
-                      <input class="conjbrth inline full-w"  type="text" placeholder="jj/mm/aaaa" name="famidate" id="conjbrth"></br>
-                    </div>  
-                  </div>
 
-                  <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-sm-6">
-                      <label for="conj-natio">Sa nationalité : </label>
-                      <input type="text" id="conj-natio" class=" full-w">
-                    </div>
-                  </div>
 
-                  <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-sm-6">
-                      <label for="conj-commune">Commune de naissance : (indiquez l’arrondissement pour Paris, Lyon, Marseille) </label>
-                      <input type="text" id="conj-commune" class=" full-w">
-                    </div>
-                    <div class="col-sm-6" style="padding-top: 29px;">
-                      <label for="conj-ZIP">Code postale: </label>
-                      <input type="text" id="conj-ZIP" class=" full-w">
-                    </div>
-                  </div>
 
-                  <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-sm-6">
-                      <label for="pays" class="inline">pays de naissance</label>
-                      <select id="">
-                      <option disabled style="display:none" value="" selected value>Sélectionner le pays de naissance</option>
-                      <option value="AFG">Afghanistan</option>
-                      <option value="ALA">Åland Islands</option>
-                      <option value="ALB">Albania</option>
-                      <option value="DZA">Algeria</option>
-                      <option value="ASM">American Samoa</option>
-                      <option value="AND">Andorra</option>
-                      <option value="AGO">Angola</option>
-                      <option value="AIA">Anguilla</option>
-                      <option value="ATA">Antarctica</option>
-                      <option value="ATG">Antigua and Barbuda</option>
-                      <option value="ARG">Argentina</option>
-                      <option value="ARM">Armenia</option>
-                      <option value="ABW">Aruba</option>
-                      <option value="AUS">Australia</option>
-                      <option value="AUT">Austria</option>
-                      <option value="AZE">Azerbaijan</option>
-                      <option value="BHS">Bahamas</option>
-                      <option value="BHR">Bahrain</option>
-                      <option value="BGD">Bangladesh</option>
-                      <option value="BRB">Barbados</option>
-                      <option value="BLR">Belarus</option>
-                      <option value="BEL">Belgium</option>
-                      <option value="BLZ">Belize</option>
-                      <option value="BEN">Benin</option>
-                      <option value="BMU">Bermuda</option>
-                      <option value="BTN">Bhutan</option>
-                      <option value="BOL">Bolivia, Plurinational State of</option>
-                      <option value="BES">Bonaire, Sint Eustatius and Saba</option>
-                      <option value="BIH">Bosnia and Herzegovina</option>
-                      <option value="BWA">Botswana</option>
-                      <option value="BVT">Bouvet Island</option>
-                      <option value="BRA">Brazil</option>
-                      <option value="IOT">British Indian Ocean Territory</option>
-                      <option value="BRN">Brunei Darussalam</option>
-                      <option value="BGR">Bulgaria</option>
-                      <option value="BFA">Burkina Faso</option>
-                      <option value="BDI">Burundi</option>
-                      <option value="KHM">Cambodia</option>
-                      <option value="CMR">Cameroon</option>
-                      <option value="CAN">Canada</option>
-                      <option value="CPV">Cape Verde</option>
-                      <option value="CYM">Cayman Islands</option>
-                      <option value="CAF">Central African Republic</option>
-                      <option value="TCD">Chad</option>
-                      <option value="CHL">Chile</option>
-                      <option value="CHN">China</option>
-                      <option value="CXR">Christmas Island</option>
-                      <option value="CCK">Cocos (Keeling) Islands</option>
-                      <option value="COL">Colombia</option>
-                      <option value="COM">Comoros</option>
-                      <option value="COG">Congo</option>
-                      <option value="COD">Congo, the Democratic Republic of the</option>
-                      <option value="COK">Cook Islands</option>
-                      <option value="CRI">Costa Rica</option>
-                      <option value="CIV">Côte d'Ivoire</option>
-                      <option value="HRV">Croatia</option>
-                      <option value="CUB">Cuba</option>
-                      <option value="CUW">Curaçao</option>
-                      <option value="CYP">Cyprus</option>
-                      <option value="CZE">Czech Republic</option>
-                      <option value="DNK">Denmark</option>
-                      <option value="DJI">Djibouti</option>
-                      <option value="DMA">Dominica</option>
-                      <option value="DOM">Dominican Republic</option>
-                      <option value="ECU">Ecuador</option>
-                      <option value="EGY">Egypt</option>
-                      <option value="SLV">El Salvador</option>
-                      <option value="GNQ">Equatorial Guinea</option>
-                      <option value="ERI">Eritrea</option>
-                      <option value="EST">Estonia</option>
-                      <option value="ETH">Ethiopia</option>
-                      <option value="FLK">Falkland Islands (Malvinas)</option>
-                      <option value="FRO">Faroe Islands</option>
-                      <option value="FJI">Fiji</option>
-                      <option value="FIN">Finland</option>
-                      <option value="FRA">France</option>
-                      <option value="GUF">French Guiana</option>
-                      <option value="PYF">French Polynesia</option>
-                      <option value="ATF">French Southern Territories</option>
-                      <option value="GAB">Gabon</option>
-                      <option value="GMB">Gambia</option>
-                      <option value="GEO">Georgia</option>
-                      <option value="DEU">Germany</option>
-                      <option value="GHA">Ghana</option>
-                      <option value="GIB">Gibraltar</option>
-                      <option value="GRC">Greece</option>
-                      <option value="GRL">Greenland</option>
-                      <option value="GRD">Grenada</option>
-                      <option value="GLP">Guadeloupe</option>
-                      <option value="GUM">Guam</option>
-                      <option value="GTM">Guatemala</option>
-                      <option value="GGY">Guernsey</option>
-                      <option value="GIN">Guinea</option>
-                      <option value="GNB">Guinea-Bissau</option>
-                      <option value="GUY">Guyana</option>
-                      <option value="HTI">Haiti</option>
-                      <option value="HMD">Heard Island and McDonald Islands</option>
-                      <option value="VAT">Holy See (Vatican City State)</option>
-                      <option value="HND">Honduras</option>
-                      <option value="HKG">Hong Kong</option>
-                      <option value="HUN">Hungary</option>
-                      <option value="ISL">Iceland</option>
-                      <option value="IND">India</option>
-                      <option value="IDN">Indonesia</option>
-                      <option value="IRN">Iran, Islamic Republic of</option>
-                      <option value="IRQ">Iraq</option>
-                      <option value="IRL">Ireland</option>
-                      <option value="IMN">Isle of Man</option>
-                      <option value="ISR">Israel</option>
-                      <option value="ITA">Italy</option>
-                      <option value="JAM">Jamaica</option>
-                      <option value="JPN">Japan</option>
-                      <option value="JEY">Jersey</option>
-                      <option value="JOR">Jordan</option>
-                      <option value="KAZ">Kazakhstan</option>
-                      <option value="KEN">Kenya</option>
-                      <option value="KIR">Kiribati</option>
-                      <option value="PRK">Korea, Democratic People's Republic of</option>
-                      <option value="KOR">Korea, Republic of</option>
-                      <option value="KWT">Kuwait</option>
-                      <option value="KGZ">Kyrgyzstan</option>
-                      <option value="LAO">Lao People's Democratic Republic</option>
-                      <option value="LVA">Latvia</option>
-                      <option value="LBN">Lebanon</option>
-                      <option value="LSO">Lesotho</option>
-                      <option value="LBR">Liberia</option>
-                      <option value="LBY">Libya</option>
-                      <option value="LIE">Liechtenstein</option>
-                      <option value="LTU">Lithuania</option>
-                      <option value="LUX">Luxembourg</option>
-                      <option value="MAC">Macao</option>
-                      <option value="MKD">Macedonia, the former Yugoslav Republic of</option>
-                      <option value="MDG">Madagascar</option>
-                      <option value="MWI">Malawi</option>
-                      <option value="MYS">Malaysia</option>
-                      <option value="MDV">Maldives</option>
-                      <option value="MLI">Mali</option>
-                      <option value="MLT">Malta</option>
-                      <option value="MHL">Marshall Islands</option>
-                      <option value="MTQ">Martinique</option>
-                      <option value="MRT">Mauritania</option>
-                      <option value="MUS">Mauritius</option>
-                      <option value="MYT">Mayotte</option>
-                      <option value="MEX">Mexico</option>
-                      <option value="FSM">Micronesia, Federated States of</option>
-                      <option value="MDA">Moldova, Republic of</option>
-                      <option value="MCO">Monaco</option>
-                      <option value="MNG">Mongolia</option>
-                      <option value="MNE">Montenegro</option>
-                      <option value="MSR">Montserrat</option>
-                      <option value="MAR">Morocco</option>
-                      <option value="MOZ">Mozambique</option>
-                      <option value="MMR">Myanmar</option>
-                      <option value="NAM">Namibia</option>
-                      <option value="NRU">Nauru</option>
-                      <option value="NPL">Nepal</option>
-                      <option value="NLD">Netherlands</option>
-                      <option value="NCL">New Caledonia</option>
-                      <option value="NZL">New Zealand</option>
-                      <option value="NIC">Nicaragua</option>
-                      <option value="NER">Niger</option>
-                      <option value="NGA">Nigeria</option>
-                      <option value="NIU">Niue</option>
-                      <option value="NFK">Norfolk Island</option>
-                      <option value="MNP">Northern Mariana Islands</option>
-                      <option value="NOR">Norway</option>
-                      <option value="OMN">Oman</option>
-                      <option value="PAK">Pakistan</option>
-                      <option value="PLW">Palau</option>
-                      <option value="PSE">Palestinian Territory, Occupied</option>
-                      <option value="PAN">Panama</option>
-                      <option value="PNG">Papua New Guinea</option>
-                      <option value="PRY">Paraguay</option>
-                      <option value="PER">Peru</option>
-                      <option value="PHL">Philippines</option>
-                      <option value="PCN">Pitcairn</option>
-                      <option value="POL">Poland</option>
-                      <option value="PRT">Portugal</option>
-                      <option value="PRI">Puerto Rico</option>
-                      <option value="QAT">Qatar</option>
-                      <option value="REU">Réunion</option>
-                      <option value="ROU">Romania</option>
-                      <option value="RUS">Russian Federation</option>
-                      <option value="RWA">Rwanda</option>
-                      <option value="BLM">Saint Barthélemy</option>
-                      <option value="SHN">Saint Helena, Ascension and Tristan da Cunha</option>
-                      <option value="KNA">Saint Kitts and Nevis</option>
-                      <option value="LCA">Saint Lucia</option>
-                      <option value="MAF">Saint Martin (French part)</option>
-                      <option value="SPM">Saint Pierre and Miquelon</option>
-                      <option value="VCT">Saint Vincent and the Grenadines</option>
-                      <option value="WSM">Samoa</option>
-                      <option value="SMR">San Marino</option>
-                      <option value="STP">Sao Tome and Principe</option>
-                      <option value="SAU">Saudi Arabia</option>
-                      <option value="SEN">Senegal</option>
-                      <option value="SRB">Serbia</option>
-                      <option value="SYC">Seychelles</option>
-                      <option value="SLE">Sierra Leone</option>
-                      <option value="SGP">Singapore</option>
-                      <option value="SXM">Sint Maarten (Dutch part)</option>
-                      <option value="SVK">Slovakia</option>
-                      <option value="SVN">Slovenia</option>
-                      <option value="SLB">Solomon Islands</option>
-                      <option value="SOM">Somalia</option>
-                      <option value="ZAF">South Africa</option>
-                      <option value="SGS">South Georgia and the South Sandwich Islands</option>
-                      <option value="SSD">South Sudan</option>
-                      <option value="ESP">Spain</option>
-                      <option value="LKA">Sri Lanka</option>
-                      <option value="SDN">Sudan</option>
-                      <option value="SUR">Suriname</option>
-                      <option value="SJM">Svalbard and Jan Mayen</option>
-                      <option value="SWZ">Swaziland</option>
-                      <option value="SWE">Sweden</option>
-                      <option value="CHE">Switzerland</option>
-                      <option value="SYR">Syrian Arab Republic</option>
-                      <option value="TWN">Taiwan, Province of China</option>
-                      <option value="TJK">Tajikistan</option>
-                      <option value="TZA">Tanzania, United Republic of</option>
-                      <option value="THA">Thailand</option>
-                      <option value="TLS">Timor-Leste</option>
-                      <option value="TGO">Togo</option>
-                      <option value="TKL">Tokelau</option>
-                      <option value="TON">Tonga</option>
-                      <option value="TTO">Trinidad and Tobago</option>
-                      <option value="TUN">Tunisia</option>
-                      <option value="TUR">Turkey</option>
-                      <option value="TKM">Turkmenistan</option>
-                      <option value="TCA">Turks and Caicos Islands</option>
-                      <option value="TUV">Tuvalu</option>
-                      <option value="UGA">Uganda</option>
-                      <option value="UKR">Ukraine</option>
-                      <option value="ARE">United Arab Emirates</option>
-                      <option value="GBR">United Kingdom</option>
-                      <option value="USA">United States</option>
-                      <option value="UMI">United States Minor Outlying Islands</option>
-                      <option value="URY">Uruguay</option>
-                      <option value="UZB">Uzbekistan</option>
-                      <option value="VUT">Vanuatu</option>
-                      <option value="VEN">Venezuela, Bolivarian Republic of</option>
-                      <option value="VNM">Viet Nam</option>
-                      <option value="VGB">Virgin Islands, British</option>
-                      <option value="VIR">Virgin Islands, U.S.</option>
-                      <option value="WLF">Wallis and Futuna</option>
-                      <option value="ESH">Western Sahara</option>
-                      <option value="YEM">Yemen</option>
-                      <option value="ZMB">Zambia</option>
-                      <option value="ZWE">Zimbabwe</option>
-                  </select>
-                    </div>
-                  </div>
-                  
-                <div class="row" style="margin-bottom: 20px;">
-                  <div class="col-sm-6">
-                    <label for="secu">Son n° de sécurité sociale </label>
-                    <input type="text" id="secu" class=" full-w" maxlength="13">
-                  </div>
-                </div>
-                <!-- <div class="row"> --></br>
-                  
-                <!-- </div> -->
-              </div>
-
-         
-	        </section>
-	        <h3>Vos ressources</h3>
-	        <section>
-	        	<h2>VOS RESSOURCES</h2>  
-				<div class="panel">
-				  <div class="panel-heading">
-				    <label for="" class="panel-title">Retraites<a class="toogle visible"><input class=" myButton inline " id="moreless" type="button" value="-"/></a></label>
-				  </div>      
-				  <div class="panel-body" id="retraites" style="display: inline-block;">
-				  	<h4>Retraites personnelles de base</h4>
+               <h3>Vos ressources</h3>
+               <section>
+                  <h2>VOS RESSOURCES</h2>
+                  <div class="panel">
+                     <div class="panel-heading">
+                        <label for="" class="panel-title">Retraites<a class="toogle visible"><input class=" myButton inline " id="moreless" type="button" value="-"/></a></label>
+                     </div>
+                     <div class="panel-body" id="retraites" style="display: inline-block;">
+                        <h4>Retraites personnelles de base</h4>
                         <div class="row bloc">
-                          <div class="logo-reg col-md-auto">
-                            <img src="img/LogoCNAV.png">
-                          </div>
-                              <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€" value="800">
-                                   <!-- <div class="input-group-addon">e</div> -->
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€" value="800">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€" value="800">
-                              </div>
+                           <div class="logo-reg col-md-auto">
+                              <img src="img/LogoCNAV.png">
+                           </div>
+                           <div class="col-sm">
+                              
+                                 <label class="mois">
+                              <div class="input-group mb-3">
+                                    <input type="text"   aria-label="Recipient's username" >
+                                    <div class="input-group-append">
+                                      <span class="input-group-text"></span>
+                                    </div>
+                                  </div>
+                              </label>
+                              <!-- <input type="text"  placeholder="€" value="800"><div class="euro"><span class="eur"></span></div> -->
+                             
+                           </div>
+                           <div class="col-sm">
+                            
+                              <label class="mois">
+                                  <div class="input-group mb-3">
+                                    <input type="text" aria-label="Recipient's username" >
+                                    <div class="input-group-append">
+                                      <span class="input-group-text"></span>
+                                    </div>
+                                     </div>
+                              </label>
+                           
+
+                           </div>
+                           <div class="col-sm">
+                              <label class="mois">
+                              <div class="input-group mb-3">
+                                    <input type="text"   aria-label="Recipient's username" >
+                                    <div class="input-group-append">
+                                      <span class="input-group-text"></span>
+                                    </div>
+                                  </div>
+                              </label>
+                           </div>
                         </div>
                         <h4>vos retraites complementaire</h4>
                         <div class='row bloc' id='ircantec'>
-                          <div class='logo-reg col-md-auto'> 
-                            <img src='img/ircanted-resised.png'></div>
-                            <div class='col-sm'>
-                              <label for='fstmth' class='mois'></label>
-                              <input type='text' id='fstmth' placeholder='€'>
-                            </div>
-                            <div class='col-sm'>
-                              <label for='secmth' class='mois'></label>
-                              <input type='text' id='secmth' placeholder='€'>
-                            </div>
-                            <div class='col-sm'>
-                              <label for='thrmth' class='mois'></label>
-                              <input type='text' id='thrmth' placeholder='€'>
-                            </div>
-                          </div>
-
+                           <div class='logo-reg col-md-auto'> 
+                              <img src='img/ircanted-resised.png'>
+                           </div>
+                           <div class='col-sm'>
+                              <label class='mois'>
+                              <input type='text' placeholder='€'>
+                              </label>
+                           </div>
+                           <div class='col-sm'>
+                            <label class='mois'>
+                              <input type='text' placeholder='€'>
+                              </label>
+                           </div>
+                           <div class='col-sm'>
+                            <label class='mois'>
+                              <input type='text' placeholder='€'>
+                              </label>
+                           </div>
+                        </div>
                         <div class='row bloc' id='ratp'>
-                          <div class='logo-reg col-md-auto'> 
-                            <img src='img/ratp-resized.png'></div>
-                            <div class='col-sm'>
-                              <label for='fstmth' class='mois'></label>
-                              <input type='text' id='fstmth' placeholder='€'>
-                            </div>
-                            <div class='col-sm'>
-                              <label for='secmth' class='mois'></label>
-                              <input type='text' id='secmth' placeholder='€'>
-                            </div>
-                            <div class='col-sm'>
-                              <label for='thrmth' class='mois'></label>
-                              <input type='text' id='thrmth' placeholder='€'>
-                            </div>
-                          </div>
-
-                              <div class='row bloc' id='agrircarrco'>
-                          <div class='logo-reg col-md-auto'> 
-                            <img src='img/agri-resized.png'></div>
-                            <div class='col-sm'>
-                              <label for='fstmth' class='mois'></label>
-                              <input type='text' id='fstmth' placeholder='€'>
-                            </div>
-                            <div class='col-sm'>
-                              <label for='secmth' class='mois'></label>
-                              <input type='text' id='secmth' placeholder='€'>
-                            </div>
-                            <div class='col-sm'>
-                              <label for='thrmth' class='mois'></label>
-                              <input type='text' id='thrmth' placeholder='€'>
-                            </div>
-                          </div>
-
-                              <div class='row bloc' id='cnracl'>
-                          <div class='logo-reg col-md-auto'> 
-                            <img src='img/cnracl-resized.png'></div>
-                            <div class='col-sm'>
-                              <label for='fstmth' class='mois'></label>
-                              <input type='text' id='fstmth' placeholder='€'>
-                            </div>
-                            <div class='col-sm'>
-                              <label for='secmth' class='mois'></label>
-                              <input type='text' id='secmth' placeholder='€'>
-                            </div>
-                            <div class='col-sm'>
-                              <label for='thrmth' class='mois'></label>
-                              <input type='text' id='thrmth' placeholder='€'>
-                            </div>
-                          </div>
-<!--               <div id="retraitecomplet">        
-
-              <input  type="checkbox" value="cnracl" class="retcomp" id="cnraclC">CNRACL</option>
-       
-              <input  type="checkbox" value="ratp" class="retcomp" id="ratpC">RATP</option>
-                 
-              <input  type="checkbox" value="ircantec" class="retcomp" id="ircantecC">IRCANTEC</option>
-              
-              <input  type="checkbox" value="agrircarrco" class="retcomp" id="agricarrcoC">AGIRC et ARRCO</option>
-  
-  
-              </div>   -->                       
-				  </div>
-				</div>
-        <!-- <div class="panel">
-          <div class="panel-heading">
-            <label for="" class="panel-title">Revenus professionnels d'activité <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
-          </div>      
-          <div class="panel-body">
-            <h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions)</h4>
-                        <div class="row bloc">
-                              <div class="col-sm">
-                                <label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                                <label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                                <label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" placeholder="€">
-                              </div>
+                           <div class='logo-reg col-md-auto'> 
+                              <img src='img/ratp-resized.png'>
+                           </div>
+                           <div class='col-sm'>
+                              <label class='mois'>
+                              <input type='text' placeholder='€'>
+                              </label>
+                           </div>
+                           <div class='col-sm'>
+                              <label class='mois'>
+                              <input type='text' placeholder='€'>
+                              </label>
+                           </div>
+                           <div class='col-sm'>
+                              <label class='mois'>
+                              <input type='text' placeholder='€'>
+                              </label>
+                           </div>
                         </div>
-                       <h4>Revenus professionnels des non-salariés (BIC, BNC, BA...)</h4>
-                       <p>Indiquez le montant annuel retenu par l'administration fiscale.</p>                  
-                       <label for="lastdecla">Dernier exercice déclaré</label>
-                       <input type="text" id="lastdecla" name="_revenusProfessionnels_salaires_0" placeholder="€">                      
-          </div>
-        </div> -->
-		<!-- 		<div class="panel">
-				  <div class="panel-heading">
-				    <label for="" class="panel-title">Revenus de remplacement (Allocation chômage, Indemnités journalières) <a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
-				  </div>      
-				  <div class="panel-body">
-				  	<h4>Allocation chômage</h4>
-                        <div class="row bloc">
-                              <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
+                        <div class='row bloc' id='agrircarrco'>
+                           <div class='logo-reg col-md-auto'> 
+                              <img src='img/agri-resized.png'>
+                           </div>
+                           <div class='col-sm'>
+                              <label class='mois'>
+                              <input type='text' placeholder='€'>
+                              </label>
+                           </div>
+                           <div class='col-sm'>
+                              <label class='mois'>
+                              <input type='text' placeholder='€'>
+                              </label>
+                           </div>
+                           <div class='col-sm'>
+                            <label class='mois'>
+                              <input type='text' placeholder='€'>
+                              </label>
+                           </div>
                         </div>
-                        <h4> Indemnités journalières versées par la caisse d’assurance maladie (maladie, accident du travail, maladie professionnelle, maternité…)</h4>
-                        <div class="row bloc">
-                              <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                        </div>
-				  </div>
-				</div> -->
-				<div class="panel tiny-panel">
-				  <div class="panel-heading">
-				    <label for="" class="panel-title">Autres revenus <!-- (Pension alimentaire, Pension d’invalidité, Rente personnelle accident du travail, Prestations compensatoires) --><a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
-				  </div>      
-				  <div class="panel-body">
-                                  <!-- Dans le header -->
-                <!--   <button type="button" class="btn btn-primary orange btnMenu">
-                  <span class=" glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </button> -->
-                <a class="btn btn-primary orange2 btnMenu" >Cliquez ici pour selectionner s'il y a lieu, vos autre revenus</a>
-             <!--    </div>
- -->                  <!--     <a class="btn myButton3" id="btnMenu"> 
-                        Cliquez ici pour selectionner s'il y a lieu, vos autres revenus  </a> -->
-
+                        <div class='row bloc' id='cnracl'>
+                           <div class='logo-reg col-md-auto'> 
+                              <img src='img/cnracl-resized.png'>
+                           </div>
+                           <div class='col-sm'>
+                            <label class='mois'>
+                              <input type='text' placeholder='€'>
+                              </label>
+                           </div>
+                           <div class='col-sm'>
+                              <label class='mois'>
+                              <input type='text' placeholder='€'>
+                              </label>
+                           </div>
+                           <div class='col-sm'>
+                              <label class='mois'>
+                              <input type='text' placeholder='€'>
+                              </label>
+                           </div>
+                        </div>                      
+                     </div>
+                  </div>
+                  <div class="panel tiny-panel">
+                     <div class="panel-heading">
+                        <label for="" class="panel-title">
+                           Autres revenus <a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a>
+                        </label>
+                     </div>
+                     <div class="panel-body">
+                        <a class="btn btn-primary orange2 btnMenu" >Cliquez ici pour selectionner s'il y a lieu, vos autre revenus</a>
                         <div id="nav">
-                            <div class="panel tiny-panel">
-                             <div class="panel-heading tiny-head">
-                                <label for="" class="panel-title tiny-tittle">Pension alimentaire (hors aide alimentaire obligatoire)<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
-                             </div>
-                             <div class="panel-body">
-                              <h4>Pension alimentaire (hors aide alimentaire obligatoire)</h4>
-                              <div class="row bloc">
-                                <div class="col-sm">
-                                  <label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                                </div>
-                                <div class="col-sm">
-                                  <label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                                </div>
-                                <div class="col-sm">
-                                  <label for="thrmth" class="mois"></label>
-                                  <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                                </div>
+                           <div class="panel tiny-panel">
+                              <div class="panel-heading tiny-head">
+                                 <label for="" class="panel-title tiny-tittle">Pension alimentaire (hors aide alimentaire obligatoire)<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
                               </div>
-                            </div>
-                          </div>
-
-
-                          <div class="panel tiny-panel">
-                             <div class="panel-heading tiny-head">
-                                <label for="" class="panel-title tiny-tittle">Pension d'invalidité<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
-                             </div>
-                             <div class="panel-body">
-                              <h4>Pension d'invalidité</h4>
-                              <div class="row bloc">
-                                <div class="col-sm">
-                                  <label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                                </div>
-                                <div class="col-sm">
-                                  <label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                                </div>
-                                <div class="col-sm">
-                                  <label for="thrmth" class="mois"></label>
-                                  <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                                </div>
+                              <div class="panel-body">
+                                 <h4>Pension alimentaire (hors aide alimentaire obligatoire)</h4>
+                                 <div class="row bloc">
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                 </div>
                               </div>
-                            </div>
-                          </div>
-
-                              <div class="panel tiny-panel">
-                             <div class="panel-heading tiny-head">
-                                <label for="" class="panel-title tiny-tittle">Revenus de remplacement (Allocation chômage, Indemnités journalières)<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
-                             </div>
-                             <div class="panel-body">
-                              <h4>Allocation chômage</h4>
-                              <div class="row bloc">
-                                <div class="col-sm">
-                                  <label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                                </div>
-                                <div class="col-sm">
-                                  <label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                                </div>
-                                <div class="col-sm">
-                                  <label for="thrmth" class="mois"></label>
-                                  <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                                </div>
+                           </div>
+                           <div class="panel tiny-panel">
+                              <div class="panel-heading tiny-head">
+                                 <label for="" class="panel-title tiny-tittle">Pension d'invalidité<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
                               </div>
-                               <h4>Indemnités journalières versées par la caisse d’assurance maladie (maladie, accident du travail, maladie professionnelle, maternité…)</h4>
-                              <div class="row bloc">
-                                <div class="col-sm">
-                                  <label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                                </div>
-                                <div class="col-sm">
-                                  <label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                                </div>
-                                <div class="col-sm">
-                                  <label for="thrmth" class="mois"></label>
-                                  <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                                </div>
+                              <div class="panel-body">
+                                 <h4>Pension d'invalidité</h4>
+                                 <div class="row bloc">
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                        <label class='mois'>
+                                          <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                 </div>
                               </div>
-                            </div>
-                          </div>
-
-                              <div class="panel tiny-panel">
-                             <div class="panel-heading tiny-head">
-                                <label for="" class="panel-title tiny-tittle">Retraites de réversion<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
-                             </div>
-                             <div class="panel-body">
-                              <h4>Retraites de réversion</h4>
-                              <div class="row bloc">
-                                <div class="col-sm">
-                                  <label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                                </div>
-                                <div class="col-sm">
-                                  <label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                                </div>
-                                <div class="col-sm">
-                                  <label for="thrmth" class="mois"></label>
-                                  <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                                </div>
+                           </div>
+                           <div class="panel tiny-panel">
+                              <div class="panel-heading tiny-head">
+                                 <label for="" class="panel-title tiny-tittle">Revenus de remplacement (Allocation chômage, Indemnités journalières)<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
                               </div>
-                            </div>
-                          </div>
-
-                              <div class="panel tiny-panel">
-                             <div class="panel-heading tiny-head">
-                                <label for="" class="panel-title tiny-tittle">Revenus professionnels d’activité<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
-                             </div>
-                             <div class="panel-body">
-                              <h4>Revenus professionnels d’activité</h4>
-                              <div class="row bloc">
-                                <div class="col-sm">
-                                  <label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                                </div>
-                                <div class="col-sm">
-                                  <label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                                </div>
-                                <div class="col-sm">
-                                  <label for="thrmth" class="mois"></label>
-                                  <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                                </div>
+                              <div class="panel-body">
+                                 <h4>Allocation chômage</h4>
+                                 <div class="row bloc">
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                 </div>
+                                 <h4>Indemnités journalières versées par la caisse d’assurance maladie (maladie, accident du travail, maladie professionnelle, maternité…)</h4>
+                                 <div class="row bloc">
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                 </div>
                               </div>
-                            </div>
-                          </div>
-
-                          <a class="btn btn-primary orange2 icon-bar" id="autre">Cliquez ici pour ajouter un autre revenus <input class=" myButton inline " id="moreless" type="button" value="+"/></a>
+                           </div>
+                           <div class="panel tiny-panel">
+                              <div class="panel-heading tiny-head">
+                                 <label for="" class="panel-title tiny-tittle">Retraites de réversion<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
+                              </div>
+                              <div class="panel-body">
+                                 <h4>Retraites de réversion</h4>
+                                 <div class="row bloc">
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="panel tiny-panel">
+                              <div class="panel-heading tiny-head">
+                                 <label for="" class="panel-title tiny-tittle">Revenus professionnels d’activité<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
+                              </div>
+                              <div class="panel-body">
+                                 <h4>Revenus professionnels d’activité</h4>
+                                 <div class="row bloc">
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm">
+                                       <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                        </label>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <a class="btn btn-primary orange2 icon-bar" id="autre">Cliquez ici pour ajouter un autre revenus <input class=" myButton inline " id="moreless" type="button" value="+"/></a>
                         </div>
-                    
-                      <!-- J'ai aussi ajouté un id à la balise <nav> -->
-
-				  <!-- 	<h4>Pension alimentaire (hors aide alimentaire obligatoire)<input class="myButton2 inline" id="cancel" type="button" value="x"></h4>
-
-                        <div class="row bloc">
-                              <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                        </div> -->
-                        <!-- <h4> Pension d'invalidité </h4>
-                        <div class="row bloc">
-                              <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                        </div> -->
-                        <!-- <h4> Prestations compensatoires </h4>
-                        <div class="row bloc">
-                              <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
+                     </div>
+                  </div>
+                  <div id="notAlone">
+                     <h2>RESSOURCES DE VOTRE CONJOINT(E) ACTUEL(LE)</h2>
+                     <div class="panel">
+                        <div class="panel-heading">
+                           <label for="" class="panel-title">Revenus professionnels d'activité <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
                         </div>
-                        <h4> Rente personnelle accident du travail </h4>
-                        <div class="row bloc">
+                        <div class="panel-body">
+                           <h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions) </h4>
+                           <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                </label>
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
+                                 <label class='mois'>
+                                        <input type='text' placeholder='€'>
+                                 </label>
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
+                                 <label class='mois'>
+                                      <input type='text' placeholder='€'>
+                                  </label>
                               </div>
-                        </div> -->
-				  </div>
-				</div>
-				<div id="notAlone">
-				<h2>RESSOURCES DE VOTRE CONJOINT(E) ACTUEL(LE)</h2>
-
-
-				<div class="panel">
-				  <div class="panel-heading">
-				    <label for="" class="panel-title">Revenus professionnels d'activité <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
-				  </div>      
-				  <div class="panel-body">
-				  	<h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions) </h4>
-                        <div class="row bloc">
-                              <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
+                           </div>
+                           <h4>Revenus professionnels des non-salariés (BIC, BNC, BA...)</h4>
+                           <p>Indiquez le montant annuel retenu par l'administration fiscale.</p>
+                           <label for="lastdecla">Dernier exercice déclaré</label>
+                           <input type="text" id="lastdecla" name="_revenusProfessionnels_salaires_0" placeholder="€">                      
                         </div>
-                       <h4>Revenus professionnels des non-salariés (BIC, BNC, BA...)</h4>
-                       <p>Indiquez le montant annuel retenu par l'administration fiscale.</p>                  
-                       <label for="lastdecla">Dernier exercice déclaré</label>
-                       <input type="text" id="lastdecla" name="_revenusProfessionnels_salaires_0" placeholder="€">                      
-				  </div>
-				</div>
-				<div class="panel">
-				  <div class="panel-heading">
-				    <label for="" class="panel-title">Retraite <a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
-				  </div>      
-				  <div class="panel-body" >
-				  	<h4>Retraites personnelles de base <input class=" myButton has-more inline" id="more-base-retraite" type="button" value="+"></h4>
-                        <div class="row bloc " >
-                              <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
+                     </div>
+                     <div class="panel">
+                        <div class="panel-heading">
+                           <label for="" class="panel-title">Retraite <a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
                         </div>
-                        <h4> Retraites personnelles complémentaires <input class=" myButton has-more inline" id="more-comp-retraite" type="button" value="+"></h4>
-                        <div class="row bloc " >
+                        <div class="panel-body" >
+                           <h4>Retraites personnelles de base <input class=" myButton has-more inline" id="more-base-retraite" type="button" value="+"></h4>
+                           <div class="row bloc " >
                               <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
                               </div>
+                           </div>
+                           <h4> Retraites personnelles complémentaires <input class=" myButton has-more inline" id="more-comp-retraite" type="button" value="+"></h4>
+                           <div class="row bloc " >
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                           </div>
                         </div>
-				  </div>
-				</div>
-				<div class="panel">
-				  <div class="panel-heading">
-				    <label for="" class="panel-title">Revenus de remplacement (Allocation chômage, Indemnités journalières) <a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
-				  </div>      
-				  <div class="panel-body">
-				  	<h4>Allocation chômage</h4>
-                        <div class="row bloc">
+                     </div>
+                     <div class="panel">
+                        <div class="panel-heading">
+                           <label for="" class="panel-title">Revenus de remplacement (Allocation chômage, Indemnités journalières) <a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
+                        </div>
+                        <div class="panel-body">
+                           <h4>Allocation chômage</h4>
+                           <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
                               </div>
                               <div class="col-sm"">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
                               </div>
                               <div class="col-sm" >
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
                               </div>
+                           </div>
+                           <h4> Indemnités journalières versées par la caisse d’assurance maladie (maladie, accident du travail, maladie professionnelle, maternité…)</h4>
+                           <div class="row bloc">
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                           </div>
                         </div>
-                        <h4> Indemnités journalières versées par la caisse d’assurance maladie (maladie, accident du travail, maladie professionnelle, maternité…)</h4>
-                        <div class="row bloc">
-                              <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
+                     </div>
+                     <div class="panel">
+                        <div class="panel-heading">
+                           <label for="" class="panel-title">Autres revenus (Pension alimentaire, Pension d’invalidité, Rente personnelle accident du travail, Prestations compensatoires)<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
                         </div>
-				  </div>
-				</div>
-				<div class="panel">
-				  <div class="panel-heading">
-				    <label for="" class="panel-title">Autres revenus (Pension alimentaire, Pension d’invalidité, Rente personnelle accident du travail, Prestations compensatoires)<a class="toogle"><input class=" myButton inline" id="moreless" type="button" value="+"></a></label>
-				  </div>      
-				  <div class="panel-body">
-				  	<h4>Pension alimentaire (hors aide alimentaire obligatoire)</h4>
-                        <div class="row bloc">
+                        <div class="panel-body">
+                           <h4>Pension alimentaire (hors aide alimentaire obligatoire)</h4>
+                           <div class="row bloc">
                               <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
                               </div>
                               <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
                               </div>
                               <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
                               </div>
+                           </div>
+                           <h4> Pension d'invalidité </h4>
+                           <div class="row bloc">
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                           </div>
+                           <h4> Prestations compensatoires </h4>
+                           <div class="row bloc">
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                           </div>
+                           <h4> Rente personnelle accident du travail </h4>
+                           <div class="row bloc">
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                              <div class="col-sm">
+                                 <label class='mois'>
+                                  <input type='text' placeholder='€'>
+                                 </label>
+                              </div>
+                           </div>
                         </div>
-                        <h4> Pension d'invalidité </h4>
-                        <div class="row bloc">
-                              <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                        </div>
-                        <h4> Prestations compensatoires </h4>
-                        <div class="row bloc">
-                              <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                        </div>
-                        <h4> Rente personnelle accident du travail </h4>
-                        <div class="row bloc">
-                              <div class="col-sm">
-                              	<label for="fstmth" class="mois"></label>
-                                    <input type="text" id="fstmth" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="secmth" class="mois"></label>
-                                    <input type="text" id="secmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                              <div class="col-sm">
-                              	<label for="thrmth" class="mois"></label>
-                                <input type="text" id="thrmth" name="_revenusProfessionnels_salaires_0" placeholder="€">
-                              </div>
-                        </div>
-				  </div>
-				</div>
-			</div>
-	        </section>
-	        <h3>Vos biens</h3>
-	        <section>
-	        	<h2 id="alone-title">VOUS N ETES PAS CENSE LIRE CA</h2>
-	        	<p id="alone-sub">Avez-vous (et/ou votre conjoint, concubin, parVOUS N ETES PAS CENSE LIRE CAr ?</p>
+                     </div>
+                  </div>
+               </section>
 
-                 <!--      <input id="toggle-on" name="toggle" type="radio">
-                      <label for="toggle-on">On</label>
-                      <input id="toggle-off" name="toggle" type="radio">
-                      <label for="toggle-off">Off</label> -->
-            <div class="cont-radio">
-              <input type="radio" class="inline" id="work_abroad_y" name="work_abroad" value="y" /><label for="work_abroad_y" class="cont-radio">Oui</label>
-              <input type="radio" class="inline" id="work_abroad_n" name="work_abroad" value="n" /><label for="work_abroad_n" lass="cont-radio">Non</label>
-            </div>
-              <div class="panel" id="bibibi">
-          <div class="panel-heading">
-            <label for="" class="panel-title">Vos Biens immobiliers <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
-          </div>      
-          <div class="panel-body">
-            <h4>(précisez s’il y a lieu indivis, nue-propriété ou usufruit) : maisons, appartements, terrains, commerces, etc.
-à l’exclusion de votre habitation principale et des bâtiments d’exploitation agricole</h4>
+
+
+
+
+
+                <!-- ÉTAPE 4 -->
+
+
+
+
+               <h3>Vos biens</h3>
+               <section>
+                  <h2 id="alone-title">VOUS N ETES PAS CENSE LIRE CA</h2>
+                  <p id="alone-sub">Avez-vous (et/ou votre conjoint, concubin, parVOUS N ETES PAS CENSE LIRE CAr ?</p>
+                  <div class="cont-radio">
+                     <input type="radio" class="inline" id="work_abroad_y" name="work_abroad" value="y" /><label for="work_abroad_y" class="cont-radio">Oui</label>
+                     <input type="radio" class="inline" id="work_abroad_n" name="work_abroad" value="n" /><label for="work_abroad_n" lass="cont-radio">Non</label>
+                  </div>
+                  <div class="panel" id="bibibi">
+                     <div class="panel-heading">
+                        <label for="" class="panel-title">Vos Biens immobiliers <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
+                     </div>
+                     <div class="panel-body">
+                        <h4>(précisez s’il y a lieu indivis, nue-propriété ou usufruit) : maisons, appartements, terrains, commerces, etc.
+                           à l’exclusion de votre habitation principale et des bâtiments d’exploitation agricole
+                        </h4>
                         <div class="row">
-                              <div class="col-sm">
-                                <label for="nature">Précisez la nature du bien déclaré</label>
-                                    <input type="text" id="nature" placeholder="nature du bien">
+                           <div class="col-sm">
+                              <label for="nature">Précisez la nature du bien déclaré</label>
+                              <input type="text" id="nature" placeholder="nature du bien">
+                           </div>
+                           <div class="col-sm">
+                              <label for="addresse-imo">Adresse du bien déclaré</label>
+                              <div id="addresse-imo">
+                                 <input id="autocomplete" placeholder="Entrer votre adresse"  type="text"></input>
                               </div>
-                              <div class="col-sm">
-                                <label for="addresse-imo">Adresse du bien déclaré</label>
-                                  <div id="addresse-imo">
-                                      <input id="autocomplete" placeholder="Entrer votre adresse"  type="text"></input>
-                                        </div>
-                       <!--    <input type="text" id="adresse" placeholder="Rentrer l'adresse complete">            onFocus="geolocate()"-->
-                              </div>
-                              <div class="col-sm">
-                                <label for="valeur">Valeur actuelle</label>
-                                <input type="text" id="valeur" placeholder="€">
-                              </div>
+                           </div>
+                           <div class="col-sm">
+                              <label for="valeur">Valeur actuelle</label>
+                              <input type="text" id="valeur" placeholder="€">
+                           </div>
                         </div>
-                       <a class="biens btn btn-primary orange2" id="bibi">Cliquez ici pour declarer un autre bien immobilier</a>
-                       <p id="alone-home">Habitez-vous la maison dont vous ou votre conjoint actuel, concubin, partenaire PACS êtes propriétaire ?</p>
-                       <div class="cont-radio">
-                        <input type="radio" class="inline" id="homeY" name="home" value="ye" /><label for="homeY">Oui</label> 
-                        <input type="radio" class="inline" id="homeN" name="home" value="no" /><label for="homeN">Non</label>
-                      </div>
+                        <a class="biens btn btn-primary orange2" id="bibi">Cliquez ici pour declarer un autre bien immobilier</a>
+                        <p id="alone-home">Habitez-vous la maison dont vous ou votre conjoint actuel, concubin, partenaire PACS êtes propriétaire ?</p>
+                        <div class="cont-radio">
+                           <input type="radio" class="inline" id="homeY" name="home" value="ye" /><label for="homeY">Oui</label> 
+                           <input type="radio" class="inline" id="homeN" name="home" value="no" /><label for="homeN">Non</label>
+                        </div>
                         <div class="cont-radio" id="locate">
-                          <p >Une partie de cette maison est-elle louée ?
-                        <input type="radio" class="inline" id="home-lY" name="home-l" value="ye" /><label for="home-lY">Oui</label>
-                        <input type="radio" class="inline" id="home-lN" name="home-l" value="no" /><label for="home-lN">Non</label></p>
-                      </div>
-                     <span id="locateprice"> valeur actuelle de la partie louée :    
-                      <!-- <div class="col-sm"> -->
-                                <!-- <label for="thrmth" class="mois"></label> -->
-                                <input type="text" id="thrmth" class="inline autow" placeholder="€">
-                      <!-- </div> -->
-                    </span>
-          </div>
-        </div>
-            <div id="mobi">
-              <p id="alone-mob">Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) deVOUS N ETES PAS CENSE LIRE CAn france et/ou á l'étranger ?</p>
-              <div class="cont-radio">
-              <input type="radio" class="inline" id="mobiY" name="mobi" value="ye" /><label for="mobiY">Oui</label>
-              <input type="radio" class="inline" id="mobiN" name="mobi" value="no" /><label for="mobiN">Non</label>
-            </div>
-            </div>
-             <div class="panel" id="mobibi">
-          <div class="panel-heading">
-            <label for="" class="panel-title">Vos Biens mobilier <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
-          </div>      
-          <div class="panel-body">
-            <h4>titres, actions, obligations, capitaux d’assurance vie/décès, etc.</h4>
-                        <div class="row">
-                              <div class="col-sm">
-                                <label for="nature">Précisez la nature du bien déclaré</label>
-                                    <input type="text" id="nature" placeholder="nature du bien">
-                              </div>
-                              <div class="col-sm">
-                                <label for="valeur">Valeur actuelle</label>
-                                <input type="text" id="valeur" placeholder="€">
-                              </div>
+                           <p >Une partie de cette maison est-elle louée ?
+                              <input type="radio" class="inline" id="home-lY" name="home-l" value="ye" /><label for="home-lY">Oui</label>
+                              <input type="radio" class="inline" id="home-lN" name="home-l" value="no" /><label for="home-lN">Non</label>
+                           </p>
                         </div>
-                       <a class="biens-mobi btn btn-primary orange2" id="mobibibi">Cliquez ici pour declarer un autre bien mobilier</a>
-                                           
-          </div>
-        </div>
-
-            <div id=donnationdiv>
-            	<p id="alone-d-immo">Avez-vous et/ou votre conjoint, concubin, partenaire PACS des bienVOUS N ETES PAS CENSE LIRE CAs en france et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONNATION DEPUIS MOINS DE 10 ANS?</p>
-              <div class="cont-radio">
-            	<input type="radio" class="inline" id="donaY" name="donnation" value="ye" /><label for="donaY">Oui</label>
-              <input type="radio" class="inline" id="donaN" name="donnation" value="no" /><label for="donaN">Non</label>
-            </div>
-            </div>
-          <div class="panel" id="bi-donnate">
-          <div class="panel-heading">
-            <label for="" class="panel-title">Biens immobiliers dont vous avez fait la donnation depuis moins de 10ans<a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
-          </div>      
-          <div class="panel-body">
-            <h4>(à l’exclusion de votre habitation principale et des bâtiments d’exploitation agricole)</h4>
-            <div id="alone-donnate-imo">
-            <p>Qui est le donateur ?</p>
-            <div class="cont-radio">
-              <input type="radio" class="inline" id="you1" name="who" value="ye" /><label for="you1">vous-même</label>
-              <input type="radio" class="inline" id="conjoin1" name="who" value="no" /><label for="conjoin1">votre conjoint actuel, concubin, partenaire PACS</label>
-              <input type="radio" class="inline" id="both1" name="who" value="no" /><label for="both1">vous et votre conjoint actuel</label>
-            </div>
-            </div>
+                        <span id="locateprice">
+                           valeur actuelle de la partie louée :            
+                           <input type="text" id="thrmth" class="inline autow" placeholder="€">                    
+                        </span>
+                     </div>
+                  </div>
+                  <div id="mobi">
+                     <p id="alone-mob">Avez-vous (et/ou votre conjoint, concubin, partenaire PACS) deVOUS N ETES PAS CENSE LIRE CAn france et/ou á l'étranger ?</p>
+                     <div class="cont-radio">
+                        <input type="radio" class="inline" id="mobiY" name="mobi" value="ye" /><label for="mobiY">Oui</label>
+                        <input type="radio" class="inline" id="mobiN" name="mobi" value="no" /><label for="mobiN">Non</label>
+                     </div>
+                  </div>
+                  <div class="panel" id="mobibi">
+                     <div class="panel-heading">
+                        <label for="" class="panel-title">Vos Biens mobilier <a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
+                     </div>
+                     <div class="panel-body">
+                        <h4>titres, actions, obligations, capitaux d’assurance vie/décès, etc.</h4>
                         <div class="row">
-                              <div class="col-sm">
-                                <label for="nature">Précisez la nature du bien déclaré</label>
-                                    <input type="text" id="nature" placeholder="nature du bien">
-                              </div>
-                              <div class="col-sm">
-                                <label for="adresse">Adresse du bien déclaré</label>
-                                    <input type="text" id="adresse" placeholder="Rentrer l'adresse complete">
-                              </div>
-                              <div class="col-sm">
-                                <label for="valeur">Valeur actuelle</label>
-                                <input type="text" id="valeur" placeholder="€">
-                              </div>
+                           <div class="col-sm">
+                              <label for="nature">Précisez la nature du bien déclaré</label>
+                              <input type="text" id="nature" placeholder="nature du bien">
+                           </div>
+                           <div class="col-sm">
+                              <label for="valeur">Valeur actuelle</label>
+                              <input type="text" id="valeur" placeholder="€">
+                           </div>
+                        </div>
+                        <a class="biens-mobi btn btn-primary orange2" id="mobibibi">Cliquez ici pour declarer un autre bien mobilier</a>
+                     </div>
+                  </div>
+                  <div id=donnationdiv>
+                     <p id="alone-d-immo">Avez-vous et/ou votre conjoint, concubin, partenaire PACS des bienVOUS N ETES PAS CENSE LIRE CAs en france et/ou á l'étranger DONT VOUS AVEZ FAIT LA DONNATION DEPUIS MOINS DE 10 ANS?</p>
+                     <div class="cont-radio">
+                        <input type="radio" class="inline" id="donaY" name="donnation" value="ye" /><label for="donaY">Oui</label>
+                        <input type="radio" class="inline" id="donaN" name="donnation" value="no" /><label for="donaN">Non</label>
+                     </div>
+                  </div>
+                  <div class="panel" id="bi-donnate">
+                     <div class="panel-heading">
+                        <label for="" class="panel-title">Biens immobiliers dont vous avez fait la donnation depuis moins de 10ans<a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
+                     </div>
+                     <div class="panel-body">
+                        <h4>(à l’exclusion de votre habitation principale et des bâtiments d’exploitation agricole)</h4>
+                        <div id="alone-donnate-imo">
+                           <p>Qui est le donateur ?</p>
+                           <div class="cont-radio">
+                              <input type="radio" class="inline" id="you1" name="who" value="ye" /><label for="you1">vous-même</label>
+                              <input type="radio" class="inline" id="conjoin1" name="who" value="no" /><label for="conjoin1">votre conjoint actuel, concubin, partenaire PACS</label>
+                              <input type="radio" class="inline" id="both1" name="who" value="no" /><label for="both1">vous et votre conjoint actuel</label>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-sm">
+                              <label for="nature">Précisez la nature du bien déclaré</label>
+                              <input type="text" id="nature" placeholder="nature du bien">
+                           </div>
+                           <div class="col-sm">
+                              <label for="adresse">Adresse du bien déclaré</label>
+                              <input type="text" id="adresse" placeholder="Rentrer l'adresse complete">
+                           </div>
+                           <div class="col-sm">
+                              <label for="valeur">Valeur actuelle</label>
+                              <input type="text" id="valeur" placeholder="€">
+                           </div>
                         </div>
                         <p>Date de l’acte de donation <input class="situf inline "  type="text" placeholder="jj/mm/aaaa" name="famidate" id="immo-donna-date">
+                        <div class="col-sm">
+                           <label for="thrmth" class="parent">Lien de parenté avec le bénéficiaire de la donation :</label>
+                           <input type="text" class="autow inline"   placeholder="Lien de parenté">
+                        </div>
+                        <p class="biens-donnate btn btn-primary orange2" id="bibi-do">Cliquez ici pour ajouter une donnation d'un autre bien immobilier</p>
+                     </div>
+                  </div>
+                  <div id=donnationdiv-mobi>
+                     <p id="alone-d-mobi">Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens mVOUS N ETES PAS CENSE LIRE CAen france et/ou á l'étranger DONT VOUS AVEZ FAIt LA DONNATION DEPUIS MOINS DE 10 ANS?</p>
+                     <div class="cont-radio">
+                        <input type="radio" class="inline" id="dona-mobiY" name="donnation-mobi" value="ye" /><label for="dona-mobiY">Oui</label>
+                        <input type="radio" class="inline" id="dona-mobiN" name="donnation-mobi" value="no" /><label for="dona-mobiN">Non</label>
+                     </div>
+                  </div>
+                  <div class="panel" id="bi-donnate-mobi">
+                     <div class="panel-heading">
+                        <label for="" class="panel-title">Biens mobiliers dont vous avez fait la donnation depuis moins de 10ans<a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
+                     </div>
+                     <div class="panel-body">
+                        <div id="alone-donnate-mobi">
+                           <p>Qui est le donateur ?</p>
+                           <div class="cont-radio">
+                              <input type="radio" class="inline" id="you" name="who" value="you" /><label for="you">vous-même</label>
+                              <input type="radio" class="inline" id="conjoin" name="who" value="conjoin" /><label for="conjoin">votre conjoint actuel, concubin, partenaire PACS</label>
+                              <input type="radio" class="inline" id="both" name="who" value="both" /><label for="both">vous et votre conjoint actuel</label>
+                           </div>
+                        </div>
+                        <div class="row">
                            <div class="col-sm">
-                                <label for="thrmth" class="parent">Lien de parenté avec le bénéficiaire de la donation :</label>
-                                <input type="text" class="autow inline"   placeholder="Lien de parenté">
-                          </div>
-                       <p class="biens-donnate btn btn-primary orange2" id="bibi-do">Cliquez ici pour ajouter une donnation d'un autre bien immobilier</p>    
-          </div>
-        </div>
-         <div id=donnationdiv-mobi>
-              <p id="alone-d-mobi">Avez-vous et/ou votre conjoint, concubin, partenaire PACS des biens mVOUS N ETES PAS CENSE LIRE CAen france et/ou á l'étranger DONT VOUS AVEZ FAIt LA DONNATION DEPUIS MOINS DE 10 ANS?</p>
-              <div class="cont-radio">
-              <input type="radio" class="inline" id="dona-mobiY" name="donnation-mobi" value="ye" /><label for="dona-mobiY">Oui</label>
-              <input type="radio" class="inline" id="dona-mobiN" name="donnation-mobi" value="no" /><label for="dona-mobiN">Non</label>
-            </div>
-         </div>
-          <div class="panel" id="bi-donnate-mobi">
-          <div class="panel-heading">
-            <label for="" class="panel-title">Biens mobiliers dont vous avez fait la donnation depuis moins de 10ans<a class="toogle"><input class="inline myButton" float="right"; id="moreless" type="button" value="+"></a></label>
-          </div>      
-          <div class="panel-body">
-            <div id="alone-donnate-mobi">
-            <p>Qui est le donateur ?</p>
-            <div class="cont-radio">
-              <input type="radio" class="inline" id="you" name="who" value="you" /><label for="you">vous-même</label>
-              <input type="radio" class="inline" id="conjoin" name="who" value="conjoin" /><label for="conjoin">votre conjoint actuel, concubin, partenaire PACS</label>
-              <input type="radio" class="inline" id="both" name="who" value="both" /><label for="both">vous et votre conjoint actuel</label>
-            </div>
-            </div>
-                         <div class="row">
-                              <div class="col-sm">
-                                <label for="nature">Précisez la nature du bien déclaré</label>
-                                    <input type="text" id="nature" placeholder="nature du bien">
-                              </div>
-                              <div class="col-sm">
-                                <label for="valeur">Valeur actuelle</label>
-                                <input type="text" id="valeur" placeholder="€">
-                              </div>
+                              <label for="nature">Précisez la nature du bien déclaré</label>
+                              <input type="text" id="nature" placeholder="nature du bien">
+                           </div>
+                           <div class="col-sm">
+                              <label for="valeur">Valeur actuelle</label>
+                              <input type="text" id="valeur" placeholder="€">
+                           </div>
                         </div>
                         <p>Date de l’acte de donation <input class="situf inline "  type="text" placeholder="jj/mm/aaaa" name="famidate" id="mobi-donna-date">
-                           <div class="col-sm">
-                                <label for="thrmth" class="parent">Lien de parenté avec le bénéficiaire de la donation :</label>
-                                <input type="text" class="autow inline"  placeholder="Lien de parenté">
-                          </div>
-                       <p class="biens-donnate-mobi btn btn-primary orange2" id="bibi-do-mobi">Cliquez ici pour ajouter une donnation d'un autre bien immobilier</p>    
-          </div>
-        </div>
-	        </section>
-	        <h3>Votre validation</h3>
-	        <section>
-            <p><b>J’atteste sur l’honneur l’exactitude des renseignements portés sur cette déclaration.
-                Je m’engage :</br>
-                - à faciliter toute enquête pour les vérifier,</br>
-                - à vous faire connaître toute immédiatement modification de ma situation.</b></br>
-                Je reconnais être informé(e) qu’une vérification de l’exactitude de mes déclarations et de l’authenticité des documents
-                produits à l’appui de ma demande, peut être effectuée dans le cadre de l’exercice du droit de communication prévu par
-                les articles L.114-19 à L.114-21 du code de la sécurité sociale.</p>
-                <p id="impo"><b>Veuillez nous envoyer votre dernier avis d’impôt sur le revenu et, si vous vivez en concubinage,
-                  une photocopie du dernier avis d’impôt de votre concubin.
-                </b></p> 
-                <p> <input type="file" name="pic" accept="image/*">
-                    <input type="submit">
-                </p>
-                <div id="up-liv">
-                <p id="changement-fam"></p>              
-                <input type="file" name="pic" accept="image/*">
-                <input type="submit">
-                </div>  
-             <!--    <div >
-                  <p><b>Rappel de vos saisis: </b></p>
-                  <p id="end-add" style="display: block;">Vous avez changé d'adresse</p>
-                  <p id="end-situ" style="display: block;"></p>
-                  <p id="end-conj-name" style="display: block;"></p>
-                  <p id="end-ress" style="display: block;"></p>
-                  <p id="end-bien" style="display: block;"></p>
-                </div>  -->      
-	            <input id="end" type="checkbox"> 
-              <label for="end" id="accept-test">pas possible</label>
-	        </section>
-
-	    </div>
-
-	</form>
-	</div>
+                        <div class="col-sm">
+                           <label for="thrmth" class="parent">Lien de parenté avec le bénéficiaire de la donation :</label>
+                           <input type="text" class="autow inline"  placeholder="Lien de parenté">
+                        </div>
+                        <p class="biens-donnate-mobi btn btn-primary orange2" id="bibi-do-mobi">Cliquez ici pour ajouter une donnation d'un autre bien immobilier</p>
+                     </div>
+                  </div>
+               </section>
 
 
 
 
-</body>
 
-<!--  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9Gr5C1dfF_1NnemWPlD9ideN3DG6Dn4I&libraries=places"></script>
- --> 
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9Gr5C1dfF_1NnemWPlD9ideN3DG6Dn4I&libraries=places&callback=initAutocomplete"
-        async defer></script>
-   <!--      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF9yjrX2ltuAjfz4ebDohzfEHAIluHYcI&libraries=places&callback=initAutocomplete2"
-        async defer></script> -->
-     <!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9Gr5C1dfF_1NnemWPlD9ideN3DG6Dn4I&libraries=places&callback=initAutocomplete3"
-        async defer></script> -->
- <script src="google.js"></script>
-
-<script type="text/javascript">
-var form = $("#contact");
-  form.validate({
-      errorPlacement: function errorPlacement(error, element) { element.after(error); element.toggleClass('ha') },
-      // rules: {
-      //     confirm: {
-      //         equalTo: "#password"
-      //     }
-      // }
-  });
-form.children("div").steps({
-    headerTag: "h3",
-    bodyTag: "section",
-    transitionEffect: "slideLeft",
-    clearFixCssClass: "design clearfix",
-    labels: 
-    {
-        finish: "Envoyer",
-        next: "Etape suivante",
-        previous: "Etape précédente"
-    },
-    onStepChanging: function (event, currentIndex, newIndex)
-    {
-        // form.validate().settings.ignore = ":disabled,:hidden";
-        return form.valid();
-    },
-    onFinishing: function (event, currentIndex)
-    {
-        // form.validate().settings.ignore = ":disabled";
-        return form.valid();
-    },
-    onFinished: function (event, currentIndex)
-    {
-        alert("Le formulaire a bien état envoyé, vous allez recevoir un e-mail de confirmation!");
-    }
-});
-jQuery.extend(jQuery.validator.messages, {
-    required: "Veuillez renseigner ce champ",
-    situf: "caca",
-    remote: "Please fix this field.",
-    email: "Please enter a valid email address.",
-    url: "Please enter a valid URL.",
-    date: "Please enter a valid date.",
-    dateISO: "Please enter a valid date (ISO).",
-    number: "Please enter a valid number.",
-    digits: "Please enter only digits.",
-    creditcard: "Please enter a valid credit card number.",
-    equalTo: "Please enter the same value again.",
-    accept: "Please enter a value with a valid extension.",
-    maxlength: jQuery.validator.format("Please enter no more than {0} characters."),
-    minlength: jQuery.validator.format("Please enter at least {0} characters."),
-    rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
-    range: jQuery.validator.format("Please enter a value between {0} and {1}."),
-    max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
-    min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
-});
+               <!-- ÉTAPE 5 -->
 
 
-</script>
-<script type="text/javascript">
-// document.getElementById("mois").innerHTML = "Hello Dolly.";
-// document.querySelector(".mois") = "Clarisse la meilleur";
-</script>
 
+
+               <h3>Votre validation</h3>
+               <section>
+                  <p><b>J’atteste sur l’honneur l’exactitude des renseignements portés sur cette déclaration.
+                     Je m’engage :</br>
+                     - à faciliter toute enquête pour les vérifier,</br>
+                     - à vous faire connaître toute immédiatement modification de ma situation.</b></br>
+                     Je reconnais être informé(e) qu’une vérification de l’exactitude de mes déclarations et de l’authenticité des documents
+                     produits à l’appui de ma demande, peut être effectuée dans le cadre de l’exercice du droit de communication prévu par
+                     les articles L.114-19 à L.114-21 du code de la sécurité sociale.
+                  </p>
+                  <p id="impo"><b>Veuillez nous envoyer votre dernier avis d’impôt sur le revenu et, si vous vivez en concubinage,
+                     une photocopie du dernier avis d’impôt de votre concubin.
+                     </b>
+                  </p>
+                  <p> <input type="file" name="pic" accept="image/*">
+                     <input type="submit">
+                  </p>
+                  <div id="up-liv">
+                     <p id="changement-fam"></p>
+                     <input type="file" name="pic" accept="image/*">
+                     <input type="submit">
+                  </div>      
+                  <input id="end" type="checkbox"> 
+                  <label for="end" id="accept-test">pas possible</label>
+               </section>
+            </div>
+         </form>
+      </div>
+   </body>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9Gr5C1dfF_1NnemWPlD9ideN3DG6Dn4I&libraries=places&callback=initAutocomplete"
+      async defer></script> <!-- theophile.vitoux@gmail.com -->
+   <script src="js/google.js"></script>
+   <script src="js/step.js"> </script>>
 </html>

@@ -1,3 +1,4 @@
+
   $( function() {
         $( "#famidate" ).datepicker({
             changeMonth: true,
@@ -34,20 +35,20 @@
 		$(document).on('change', '#myDropdown' , function(){
 
           var status = $('#myDropdown').val();
-          if (status == "celibataire")
-        {
-            $('#conj').hide();
-        }
-        else if (status == "Veuf" || status == "Divorce" || status == "Sépare" || status == "Conjoint-disparu")
-        {
-             $('#conj').hide();
-             // document.getElementById("conj-tittle").innerHTML = "Identité de votre ex-conjoint(e), décédé(e) ou disparu(e)"; 
-        }
-        else
-        {
-             $('#conj').show();
-             document.getElementById("conj-tittle").innerHTML = "Identité de votre conjoint(e) actuel(le)"; 
-        }
+        //   if (status == "celibataire")
+        // {
+        //     $('#conj').hide();
+        // }
+        // else if (status == "Veuf" || status == "Divorce" || status == "Sépare" || status == "Conjoint-disparu")
+        // {
+        //      $('#conj').hide();
+        //      // document.getElementById("conj-tittle").innerHTML = "Identité de votre ex-conjoint(e), décédé(e) ou disparu(e)"; 
+        // }
+        // else
+        // {
+        //      $('#conj').show();
+        //      document.getElementById("conj-tittle").innerHTML = "Identité de votre conjoint(e) actuel(le)"; 
+        // }
         });
 
            $(document).on('change', '#myDropdown' , function(){
@@ -171,7 +172,15 @@
         {
           document.getElementById("situation-offi").innerHTML = "Votre conjoint(e) est porté(e) disparu(e)";
         }
-        console.log(status)
+       if (status == "Veuf(ve)" || status == "Divorcé(e)" || status == "Séparé(e)" || status == "conjoint(e) porté(e) disparu(e)" || status == "Célibataire")
+        {
+             $('#conj').hide();
+        }
+        else
+        {
+             $('#conj').show();
+             document.getElementById("conj-tittle").innerHTML = "Identité de votre conjoint(e) actuel(le)"; 
+        } 
         $("#situation-fami").hide();
         $("#modif-situ").show();
         $("#situation-offi").show();

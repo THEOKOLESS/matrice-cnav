@@ -1805,6 +1805,31 @@ width: 12%!important;
     min-width: 112px;
 }
 
+.mois{
+    margin-top: 10px;
+}
+
+.euro{
+    background-color: #f7f7f7;
+    border: 1px solid #ababab;
+    text-align: center;
+    padding: 6px 12px;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1;
+}
+
+.eur:before{
+    content: "€";
+}
+
+.input-group-text:before{
+    content: "€";
+}   
+
+.mois input[type="text"]{
+    float: left;
+}
 /*#locationField, #controls {
         position: relative;
         width: 480px;
