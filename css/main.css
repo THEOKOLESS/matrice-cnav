@@ -918,7 +918,7 @@ table {
 
 .wizard > .steps > ul > li
 {
-    width: 20%;
+    /*width: 20%;*/
 }
 
 .wizard > .steps > ul > li,
@@ -1046,9 +1046,9 @@ table {
 
 .wizard > .content > .body input.error
 {
-    background: rgb(251, 227, 228);
-    border: 1px solid #fbc2c4;
-    color: #8a1f11;
+    background: rgb(251, 227, 228) !important;
+    border: 1px solid #e02544 !important;
+    color: #e02544;
 }
 
 .wizard > .content > .body label
@@ -1059,7 +1059,7 @@ table {
 
 .wizard > .content > .body label.error
 {
-    color: #8a1f11;
+    color: #e02544;
     display: block; /*error after*/
     margin-left: 1.5em;
 }
@@ -1304,12 +1304,14 @@ fieldset {
 #contact input[type="email"],
 #contact input[type="tel"],
 #contact input[type="url"],
+#contact input[type="number"],
 #contact textarea {
   width: 100%;
   border: 1px solid #ccc;
   background: #FFF;
   margin: 0 0 5px;
   padding: 10px;
+  margin-bottom: 23px;
 }
 
 #contact input[type="text"]:hover,
@@ -1801,7 +1803,7 @@ width: 12%!important;
     cursor: default;
     color: black;
 }
-#contact input[type="text"]{
+#contact input[type="text"] input[type="number"]{
     min-width: 112px;
 }
 
@@ -1827,9 +1829,23 @@ width: 12%!important;
     content: "€";
 }   
 
-.mois input[type="text"]{
+.mois input[type="text"] input[type="number"]{
     float: left;
 }
+
+.mois label.active:after {
+  bottom: -0.4em;
+  left :0.7em;
+  color: #337ab7;
+  content: attr(data-placeholder);
+  /*left: 0;*/
+  position: absolute;
+}
+
+.mois input {
+  margin: 0 0 2em 0;
+}
+
 /*#locationField, #controls {
         position: relative;
         width: 480px;

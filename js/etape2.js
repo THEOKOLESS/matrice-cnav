@@ -19,6 +19,56 @@
     });
     });
 
+    $( function() {
+        $( "#mobi-donna-date" ).datepicker({
+            changeMonth: true,
+            changeYear: true,
+             minDate: "-100 Y",  
+            maxDate: new Date(),
+            dateFormat: 'dd/mm/yy' 
+    });
+    });
+
+     $( function() {
+        $( "#immo-donna-date" ).datepicker({
+            changeMonth: true,
+            changeYear: true,
+             minDate: "-100 Y",  
+            maxDate: new Date(),
+            dateFormat: 'dd/mm/yy' 
+    });
+    });
+
+//remove error
+
+
+$('input[name="famidate"]').change(function (){
+  if ($('#famidate').hasClass("error")){
+    $('#famidate').removeClass("error");
+    $(this).next().remove();
+  }
+
+
+  if ($('#conjbrth').hasClass("error")){
+    $('#conjbrth').removeClass("error");
+    $(this).next().remove();
+  }
+
+
+  if ($('#mobi-donna-date').hasClass("error")){
+    console.log("coucou");
+    $('#mobi-donna-date').removeClass("error");
+    $(this).next().remove();
+  }
+
+  if ($('#immo-donna-date').hasClass("error")){
+    console.log("coucou");
+    $('#immo-donna-date').removeClass("error");
+    $(this).next().remove();
+  }
+
+});
+
       	$(document).on('change', '#myDropdown' , function(){
 
           var status = $('#myDropdown').val();
@@ -159,9 +209,9 @@
         e.preventDefault();
 
         var status = $("#myDropdown option:selected").text();
-        var save   = $("#situation-offi").text();
+        var save   = "Marié(e)"//$("#situation-offi").text();      situation offi from OR 
    
-        if(save != status && status != "Veuillez sélectionner votre situation familiale" && status != "Vie en convubinage" && status != "conjoint(e) porté(e) disparu(e)"){
+        if(status != "Veuillez sélectionner votre situation familiale" && status != "Vie en convubinage" && status != "conjoint(e) porté(e) disparu(e)"){
           document.getElementById("situation-offi").innerHTML = "Vous êtes " + status; 
         }
         else if (status == "Vie en convubinage")
@@ -172,12 +222,14 @@
         {
           document.getElementById("situation-offi").innerHTML = "Votre conjoint(e) est porté(e) disparu(e)";
         }
-       if (status == "Veuf(ve)" || status == "Divorcé(e)" || status == "Séparé(e)" || status == "conjoint(e) porté(e) disparu(e)" || status == "Célibataire")
+       if (status == "Veuf(ve)" || status == "Divorcé(e)" || status == "Séparé(e)" || status == "conjoint(e) porté(e) disparu(e)" || status == "Célibataire" || save == status)
         {
              $('#conj').hide();
         }
-        else
+        else if (save != status)
         {
+          console.log(save);
+          console.log(status);
              $('#conj').show();
              document.getElementById("conj-tittle").innerHTML = "Identité de votre conjoint(e) actuel(le)"; 
         } 

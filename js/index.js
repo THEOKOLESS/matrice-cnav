@@ -7,6 +7,7 @@ $(document).ready(function(){
   $.getScript("js/etape2.js");  
   $.getScript("js/etape3.js");
   $.getScript("js/etape4.js");
+  $.getScript("js/jquery.numeric.js");
   initText();
   writemth();
 
@@ -22,8 +23,51 @@ $(document).ready(function(){
     });
     
 
+  
+  var formText = document.querySelectorAll('[data-js=form-text]');
+
+    // For each field...
+  [].forEach.call( formText, function(el, i) {
+  // Cache the field label
+  var thisLabel = el.parentNode.querySelector('label');
+  
+  // Add an 'active' class if text present
+  el.onkeyup = function () {
+  
+    if (el.value.length > 0) {
+      thisLabel.classList.add('active');
+    } else {
+      thisLabel.classList.remove('active');
+    }
+  
+  };
+  
+});
+  $(".mois").numeric({ negative : false, allowEmpty:false });
 
 
+  // document.getElementsByClassName(".mois").addEventListener('keydown', function(e) 
+  //   {
+  //   var key   = e.keyCode ? e.keyCode : e.which;
+    
+  //   if (!( [8, 9, 13, 27, 46, 110, 190].indexOf(key) !== -1 ||
+  //        (key == 65 && ( e.ctrlKey || e.metaKey  ) ) || 
+  //        (key >= 35 && key <= 40) ||
+  //        (key >= 48 && key <= 57 && !(e.shiftKey || e.altKey)) ||
+  //        (key >= 96 && key <= 105)
+  //      )) e.preventDefault(); 
+  // });
+// });
+
+$('.mois input[type="text"]').keyup(function(){
+  if($(this).val() == 0 || $(this).val() == "."){
+    $(this).prop('value', '');
+  }
+});
+
+  //  $(".mois").each(function()){
+  //   console.log($(this).val);
+  // });
         // function writend(){
         //   $('.recap').each(function(){
         //     console.log("coucoucoucocu")

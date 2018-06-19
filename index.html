@@ -24,6 +24,7 @@
       <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script><!--form VALIDATE -->
       <script src="jquery.steps.min.js"></script><!--from STEPs -->
       <script src="https://d79i1fxsrar4t.cloudfront.net/jquery.liveaddress/5.1/jquery.liveaddress.min.js"></script><!--addres -->
+       <script src="js/jquery.numeric.js"></script>
       <title>Questionnaire ressource</title>
    </head>
    <body>
@@ -95,7 +96,7 @@
                            </br>
                            <div class="little-gap"></div>
                            <label for="situf">depuis le </label>
-                           <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" id="famidate">
+                           <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" readonly id="famidate">
                         </div>
                         <div class="col-xs-6">
                            <div class="row" style="margin-bottom: 10px;">
@@ -234,7 +235,7 @@
                      <div class="row" style="margin-bottom: 20px;">
                         <div class="col-sm-6">
                            <label for="conjbrth">Sa date de naissance : </label>
-                           <input class="conjbrth inline full-w"  type="text" placeholder="jj/mm/aaaa" name="famidate" id="conjbrth"></br>
+                           <input class="conjbrth inline full-w"  type="text" required  readonly placeholder="jj/mm/aaaa" name="famidate" id="conjbrth"></br>
                         </div>
                      </div>
                      <div class="row" style="margin-bottom: 20px;">
@@ -542,40 +543,34 @@
                               <img src="img/LogoCNAV.png">
                            </div>
                            <div class="col-sm">
-                              
-                                 <label class="mois">
+                               <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
+                              <!--    <label class="mois">
                               <div class="input-group mb-3">
                                     <input type="text"   aria-label="Recipient's username" >
                                     <div class="input-group-append">
                                       <span class="input-group-text"></span>
                                     </div>
                                   </div>
-                              </label>
+                              </label> -->
                               <!-- <input type="text"  placeholder="€" value="800"><div class="euro"><span class="eur"></span></div> -->
                              
                            </div>
                            <div class="col-sm">
                             
-                              <label class="mois">
-                                  <div class="input-group mb-3">
-                                    <input type="text" aria-label="Recipient's username" >
-                                    <div class="input-group-append">
-                                      <span class="input-group-text"></span>
-                                    </div>
-                                     </div>
-                              </label>
-                           
+                              <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
 
                            </div>
                            <div class="col-sm">
-                              <label class="mois">
-                              <div class="input-group mb-3">
-                                    <input type="text"   aria-label="Recipient's username" >
-                                    <div class="input-group-append">
-                                      <span class="input-group-text"></span>
-                                    </div>
-                                  </div>
-                              </label>
+                              <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                            </div>
                         </div>
                         <h4>vos retraites complementaire</h4>
@@ -584,19 +579,23 @@
                               <img src='img/ircanted-resised.png'>
                            </div>
                            <div class='col-sm'>
-                              <label class='mois'>
-                              <input type='text' placeholder='€'>
-                              </label>
+                              <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
+                          
                            </div>
                            <div class='col-sm'>
-                            <label class='mois'>
-                              <input type='text' placeholder='€'>
-                              </label>
+                             <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                            </div>
                            <div class='col-sm'>
-                            <label class='mois'>
-                              <input type='text' placeholder='€'>
-                              </label>
+                             <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                            </div>
                         </div>
                         <div class='row bloc' id='ratp'>
@@ -604,19 +603,25 @@
                               <img src='img/ratp-resized.png'>
                            </div>
                            <div class='col-sm'>
-                              <label class='mois'>
+                              <!-- <label class='mois'>
                               <input type='text' placeholder='€'>
-                              </label>
+                              </label> -->
+                               <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                            </div>
                            <div class='col-sm'>
-                              <label class='mois'>
-                              <input type='text' placeholder='€'>
-                              </label>
+                               <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                            </div>
                            <div class='col-sm'>
-                              <label class='mois'>
-                              <input type='text' placeholder='€'>
-                              </label>
+                               <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                            </div>
                         </div>
                         <div class='row bloc' id='agrircarrco'>
@@ -624,19 +629,22 @@
                               <img src='img/agri-resized.png'>
                            </div>
                            <div class='col-sm'>
-                              <label class='mois'>
-                              <input type='text' placeholder='€'>
-                              </label>
+                               <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                            </div>
                            <div class='col-sm'>
-                              <label class='mois'>
-                              <input type='text' placeholder='€'>
-                              </label>
+                               <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                            </div>
                            <div class='col-sm'>
-                            <label class='mois'>
-                              <input type='text' placeholder='€'>
-                              </label>
+                             <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                            </div>
                         </div>
                         <div class='row bloc' id='cnracl'>
@@ -644,19 +652,22 @@
                               <img src='img/cnracl-resized.png'>
                            </div>
                            <div class='col-sm'>
-                            <label class='mois'>
-                              <input type='text' placeholder='€'>
-                              </label>
+                             <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                            </div>
                            <div class='col-sm'>
-                              <label class='mois'>
-                              <input type='text' placeholder='€'>
-                              </label>
+                               <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                            </div>
                            <div class='col-sm'>
-                              <label class='mois'>
-                              <input type='text' placeholder='€'>
-                              </label>
+                               <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                            </div>
                         </div>                      
                      </div>
@@ -678,19 +689,22 @@
                                  <h4>Pension alimentaire (hors aide alimentaire obligatoire)</h4>
                                  <div class="row bloc">
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                  </div>
                               </div>
@@ -703,19 +717,22 @@
                                  <h4>Pension d'invalidité</h4>
                                  <div class="row bloc">
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                     <div class="col-sm">
-                                        <label class='mois'>
-                                          <input type='text' placeholder='€'>
-                                        </label>
+                                         <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                  </div>
                               </div>
@@ -728,37 +745,43 @@
                                  <h4>Allocation chômage</h4>
                                  <div class="row bloc">
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                  </div>
                                  <h4>Indemnités journalières versées par la caisse d’assurance maladie (maladie, accident du travail, maladie professionnelle, maternité…)</h4>
                                  <div class="row bloc">
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                  </div>
                               </div>
@@ -771,19 +794,22 @@
                                  <h4>Retraites de réversion</h4>
                                  <div class="row bloc">
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                  </div>
                               </div>
@@ -796,19 +822,22 @@
                                  <h4>Revenus professionnels d’activité</h4>
                                  <div class="row bloc">
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                       <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                     <div class="col-sm">
-                                       <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                        </label>
+                                        <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                                     </div>
                                  </div>
                               </div>
@@ -827,19 +856,22 @@
                            <h4>Salaires et gains assimilés (gains assimilés : traitements, vacations, commissions) </h4>
                            <div class="row bloc">
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                        <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                      <input type='text' placeholder='€'>
-                                  </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                            </div>
                            <h4>Revenus professionnels des non-salariés (BIC, BNC, BA...)</h4>
@@ -856,37 +888,43 @@
                            <h4>Retraites personnelles de base <input class=" myButton has-more inline" id="more-base-retraite" type="button" value="+"></h4>
                            <div class="row bloc " >
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                            </div>
                            <h4> Retraites personnelles complémentaires <input class=" myButton has-more inline" id="more-comp-retraite" type="button" value="+"></h4>
                            <div class="row bloc " >
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                            </div>
                         </div>
@@ -899,37 +937,43 @@
                            <h4>Allocation chômage</h4>
                            <div class="row bloc">
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm"">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm" >
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                            </div>
                            <h4> Indemnités journalières versées par la caisse d’assurance maladie (maladie, accident du travail, maladie professionnelle, maternité…)</h4>
                            <div class="row bloc">
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                            </div>
                         </div>
@@ -942,73 +986,85 @@
                            <h4>Pension alimentaire (hors aide alimentaire obligatoire)</h4>
                            <div class="row bloc">
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                            </div>
                            <h4> Pension d'invalidité </h4>
                            <div class="row bloc">
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                            </div>
                            <h4> Prestations compensatoires </h4>
                            <div class="row bloc">
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                            </div>
                            <h4> Rente personnelle accident du travail </h4>
                            <div class="row bloc">
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                               <div class="col-sm">
-                                 <label class='mois'>
-                                  <input type='text' placeholder='€'>
-                                 </label>
+                                  <div class='mois'>
+                                 <label data-placeholder="Revenu brut en €"></label>
+                                 <input type="text" maxlength="6" placeholder="€" autocomplete="off" data-js="form-text">
+                              </div>
                               </div>
                            </div>
                         </div>
@@ -1137,7 +1193,7 @@
                               <input type="text" id="valeur" placeholder="€">
                            </div>
                         </div>
-                        <p>Date de l’acte de donation <input class="situf inline "  type="text" placeholder="jj/mm/aaaa" name="famidate" id="immo-donna-date">
+                        <p>Date de l’acte de donation <input class="situf inline " required readonly type="text" placeholder="jj/mm/aaaa" name="famidate" id="immo-donna-date">
                         <div class="col-sm">
                            <label for="thrmth" class="parent">Lien de parenté avec le bénéficiaire de la donation :</label>
                            <input type="text" class="autow inline"   placeholder="Lien de parenté">
@@ -1175,7 +1231,7 @@
                               <input type="text" id="valeur" placeholder="€">
                            </div>
                         </div>
-                        <p>Date de l’acte de donation <input class="situf inline "  type="text" placeholder="jj/mm/aaaa" name="famidate" id="mobi-donna-date">
+                        <p>Date de l’acte de donation <input class="situf inline "  type="text"  required placeholder="jj/mm/aaaa" readonly name="famidate" id="mobi-donna-date">
                         <div class="col-sm">
                            <label for="thrmth" class="parent">Lien de parenté avec le bénéficiaire de la donation :</label>
                            <input type="text" class="autow inline"  placeholder="Lien de parenté">
@@ -1226,5 +1282,5 @@
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9Gr5C1dfF_1NnemWPlD9ideN3DG6Dn4I&libraries=places&callback=initAutocomplete"
       async defer></script> <!-- theophile.vitoux@gmail.com -->
    <script src="js/google.js"></script>
-   <script src="js/step.js"> </script>>
+   <script src="js/step.js"> </script>
 </html>
