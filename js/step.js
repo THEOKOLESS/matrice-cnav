@@ -22,6 +22,10 @@
         onStepChanging: function (event, currentIndex, newIndex)
         {
             form.validate().settings.ignore = ":disabled,:hidden";
+            if (($("#situation-fami").attr("style")) == "display: block;"){
+                return ;
+            }
+           
             return form.valid();
         },
         onFinishing: function (event, currentIndex)
