@@ -23,6 +23,13 @@
         {
             form.validate().settings.ignore = ":disabled,:hidden";
             if (($("#situation-fami").attr("style")) == "display: block;"){
+                $("#famivalid-error").show();  
+                $("#modified-situ").addClass("btn-error");
+                return ;
+            }
+            if (($("#add").attr("style")) == "display: block;"){
+                $("#add-valid-error").show()
+                $("#addr-valid").addClass("btn-error");
                 return ;
             }
            

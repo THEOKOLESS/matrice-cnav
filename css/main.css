@@ -1846,6 +1846,48 @@ width: 12%!important;
   margin: 0 0 2em 0;
 }
 
+.error-mess{
+    color: #e02544;
+}
+
+#famidate-error{
+    display: none;
+}
+
+#famivalid-error{
+    display: none;
+}
+
+.btn-error{
+        background: rgb(251, 227, 228) !important;
+    border: 3px solid #e02544 !important;
+    border-radius: 8px;
+    color: #e02544;
+}
+
+#add-valid-error{
+    display: none;
+}
+
+#addr-error{
+    display: none;
+}
+
+#conj-name-error{
+    display: none;
+}
+
+#conj-prename-error{
+    display: none;
+}
+
+#conjbrth-error{
+    display: none;
+}
+
+#conj-natio-error{
+    display: none;
+}
 /*#locationField, #controls {
         position: relative;
         width: 480px;

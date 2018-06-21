@@ -165,6 +165,13 @@ $('input[name="famidate"]').change(function (){
          $("#ZIP").prop('value', zip);
   });
 
+$($("#autocomplete")).change(function (){
+  if ($("#autocomplete").hasClass("error")){
+    $("#autocomplete").removeClass("error");
+    $("#autocomplete").next().hide();
+  }
+});
+
    $(document).on('click', '#addr-valid', function(e){
         e.preventDefault();
         var streetnumver = $('#street_number').val();
@@ -172,7 +179,15 @@ $('input[name="famidate"]').change(function (){
         var city   =  $('#locality').val();//
         var zip    =  $('#postal_code').val();//
 
-
+        if ($("#autocomplete").prop('value') == ""){
+          $("#autocomplete").addClass("error");
+          $("#addr-error").show();  
+        }
+        else{
+          $("#autocomplete").removeClass("error");
+          $("#addr-error").hide();
+          $("#addr-valid").removeClass("btn-error");
+          $("#add-valid-error").hide();
         $(".centerBlock").show();
         $("#add").hide();
         $("#addr").show();
@@ -185,8 +200,40 @@ $('input[name="famidate"]').change(function (){
          document.getElementById("city-offi").innerHTML = city;
        if (zip)
          document.getElementById("zip-offi").innerHTML = zip;
+     }
   });
 
+$(document).on('click', '#new-conj', function(e){
+    if ($("#conj-name").prop('value') == ""){
+      $("#conj-name").addClass("error");
+          // $("#addr-error").show();
+    } 
+    if ($("#conj-usage-name").prop('value') == ""){
+      $("#conj-usage-name").addClass("error");
+    }
+    if ($("#conj-prename").prop('value') == ""){
+      $("#conj-prename").addClass("error");
+    }
+    if ($("#conjbrth").prop('value') == ""){
+      $("#conjbrth").addClass("error");
+    }
+    if ($("#conj-natio").prop('value') == ""){
+      $("#conj-natio").addClass("error");
+    }
+    if ($("#conj-commune").prop('value') == ""){
+      $("#conj-commune").addClass("error");
+    }
+    if ($("#conj-ZIP").prop('value') == ""){
+      $("#conj-ZIP").addClass("error");
+    }
+    if ($('#conj-country').val() == null){
+      $('#conj-country').addClass("btn-error");
+    }
+    if ($("#secu").prop('value') == ""){
+      $("#secu").addClass("error");
+    }
+    console.log($('#conj-country').val());
+});
 
   $(document).on('click', '#annuled-add', function(e){
     e.preventDefault();
@@ -228,14 +275,23 @@ $('input[name="famidate"]').change(function (){
         }
         else if (save != status)
         {
-          console.log(save);
-          console.log(status);
              $('#conj').show();
              document.getElementById("conj-tittle").innerHTML = "Identité de votre conjoint(e) actuel(le)"; 
-        } 
-        $("#situation-fami").hide();
-        $("#modif-situ").show();
-        $("#situation-offi").show();
+        }
+        // if ($("#famidate"))
+        console.log($("#famidate").prop('value'));
+        if ($("#famidate").prop('value') == ""){
+          $("#famidate").addClass("error");
+          $("#famidate-error").show();
+        }
+        else{
+          $("#situation-fami").hide();
+          $("#modif-situ").show();
+          $("#situation-offi").show();
+          $("#famidate").removeClass("error");
+          $("#modified-situ").removeClass("btn-error");
+          $("#famivalid-error").hide();
+        }
 
   });
 

@@ -97,6 +97,7 @@
                            <div class="little-gap"></div>
                            <label for="situf">depuis le </label>
                            <input class="situf inline " required type="text" placeholder="jj/mm/aaaa" name="famidate" readonly id="famidate">
+                           <div id="famidate-error" class="error-mess">Veuillez indiquer la date de votre changement de situation de famille</div>
                         </div>
                         <div class="col-xs-6">
                            <div class="row" style="margin-bottom: 10px;">
@@ -104,7 +105,7 @@
                                  <button type="button" class="btn btn-primary orange">
                                  <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                                  </button>
-                                 <a class="btn btn-primary ng-binding orange2">Valider cette situation familiale</a>
+                                 <a class="btn btn-primary ng-binding orange2" id="fami-btn-error">Valider cette situation familiale</a>
                               </div>
                            </div>
                            <div class="row">
@@ -115,6 +116,7 @@
                                  <a class="btn btn-primary ng-binding orange2">Annuler les changements</a>
                               </div>
                            </div>
+                           <div id="famivalid-error" class="error-mess">Veuillez valider votre nouvelle situation de famille pour poursuivre le questionnaire</div>
                         </div>
                      </div>
                   </div>
@@ -134,6 +136,7 @@
                      <div id="locationField">
                         <input id="autocomplete" placeholder="Entrer votre adresse"
                            type="text"></input>
+                           <div id="addr-error" class="error-mess">Veuillez indiquer votre nouvelle adresse</div>
                      </div>
                      <table id="address">
                         <tr>
@@ -212,6 +215,7 @@
                            </div>
                         </li>
                      </ul>
+                     <div id="add-valid-error" class="error-mess">Veuillez valider votre nouvelle adresse pour poursuivre le questionnaire</div>
                   </div>
                   <hr color="blue">
                   <div id="conj">
@@ -220,9 +224,11 @@
                         <div class="col-sm-6">
                            <label for="conj-name">Son nom de famille (de naissance) : </label>
                            <input type="text" id="conj-name"  class="full-w">
+                           <div id="conj-name-error" class="error-mess">Veuillez indiquez le nom de famille de votre conjoint(e)</div>
                         </div>
+
                         <div class="col-sm-6">
-                           <label for="conj-usage-name">Son nom d’usage</label>
+                           <label for="conj-usage-name">Son nom d’usage (s'il y a lieu)</label>
                            <input type="text" id="conj-usage-name" class=" full-w">
                         </div>
                      </div>
@@ -230,34 +236,40 @@
                         <div class="col-sm-6">
                            <label for="conj-prename">Ses prénoms (en 1er son prénom courant) :</label>
                            <input type="text" id="conj-prename" class=" full-w">
+                           <div id="conj-prename-error" class="error-mess">Veuillez indiquez le prénom de votre conjoint(e)</div>
                         </div>
                      </div>
                      <div class="row" style="margin-bottom: 20px;">
                         <div class="col-sm-6">
                            <label for="conjbrth">Sa date de naissance : </label>
-                           <input class="conjbrth inline full-w"  type="text" required  readonly placeholder="jj/mm/aaaa" name="famidate" id="conjbrth"></br>
+                           <input class="conjbrth inline full-w"  type="text" required  readonly placeholder="jj/mm/aaaa" name="famidate" id="conjbrth">
+                        <div id="conjbrth-error" class="error-mess">Veuillez indiquez la date de naissance de votre conjoint(e)</div>
+                     </br>
                         </div>
                      </div>
                      <div class="row" style="margin-bottom: 20px;">
                         <div class="col-sm-6">
                            <label for="conj-natio">Sa nationalité : </label>
                            <input type="text" id="conj-natio" class=" full-w">
+                           <div id="conj-natio-error" class="error-mess">Veuillez indiquez la nationalite de votre conjoint(e)</div>
                         </div>
                      </div>
                      <div class="row" style="margin-bottom: 20px;">
                         <div class="col-sm-6">
                            <label for="conj-commune">Commune de naissance : (indiquez l’arrondissement pour Paris, Lyon, Marseille) </label>
                            <input type="text" id="conj-commune" class=" full-w">
+                           <div id="conj-commune-error" class="error-mess">Veuillez indiquez la commune de naissance de votre conjoint(e)</div>
                         </div>
                         <div class="col-sm-6" style="padding-top: 29px;">
                            <label for="conj-ZIP">Code postale: </label>
                            <input type="text" id="conj-ZIP" class=" full-w">
+                           <div id="conj-ZIP-error" class="error-mess">Veuillez indiquez le code postale de naissance de votre conjoint(e)</div>
                         </div>
                      </div>
                      <div class="row" style="margin-bottom: 20px;">
                         <div class="col-sm-6">
                            <label for="pays" class="inline">pays de naissance</label>
-                           <select id="">
+                           <select id="conj-country">
                               <option disabled style="display:none" value="" selected value>Sélectionner le pays de naissance</option>
                               <option value="AFG">Afghanistan</option>
                               <option value="ALA">Åland Islands</option>
@@ -509,15 +521,22 @@
                               <option value="ZMB">Zambia</option>
                               <option value="ZWE">Zimbabwe</option>
                            </select>
+                           <div id="conj-country-error" class="error-mess">Veuillez indiquez le pays de naissance de votre conjoint(e)</div>
                         </div>
                      </div>
                      <div class="row" style="margin-bottom: 20px;">
                         <div class="col-sm-6">
                            <label for="secu">Son n° de sécurité sociale </label>
                            <input type="text" id="secu" class="full-w" maxlength="13">
+                           <div id="secu-error" class="error-mess">Veuillez indiquez le numéro de sécurité sociale de votre conjoint(e)</div>
                         </div>
                      </div>
-                   </br>
+                   <div class="btn-group" role="group" id="new-conj" style="bottom: 22px;">
+                        <button type="button" class="btn btn-primary orange">
+                        <span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        </button>
+                        <a class="btn btn-primary orange2">Confirmer l'identité(e) conjoint(e)</a>
+                   </div>
                   </div>
                </section>
 
