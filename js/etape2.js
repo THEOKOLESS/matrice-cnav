@@ -54,15 +54,12 @@ $('input[name="famidate"]').change(function (){
     $(this).next().remove();
   }
 
-
   if ($('#mobi-donna-date').hasClass("error")){
-    console.log("coucou");
     $('#mobi-donna-date').removeClass("error");
     $(this).next().remove();
   }
 
   if ($('#immo-donna-date').hasClass("error")){
-    console.log("coucou");
     $('#immo-donna-date').removeClass("error");
     $(this).next().remove();
   }
@@ -205,35 +202,121 @@ $($("#autocomplete")).change(function (){
 
 $(document).on('click', '#new-conj', function(e){
     if ($("#conj-name").prop('value') == ""){
-      $("#conj-name").addClass("error");
-          // $("#addr-error").show();
-    } 
-    if ($("#conj-usage-name").prop('value') == ""){
-      $("#conj-usage-name").addClass("error");
+      $("#conj-name").addClass("error"); 
+          $("#conj-name-error").show();
     }
+    else if ($("#conj-name").prop('value') != ""){
+      $("#conj-name").removeClass("error");
+      $("#conj-name-error").hide();
+    }
+
     if ($("#conj-prename").prop('value') == ""){
       $("#conj-prename").addClass("error");
+      $("#conj-prename-error").show();
     }
+        else if ($("#conj-prename").prop('value') != ""){
+      $("#conj-prename").removeClass("error");
+      $("#conj-prename-error").hide();
+    }
+
     if ($("#conjbrth").prop('value') == ""){
       $("#conjbrth").addClass("error");
+      $("#conjbrth-error").show();
     }
+    else if ($("#conjbrth").prop('value') != ""){
+      $("#conjbrth").removeClass("error");
+      $("#conjbrth-error").hide();
+    }
+
     if ($("#conj-natio").prop('value') == ""){
       $("#conj-natio").addClass("error");
+      $("#conj-natio-error").show();
     }
+    else if ($("#conj-natio").prop('value') != ""){
+      $("#conj-natio").removeClass("error");
+      $("#conj-natio-error").hide();
+    }
+
     if ($("#conj-commune").prop('value') == ""){
       $("#conj-commune").addClass("error");
+      $("#conj-commune-error").show();
     }
+    else if ($("#conj-commune").prop('value') != ""){
+      $("#conj-commune").removeClass("error");
+      $("#conj-commune-error").hide();
+    }
+
     if ($("#conj-ZIP").prop('value') == ""){
       $("#conj-ZIP").addClass("error");
+      $("#conj-ZIP-error").show();
     }
+    else if ($("#conj-ZIP").prop('value') != ""){
+      $("#conj-ZIP").removeClass("error");
+      $("#conj-ZIP-error").hide();
+    }
+
     if ($('#conj-country').val() == null){
       $('#conj-country').addClass("btn-error");
+      $("#conj-country-error").show();
     }
+    else if ($("#conj-country").prop('value') != ""){
+      $("#conj-country").removeClass("btn-error");
+      $("#conj-country-error").hide();
+    }
+
     if ($("#secu").prop('value') == ""){
       $("#secu").addClass("error");
+       $("#secu-error").show();
     }
-    console.log($('#conj-country').val());
+    else if ($("#secu").prop('value') != ""){
+      $("#secu").removeClass("error");
+      $("#secu-error").hide();
+    }
+
+    if($('input[name=sexe]:checked', '#contact').val() == null){
+      $('#sexe-conj').addClass("verif-genre");
+      $('#sexe-conj-error').show();
+    }
+    else if ($('input[name=sexe]:checked', '#contact').val() != null){
+      $('#sexe-conj').removeClass("verif-genre");
+      $('#sexe-conj-error').hide();
+    }
+
+    if ($("#conj").find(".error").length == 0){
+      if ($('input[name=sexe]:checked', '#contact').val() == "F"){
+      document.getElementById("sexe-offi").innerHTML = "Mme. ";
+    }
+      else{
+      document.getElementById("sexe-offi").innerHTML = "M. ";
+      }
+    
+      if($("#conj-usage-name").prop('value') != ""){
+        document.getElementById("name-offi").innerHTML = $("#conj-usage-name").prop('value')
+      }
+      else{
+        document.getElementById("name-offi").innerHTML = $("#conj-name").prop('value') + " "
+      }
+      document.getElementById("prename-offi").innerHTML = $("#conj-prename").prop('value');
+      
+    $("#conj-info").hide();
+    $("#conj-modif").show();
+    $('#final-conj').show();
+    $("#new-conj").removeClass("btn-error");
+    $("#new-conj-error").css("display", "none");
+
+}
+
+
 });
+
+
+$(document).on('click', '#conj-modif', function(e){
+  e.preventDefault();
+  $('#conj-modif').hide();
+  $('#conj-info').show();
+  $('#final-conj').hide();
+});
+
 
   $(document).on('click', '#annuled-add', function(e){
     e.preventDefault();
@@ -256,7 +339,7 @@ $(document).on('click', '#new-conj', function(e){
         e.preventDefault();
 
         var status = $("#myDropdown option:selected").text();
-        var save   = "Marié(e)"//$("#situation-offi").text();      situation offi from OR 
+        var save   = "Marié(e)";//$("#situation-offi").text();      situation offi from OR 
    
         if(status != "Veuillez sélectionner votre situation familiale" && status != "Vie en convubinage" && status != "conjoint(e) porté(e) disparu(e)"){
           document.getElementById("situation-offi").innerHTML = "Vous êtes " + status; 
@@ -269,17 +352,8 @@ $(document).on('click', '#new-conj', function(e){
         {
           document.getElementById("situation-offi").innerHTML = "Votre conjoint(e) est porté(e) disparu(e)";
         }
-       if (status == "Veuf(ve)" || status == "Divorcé(e)" || status == "Séparé(e)" || status == "conjoint(e) porté(e) disparu(e)" || status == "Célibataire" || save == status)
-        {
-             $('#conj').hide();
-        }
-        else if (save != status)
-        {
-             $('#conj').show();
-             document.getElementById("conj-tittle").innerHTML = "Identité de votre conjoint(e) actuel(le)"; 
-        }
+
         // if ($("#famidate"))
-        console.log($("#famidate").prop('value'));
         if ($("#famidate").prop('value') == ""){
           $("#famidate").addClass("error");
           $("#famidate-error").show();
@@ -291,6 +365,17 @@ $(document).on('click', '#new-conj', function(e){
           $("#famidate").removeClass("error");
           $("#modified-situ").removeClass("btn-error");
           $("#famivalid-error").hide();
+        }
+          if (status == "Veuf(ve)" || status == "Divorcé(e)" || status == "Séparé(e)" || status == "conjoint(e) porté(e) disparu(e)" || status == "Célibataire" || save == status)
+        {
+             $('#conj').hide();
+        }
+        else if (save != status && ($("#situation-fami").attr("style")) == "display: none;" )
+        {
+          
+             $('#conj').show();
+             $('#conj-info').show();
+             document.getElementById("conj-tittle").innerHTML = "Identité de votre conjoint(e) actuel(le)"; 
         }
 
   });

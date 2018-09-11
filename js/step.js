@@ -32,7 +32,12 @@
                 $("#addr-valid").addClass("btn-error");
                 return ;
             }
-           
+            if (($("#conj-info").attr("style")) == "display: block;"){
+                console.log("ALALOFE")
+                $("#new-conj").addClass("btn-error");
+                $("#new-conj-error").css("display", "inline-block");
+                return ; 
+            }
             return form.valid();
         },
         onFinishing: function (event, currentIndex)
