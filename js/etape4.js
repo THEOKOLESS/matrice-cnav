@@ -73,6 +73,23 @@ $('#contact input[type=radio]').on('change', function() {
     else if (input6 == "no"){
       $('#bi-donnate-mobi').hide();
     }
+
+    if(input != null){
+      $('#radio-check1').removeClass("verif-genre");
+      $('#radio-check1-error').hide(); 
+    }
+    if(input2 != null){
+      $('#radio-check2').removeClass("verif-genre");
+      $('#radio-check2-error').hide(); 
+    }
+    if(input4 != null){
+      $('#radio-check3').removeClass("verif-genre");
+      $('#radio-check3-error').hide(); 
+    }
+    if(input6 != null){
+      $('#radio-check4').removeClass("verif-genre");
+      $('#radio-check4-error').hide(); 
+    }
 });
     $(document).on('click', '.biens', function(e){
           e.preventDefault();

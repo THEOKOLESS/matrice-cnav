@@ -33,11 +33,30 @@
                 return ;
             }
             if (($("#conj-info").attr("style")) == "display: block;"){
-                console.log("ALALOFE")
                 $("#new-conj").addClass("btn-error");
                 $("#new-conj-error").css("display", "inline-block");
                 return ; 
             }
+             if (currentIndex == 3 && $('input[name=work_abroad]:checked', '#contact').val() == null){
+                  $('#radio-check1').addClass("verif-genre");
+                  $('#radio-check1-error').show(); 
+                   return ; 
+             }
+              if (currentIndex == 3 && $('input[name=mobi]:checked', '#contact').val() == null){
+                  $('#radio-check2').addClass("verif-genre");
+                  $('#radio-check2-error').show(); 
+                   return ; 
+             }
+              if (currentIndex == 3 && $('input[name=donnation]:checked', '#contact').val() == null){
+                  $('#radio-check3').addClass("verif-genre");
+                  $('#radio-check3-error').show(); 
+                   return ; 
+             }
+              if (currentIndex == 3 && $('input[name=donnation-mobi]:checked', '#contact').val() == null){
+                  $('#radio-check4').addClass("verif-genre");
+                  $('#radio-check4-error').show(); 
+                   return ; 
+             }
             return form.valid();
         },
         onFinishing: function (event, currentIndex)

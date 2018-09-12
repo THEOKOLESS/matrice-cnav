@@ -1925,6 +1925,19 @@ width: 12%!important;
 #conj-modif{
     display: none;
 }
+
+#radio-check1-error{
+    display: none;
+}
+#radio-check2-error{
+    display: none;
+}
+#radio-check3-error{
+    display: none;
+}
+#radio-check4-error{
+    display: none;
+}
 /*#locationField, #controls {
         position: relative;
         width: 480px;
