@@ -32,7 +32,7 @@
                 $("#addr-valid").addClass("btn-error");
                 return ;
             }
-            if (($("#conj-info").attr("style")) == "display: block;"){
+            if (($("#conj").attr("style")) == "display: block;" && $("#conj-info").attr("style") == "display: block;"){
                 $("#new-conj").addClass("btn-error");
                 $("#new-conj-error").css("display", "inline-block");
                 return ; 
